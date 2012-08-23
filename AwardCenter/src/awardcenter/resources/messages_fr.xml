@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+  <entry key="app.name">Award Center</entry>
+
+  <entry key="menu.file">Fichier</entry>
+  <entry key="menu.import">Importer</entry>
+  <entry key="menu.export">Exporter</entry>
+  <entry key="menu.save">Enregistrer</entry>
+  <entry key="menu.exit">Quitter</entry>
+
+  <entry key="menu.game">Jeux</entry>
+  <entry key="menu.game.insert">Ajouter un jeu</entry>
+  <entry key="menu.game.delete">Supprimer le jeu</entry>
+  <entry key="menu.game.update">Mode Edition</entry>
+  <entry key="menu.game.update.cancel">Annuler l'édition du jeu</entry>
+
+  <entry key="menu.award">Succès</entry>
+  <entry key="menu.award.insert">Ajouter un succès</entry>
+  <entry key="menu.award.separator">Insérer un séparateur</entry>
+  <entry key="menu.award.delete">Supprimer l'élément</entry>
+
+  <entry key="menu.help"> ? </entry>
+  <entry key="menu.help.about">A propos</entry>
+
+  <entry key="game.name">Titre du jeu :</entry>
+  <entry key="game.developer">Developpeur :</entry>
+  <entry key="game.publisher">Editeur :</entry>
+  <entry key="game.rating">Notation</entry>
+  <entry key="game.score">Score</entry>
+  <entry key="game.new">- Nouveau Jeu -</entry>
+
+  <entry key="game.delete.dialog.title">Confirmation de la suppression du jeu</entry>
+  <entry key="game.delete.dialog.msg">Voulez-vous vraiment supprimer le jeu [{0}] ?</entry>
+
+  <entry key="award.label">Libellé</entry>
+  <entry key="award.description">Description</entry>
+  <entry key="award.tipsntricks">Info/Astuces</entry>
+  <entry key="award.secret">Secret</entry>
+  <entry key="award.multi">Multijoueur/Coop.</entry>
+  <entry key="award.added">Ajouté</entry>
+  <entry key="award.first">En premier</entry>
+  <entry key="award.previous">Avant</entry>
+  <entry key="award.next">Après</entry>
+  <entry key="award.last">En dernier</entry>
+  <entry key="award.plus">Augmenter</entry>
+  <entry key="award.minus">Diminuer</entry>
+  <entry key="award.achieved.ok">Accompli</entry>
+  <entry key="award.achieved.ko">Inaccompli</entry>
+  <entry key="award.new">- Nouveau Succès -</entry>
+  <entry key="award.new.separator">- Nouveau Séparateur -</entry>
+
+  <entry key="award.delete.dialog.title">Confirmation de la suppression du succès</entry>
+  <entry key="award.delete.dialog.msg">Voulez-vous vraiment supprimer le succès [{0}] ?</entry>
+
+  <!-- Import/Export dialog -->
+  <entry key="dialog.impexp.title.import">Importer des jeux</entry>
+  <entry key="dialog.impexp.title.export">Exporter des jeux</entry>
+  <entry key="dialog.impexp.dir.import">Répertoire d'import</entry>
+  <entry key="dialog.impexp.dir.export">Répertoire d'export</entry>
+  <entry key="dialog.impexp.param.import">Données à importer</entry>
+  <entry key="dialog.impexp.param.export">Données à exporter</entry>
+  <entry key="dialog.impexp.button.browse">Parcourir...</entry>
+  <entry key="dialog.impexp.button.import">Importer</entry>
+  <entry key="dialog.impexp.button.export">Exporter</entry>
+  <entry key="dialog.impexp.button.select">Sélectionner Tous</entry>
+  <entry key="dialog.impexp.button.unselect">Désélectionner Tous</entry>
+  <entry key="dialog.impexp.button.close">Fermer</entry>
+
+  <entry key="dialog.input.title">Veuillez saisir une valeur</entry>
+
+</properties>

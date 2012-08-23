@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+  <entry key="app.name">Award Center</entry>
+
+  <entry key="menu.file">File</entry>
+  <entry key="menu.import">Import</entry>
+  <entry key="menu.export">Export</entry>
+  <entry key="menu.save">Save</entry>
+  <entry key="menu.exit">Quit</entry>
+
+  <entry key="menu.game">Games</entry>
+  <entry key="menu.game.insert">Add a game</entry>
+  <entry key="menu.game.delete">Delete the game</entry>
+  <entry key="menu.game.update">Edition</entry>
+  <entry key="menu.game.update.cancel">Cancel game editing</entry>
+
+  <entry key="menu.award">Awards</entry>
+  <entry key="menu.award.insert">Add an award</entry>
+  <entry key="menu.award.separator">Insert a separator</entry>
+  <entry key="menu.award.delete">Delete the element</entry>
+
+  <entry key="menu.help"> ? </entry>
+  <entry key="menu.help.about">About</entry>
+
+  <entry key="game.name">Game title :</entry>
+  <entry key="game.developer">Developer :</entry>
+  <entry key="game.publisher">Publisher :</entry>
+  <entry key="game.rating">Rating</entry>
+  <entry key="game.score">Score</entry>
+  <entry key="game.new">- New Game -</entry>
+
+  <entry key="game.delete.dialog.title">Confirm Delete Game</entry>
+  <entry key="game.delete.dialog.msg">Are you sure you want to delete game [{0}] ?</entry>
+
+  <entry key="award.label">Label</entry>
+  <entry key="award.description">Description</entry>
+  <entry key="award.tipsntricks">Tips &amp; Tricks</entry>
+  <entry key="award.secret">Secret</entry>
+  <entry key="award.multi">Multiplayer/Co-op</entry>
+  <entry key="award.added">Added</entry>
+  <entry key="award.first">First</entry>
+  <entry key="award.previous">Previous</entry>
+  <entry key="award.next">Next</entry>
+  <entry key="award.last">Last</entry>
+  <entry key="award.plus">Increase</entry>
+  <entry key="award.minus">Decrease</entry>
+  <entry key="award.achieved.ok">Achieved</entry>
+  <entry key="award.achieved.ko">Locked</entry>
+  <entry key="award.new">- New Award -</entry>
+  <entry key="award.new.separator">- New Separator -</entry>
+
+  <entry key="award.delete.dialog.title">Confirm Delete Award</entry>
+  <entry key="award.delete.dialog.msg">Are you sure you want to delete award [{0}] ?</entry>
+
+  <!-- Import/Export dialog -->
+  <entry key="dialog.impexp.title.import">Import games</entry>
+  <entry key="dialog.impexp.title.export">Export games</entry>
+  <entry key="dialog.impexp.dir.import">Import directory</entry>
+  <entry key="dialog.impexp.dir.export">Export directory</entry>
+  <entry key="dialog.impexp.param.import">Data to import</entry>
+  <entry key="dialog.impexp.param.export">Data to export</entry>
+  <entry key="dialog.impexp.button.browse">Browse...</entry>
+  <entry key="dialog.impexp.button.import">Import</entry>
+  <entry key="dialog.impexp.button.export">Export</entry>
+  <entry key="dialog.impexp.button.select">Select All</entry>
+  <entry key="dialog.impexp.button.unselect">Unselect All</entry>
+  <entry key="dialog.impexp.button.close">Close</entry>
+
+  <entry key="dialog.input.title">Enter a value</entry>
+
+</properties>

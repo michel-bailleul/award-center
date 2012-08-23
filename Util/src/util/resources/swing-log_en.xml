@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+  <!-- ImageUtil -->
+
+  <entry key="image.util.add">Add Image Into Cache [{0}x{1}]</entry>
+  <entry key="image.util.get">Get Image From Cache [{0}x{1}]</entry>
+  <entry key="image.util.default">Get Default Image</entry>
+  <entry key="image.util.error.create">Create Image Failed [{0}x{1}]</entry>
+  <entry key="image.util.error.url">Get Image Failed [{0}]</entry>
+  <entry key="image.util.error.not.found">Image Not Found [{0}]</entry>
+
+  <!-- ImageViewer -->
+  <entry key="imageviewer.read.file">Reading File [{0}]</entry>
+
+  <!-- GradientPanel -->
+  <entry key="gradientpanel.illegalargument">'x' must be greater than or equal to 2</entry>
+
+</properties>

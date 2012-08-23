@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+  <entry key="file.util.copy">Copy From [{0}] To [{1}]</entry>
+  <entry key="file.util.read">Reading File [{0}]</entry>
+  <entry key="file.util.iox">I/O Error</entry>
+  <entry key="file.util.not.found">File Not Found [{0}]</entry>
+
+</properties>
