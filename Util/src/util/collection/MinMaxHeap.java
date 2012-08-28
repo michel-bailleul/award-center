@@ -23,7 +23,7 @@ public class MinMaxHeap<T extends Comparable<T>> {
 
   /** Constructs a min-max heap with a specified capacity */
   @SuppressWarnings("unchecked")
-  MinMaxHeap(int capacity) {
+  public MinMaxHeap(int capacity) {
     array = (T[]) new Comparable[capacity + 1];
   }
 
@@ -410,28 +410,6 @@ public class MinMaxHeap<T extends Comparable<T>> {
     _percolateDown(maxIndex);
 
     return max;
-
-  }
-
-
-  // ——————————————————————————————————————————————————————————————— Main Method
-
-
-  /** Test Method */
-  public static void main(String[] args) {
-
-    MinMaxHeap<Double> heap = new MinMaxHeap<Double>(10);
-
-    for (int i=1; i <= 10; i++) {
-      heap.add(Math.random());
-    }
-
-    System.out.printf("Capacity : %d%n", heap.getCapacity());
-    System.out.printf("Size     : %d%n", heap.getSize());
-
-    while (!heap.isEmpty()) {
-      System.out.printf("min = %1$.18f | max = %2$.18f %n", heap.removeMin(), heap.removeMax());
-    }
 
   }
 
