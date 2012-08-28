@@ -1,6 +1,9 @@
 package awardcenter.engine;
 
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -22,12 +25,6 @@ import awardcenter.model.Game;
 
 
 public final class XStreamEngine implements IEngine {
-
-
-  // —————————————————————————————————————————————————————————— Static Constants
-
-
-  private static final String UTF8 = "UTF-8";
 
 
   // —————————————————————————————————————————————————————————————— Constructors
@@ -62,7 +59,7 @@ public final class XStreamEngine implements IEngine {
 
     try {
       InputStream is = new FileInputStream(file);
-      Reader in = new InputStreamReader(is, UTF8);
+      Reader in = new InputStreamReader(is, UTF_8);
       in = new BufferedReader(in);
       game = (Game) xstream.fromXML(in);
       in.close();
@@ -84,7 +81,7 @@ public final class XStreamEngine implements IEngine {
 
     try {
       OutputStream os = new FileOutputStream(file);
-      Writer out = new OutputStreamWriter(os, UTF8);
+      Writer out = new OutputStreamWriter(os, UTF_8);
       out = new BufferedWriter(out);
       xstream.toXML(game, out);
       out.close();
