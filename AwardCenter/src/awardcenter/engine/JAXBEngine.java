@@ -17,30 +17,36 @@ import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
 
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.converters.reflection.PureJavaReflectionProvider;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.namespace.QName;
+import javax.xml.transform.stream.StreamSource;
 
-import awardcenter.model.Award;
 import awardcenter.model.Game;
 
 
-public final class XStreamEngine implements IEngine {
+public final class JAXBEngine implements IEngine {
 
 
   // —————————————————————————————————————————————————————————————— Constructors
 
 
-  public XStreamEngine() {
-    xstream = new XStream(new PureJavaReflectionProvider());
-    xstream.alias("game", Game.class);
-    xstream.alias("award", Award.class);
+  public JAXBEngine() throws JAXBException {
+    JAXBContext jc = JAXBContext.newInstance(Game.class);
+    marshaller = jc.createMarshaller();
+    marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+    unmarshaller = jc.createUnmarshaller();
   }
 
 
   // ———————————————————————————————————————————————————————— Instance Variables
 
 
-  private XStream xstream;
+  private Marshaller marshaller;
+  private Unmarshaller unmarshaller;
 
 
   // ———————————————————————————————————————————————————————————— Public Methods
@@ -48,7 +54,7 @@ public final class XStreamEngine implements IEngine {
 
   @Override
   public File getDir() {
-    return new File("xstream");
+    return new File("jaxb");
   }
 
 
@@ -60,7 +66,7 @@ public final class XStreamEngine implements IEngine {
     try {
       InputStream is = new FileInputStream(file);
       Reader in = new BufferedReader(new InputStreamReader(is, UTF_8));
-      game = (Game) xstream.fromXML(in);
+      game = unmarshaller.unmarshal(new StreamSource(in), Game.class).getValue();
       in.close();
     }
     catch (FileNotFoundException x) {
@@ -82,7 +88,8 @@ public final class XStreamEngine implements IEngine {
       OutputStream os = new FileOutputStream(file);
       Writer out = new OutputStreamWriter(os, UTF_8);
       out = new BufferedWriter(out);
-      xstream.toXML(game, out);
+      JAXBElement<Game> jaxbElement = new JAXBElement<Game>(new QName("game"), Game.class, game);
+      marshaller.marshal(jaxbElement, out);
       out.close();
       return true;
     }

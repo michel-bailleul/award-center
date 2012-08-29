@@ -45,7 +45,7 @@ public final class XMLCodecEngine implements IEngine {
       logger.error("File Not Found", x);
     }
     catch (Exception x) {
-      logger.error("Unexpected Exception: [%1$s]", x, file.getName());
+      logger.error("Unexpected Exception: {0}", x, file.getName());
     }
     finally {
       if (decoder != null) {
@@ -74,7 +74,7 @@ public final class XMLCodecEngine implements IEngine {
       logger.error("File Not Found", x);
     }
     catch (Exception x) {
-      logger.error("Unexpected Exception: [%1$s]", x, file.getName());
+      logger.error("Unexpected Exception: {0}", x, file.getName());
     }
     finally {
       if (encoder != null) {

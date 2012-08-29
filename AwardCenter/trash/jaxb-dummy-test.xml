@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<game>
+    <active>false</active>
+    <dirty>false</dirty>
+    <name>jaxb dummy test</name>
+    <rating>0</rating>
+    <score>0</score>
+    <scoreMax>0</scoreMax>
+</game>
