@@ -46,6 +46,7 @@ public final class JAXBEngine implements IEngine {
 
 
   private Marshaller marshaller;
+
   private Unmarshaller unmarshaller;
 
 
@@ -54,7 +55,7 @@ public final class JAXBEngine implements IEngine {
 
   @Override
   public File getDir() {
-    return new File("jaxb");
+    return new File("data/jaxb");
   }
 
 
@@ -65,15 +66,15 @@ public final class JAXBEngine implements IEngine {
 
     try {
       InputStream is = new FileInputStream(file);
-      Reader in = new BufferedReader(new InputStreamReader(is, UTF_8));
-      game = unmarshaller.unmarshal(new StreamSource(in), Game.class).getValue();
-      in.close();
+      Reader reader = new BufferedReader(new InputStreamReader(is, UTF_8));
+      game = unmarshaller.unmarshal(new StreamSource(reader), Game.class).getValue();
+      reader.close();
     }
     catch (FileNotFoundException x) {
-      logger.error("File Not Found", x);
+      logger.error("File Not Found [{0}]", x, file.getName());
     }
     catch (Exception x) {
-      logger.error("Unexpected Exception: {0}", x, file.getName());
+      logger.error("Unexpected Exception [{0}]", x, file.getName());
     }
 
     return game;
@@ -86,18 +87,17 @@ public final class JAXBEngine implements IEngine {
 
     try {
       OutputStream os = new FileOutputStream(file);
-      Writer out = new OutputStreamWriter(os, UTF_8);
-      out = new BufferedWriter(out);
+      Writer writer = new BufferedWriter(new OutputStreamWriter(os, UTF_8));
       JAXBElement<Game> jaxbElement = new JAXBElement<Game>(new QName("game"), Game.class, game);
-      marshaller.marshal(jaxbElement, out);
-      out.close();
+      marshaller.marshal(jaxbElement, writer);
+      writer.close();
       return true;
     }
     catch (FileNotFoundException x) {
-      logger.error("File Not Found", x);
+      logger.error("File Not Found [{0}]", x, file.getName());
     }
     catch (Exception x) {
-      logger.error("Unexpected Exception: {0}", x, file.getName());
+      logger.error("Unexpected Exception [{0}]", x, file.getName());
     }
 
     return false;

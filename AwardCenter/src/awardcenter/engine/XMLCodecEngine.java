@@ -19,7 +19,7 @@ public final class XMLCodecEngine implements IEngine {
 
   @Override
   public File getDir() {
-    return new File("data");
+    return new File("data/xmlcodec");
   }
 
 
@@ -42,10 +42,10 @@ public final class XMLCodecEngine implements IEngine {
       game = (Game)decoder.readObject();
     }
     catch (FileNotFoundException x) {
-      logger.error("File Not Found", x);
+      logger.error("File Not Found [{0}]", x, file.getName());
     }
     catch (Exception x) {
-      logger.error("Unexpected Exception: {0}", x, file.getName());
+      logger.error("Unexpected Exception [{0}]", x, file.getName());
     }
     finally {
       if (decoder != null) {
@@ -71,10 +71,10 @@ public final class XMLCodecEngine implements IEngine {
       return true;
     }
     catch (FileNotFoundException x) {
-      logger.error("File Not Found", x);
+      logger.error("File Not Found [{0}]", x, file.getName());
     }
     catch (Exception x) {
-      logger.error("Unexpected Exception: {0}", x, file.getName());
+      logger.error("Unexpected Exception [{0}]", x, file.getName());
     }
     finally {
       if (encoder != null) {

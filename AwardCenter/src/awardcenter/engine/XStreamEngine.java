@@ -48,7 +48,7 @@ public final class XStreamEngine implements IEngine {
 
   @Override
   public File getDir() {
-    return new File("xstream");
+    return new File("data/xstream");
   }
 
 
@@ -59,15 +59,15 @@ public final class XStreamEngine implements IEngine {
 
     try {
       InputStream is = new FileInputStream(file);
-      Reader in = new BufferedReader(new InputStreamReader(is, UTF_8));
-      game = (Game) xstream.fromXML(in);
-      in.close();
+      Reader reader = new BufferedReader(new InputStreamReader(is, UTF_8));
+      game = (Game) xstream.fromXML(reader);
+      reader.close();
     }
     catch (FileNotFoundException x) {
-      logger.error("File Not Found", x);
+      logger.error("File Not Found [{0}]", x, file.getName());
     }
     catch (Exception x) {
-      logger.error("Unexpected Exception: {0}", x, file.getName());
+      logger.error("Unexpected Exception [{0}]", x, file.getName());
     }
 
     return game;
@@ -80,17 +80,16 @@ public final class XStreamEngine implements IEngine {
 
     try {
       OutputStream os = new FileOutputStream(file);
-      Writer out = new OutputStreamWriter(os, UTF_8);
-      out = new BufferedWriter(out);
-      xstream.toXML(game, out);
-      out.close();
+      Writer writer = new BufferedWriter(new OutputStreamWriter(os, UTF_8));
+      xstream.toXML(game, writer);
+      writer.close();
       return true;
     }
     catch (FileNotFoundException x) {
-      logger.error("File Not Found", x);
+      logger.error("File Not Found [{0}]", x, file.getName());
     }
     catch (Exception x) {
-      logger.error("Unexpected Exception: {0}", x, file.getName());
+      logger.error("Unexpected Exception [{0}]", x, file.getName());
     }
 
     return false;

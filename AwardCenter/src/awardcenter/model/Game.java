@@ -11,8 +11,6 @@ import java.util.List;
 import util.swing.app.Bean;
 
 
-
-
 public class Game extends Bean implements Comparable<Game> {
 
 
