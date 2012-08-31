@@ -2,6 +2,30 @@
 <game>
     <active>false</active>
     <dirty>false</dirty>
+    <awards>
+        <active>true</active>
+        <dirty>true</dirty>
+        <achieved>false</achieved>
+        <added>false</added>
+        <index>0</index>
+        <label>award 1</label>
+        <multi>false</multi>
+        <secret>false</secret>
+        <separator>false</separator>
+        <value>0</value>
+    </awards>
+    <awards>
+        <active>true</active>
+        <dirty>true</dirty>
+        <achieved>false</achieved>
+        <added>false</added>
+        <index>1</index>
+        <label>award 2</label>
+        <multi>false</multi>
+        <secret>false</secret>
+        <separator>false</separator>
+        <value>0</value>
+    </awards>
     <name>jaxb dummy test</name>
     <rating>0</rating>
     <score>0</score>

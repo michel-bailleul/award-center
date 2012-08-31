@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<game>
+    <active>false</active>
+    <dirty>false</dirty>
+    <name>The Game</name>
+    <rating>0</rating>
+    <score>0</score>
+    <scoreMax>0</scoreMax>
+    <awards>
+        <award>
+            <active>true</active>
+            <dirty>true</dirty>
+            <achieved>false</achieved>
+            <added>false</added>
+            <index>0</index>
+            <label>Award I</label>
+            <multi>false</multi>
+            <secret>false</secret>
+            <separator>false</separator>
+            <value>0</value>
+        </award>
+        <award>
+            <active>true</active>
+            <dirty>true</dirty>
+            <achieved>false</achieved>
+            <added>false</added>
+            <index>1</index>
+            <label>Award II</label>
+            <multi>false</multi>
+            <secret>false</secret>
+            <separator>false</separator>
+            <value>0</value>
+        </award>
+    </awards>
+</game>

@@ -24,8 +24,6 @@ import org.junit.BeforeClass;
 import util.misc.StringUtil;
 
 
-
-
 public class AwardCenterTest {
 
 

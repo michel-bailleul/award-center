@@ -9,6 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import awardcenter.model.Award;
 import awardcenter.model.Game;
 
 
@@ -35,13 +36,20 @@ public class JAXBEngineTest {
   // —————————————————————————————————————————————————————————————— Test Methods
 
 
-//  @Test
+  @Test
   public void testSaveGame() throws JAXBException {
 
     File file = new File(DIR, "jaxb-dummy-test.xml");
 
     Game game = new Game();
     game.setName("jaxb dummy test");
+    
+    Award award = new Award();
+    award.setLabel("award 1");
+    game.addAward(award);
+    award = new Award();
+    award.setLabel("award 2");
+    game.addAward(award);
 
     IEngine engine = new JAXBEngine();
     engine.saveGame(game, file);
@@ -49,7 +57,7 @@ public class JAXBEngineTest {
   }
 
 
-  @Test
+//  @Test
   public void testLoadGame() throws JAXBException {
 
     File file = new File(DIR, "jaxb-ikaruga.xml");
