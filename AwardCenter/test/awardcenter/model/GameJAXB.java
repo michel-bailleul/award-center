@@ -12,8 +12,30 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class GameJAXB extends Game {
 
 
-  @XmlElementWrapper
+  /** default constructor */
+  public GameJAXB() { }
+
+
+  public GameJAXB(Game game) {
+
+    setFile(game.getFile());
+    setName(game.getName());
+    setDeveloper(game.getDeveloper());
+    setPublisher(game.getPublisher());
+    setRating(game.getRating());
+    setScore(game.getScore());
+    setScoreMax(game.getScoreMax());
+    setImage(game.getImage());
+    setBytes(game.getBytes());
+    setAwards(game.getAwards());
+
+  }
+
+
+  @Override
   @XmlElement(name="award")
+//  @XmlElementWrapper(name="awards") // does not work !
+  @XmlElementWrapper(name="award-list")
   public List<Award> getAwards() {
     return super.getAwards();
   }

@@ -16,26 +16,61 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
+import java.util.List;
 
 import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.namespace.QName;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.transform.stream.StreamSource;
 
+import awardcenter.model.Award;
 import awardcenter.model.Game;
 
 
 public final class JAXBEngine implements IEngine {
 
 
+  // ————————————————————————————————————————————————————————————— Inner Classes
+
+
+  @XmlRootElement(name="game")
+  private static class GameJAXB extends Game {
+
+    /** default constructor */
+    private GameJAXB() { }
+
+    private GameJAXB(Game game) {
+      setFile(game.getFile());
+      setName(game.getName());
+      setDeveloper(game.getDeveloper());
+      setPublisher(game.getPublisher());
+      setRating(game.getRating());
+      setScore(game.getScore());
+      setScoreMax(game.getScoreMax());
+      setImage(game.getImage());
+      setBytes(game.getBytes());
+      setAwards(game.getAwards());
+    }
+
+    @Override
+    @XmlElement(name="award")
+    @XmlElementWrapper(name="award-list")
+    public List<Award> getAwards() {
+      return super.getAwards();
+    }
+
+  }
+
+
   // —————————————————————————————————————————————————————————————— Constructors
 
 
   public JAXBEngine() throws JAXBException {
-    JAXBContext jc = JAXBContext.newInstance(Game.class);
+    JAXBContext jc = JAXBContext.newInstance(GameJAXB.class);
     marshaller = jc.createMarshaller();
     marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
     unmarshaller = jc.createUnmarshaller();
@@ -67,7 +102,7 @@ public final class JAXBEngine implements IEngine {
     try {
       InputStream is = new FileInputStream(file);
       Reader reader = new BufferedReader(new InputStreamReader(is, UTF_8));
-      game = unmarshaller.unmarshal(new StreamSource(reader), Game.class).getValue();
+      game = (Game) unmarshaller.unmarshal(new StreamSource(reader));
       reader.close();
     }
     catch (FileNotFoundException x) {
@@ -88,8 +123,7 @@ public final class JAXBEngine implements IEngine {
     try {
       OutputStream os = new FileOutputStream(file);
       Writer writer = new BufferedWriter(new OutputStreamWriter(os, UTF_8));
-      JAXBElement<Game> jaxbElement = new JAXBElement<Game>(new QName("game"), Game.class, game);
-      marshaller.marshal(jaxbElement, writer);
+      marshaller.marshal(new GameJAXB(game), writer);
       writer.close();
       return true;
     }

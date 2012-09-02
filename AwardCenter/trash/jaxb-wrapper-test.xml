@@ -6,7 +6,7 @@
     <rating>0</rating>
     <score>0</score>
     <scoreMax>0</scoreMax>
-    <awards>
+    <award-list>
         <award>
             <active>true</active>
             <dirty>true</dirty>
@@ -31,5 +31,5 @@
             <separator>false</separator>
             <value>0</value>
         </award>
-    </awards>
+    </award-list>
 </game>

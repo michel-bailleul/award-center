@@ -125,9 +125,9 @@ public class ModelTest {
     Unmarshaller unmarshaller = jc.createUnmarshaller();
     InputStream is = new FileInputStream(file);
     Reader reader = new BufferedReader(new InputStreamReader(is, UTF_8));
-//    Game game = unmarshaller.unmarshal(new StreamSource(reader), GameJAXB.class).getValue();
     Game game = (Game) unmarshaller.unmarshal(new StreamSource(reader));
     reader.close();
+    System.out.printf("%s : %s", game, game.getAwards());
 
   }
 

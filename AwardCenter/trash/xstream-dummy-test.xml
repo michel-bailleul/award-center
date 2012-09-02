@@ -3,5 +3,26 @@
   <rating>0</rating>
   <score>0</score>
   <scoreMax>0</scoreMax>
-  <awards/>
+  <awards>
+    <award>
+      <value>0</value>
+      <index>0</index>
+      <isSecret>false</isSecret>
+      <isMulti>false</isMulti>
+      <isAdded>false</isAdded>
+      <isAchieved>false</isAchieved>
+      <isSeparator>false</isSeparator>
+      <label>award 1</label>
+    </award>
+    <award>
+      <value>0</value>
+      <index>1</index>
+      <isSecret>false</isSecret>
+      <isMulti>false</isMulti>
+      <isAdded>false</isAdded>
+      <isAchieved>false</isAchieved>
+      <isSeparator>false</isSeparator>
+      <label>award 2</label>
+    </award>
+  </awards>
 </game>

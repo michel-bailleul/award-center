@@ -57,13 +57,14 @@ public class JAXBEngineTest {
   }
 
 
-//  @Test
+  @Test
   public void testLoadGame() throws JAXBException {
 
     File file = new File(DIR, "jaxb-ikaruga.xml");
 
     IEngine engine = new JAXBEngine();
     Game game = engine.loadGame(file);
+    System.out.printf("%s : %s", game, game.getAwards());
 
   }
 

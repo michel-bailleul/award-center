@@ -9,6 +9,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import awardcenter.model.Award;
+
 import awardcenter.model.Game;
 
 
@@ -43,6 +45,13 @@ public class XStreamEngineTest {
     Game game = new Game();
     game.setName("xstream dummy test");
 
+    Award award = new Award();
+    award.setLabel("award 1");
+    game.addAward(award);
+    award = new Award();
+    award.setLabel("award 2");
+    game.addAward(award);
+
     IEngine engine = new XStreamEngine();
     engine.saveGame(game, file);
 
@@ -56,6 +65,7 @@ public class XStreamEngineTest {
 
     IEngine engine = new XStreamEngine();
     Game game = engine.loadGame(file);
+    System.out.printf("%s : %s", game, game.getAwards());
 
   }
 
