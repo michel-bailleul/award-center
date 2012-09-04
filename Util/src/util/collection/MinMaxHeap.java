@@ -5,11 +5,11 @@ package util.collection;
  * Double Ended Priority Queue implementation based on Min-Max Heap
  *
  * The min-max heap is an extension of the binary heap that has both a min order
- * and max order thus supporting both removeMin( ) and removeMax( ). Min order of
- * the heap is maintained on even levels of the heap, the root being at level 0,
- * and max order is maintained on odd levels of the heap.  Both orders are
- * intermeshed such that no child of a min level is ever less than the parent and
- * no child of a max level is ever greater than the parent.
+ * and max order thus supporting both removeMin( ) and removeMax( ).<br/>
+ * Min order of the heap is maintained on even levels of the heap, the root
+ * being at level 0, and max order is maintained on odd levels of the heap.<br/>
+ * Both orders are intermeshed such that no child of a min level is ever less
+ * than the parent and no child of a max level is ever greater than the parent.
  *
  * @author Todd Wease (C++ version)
  * @author Genc Doko (Java version)
@@ -359,7 +359,7 @@ public class MinMaxHeap<T extends Comparable<T>> {
   public void add(T item) {
 
     if (isFull()) {
-      throw new RuntimeException("Heap is full");
+      throw new IllegalStateException("Heap is full");
     }
 
     int hole = ++size;
