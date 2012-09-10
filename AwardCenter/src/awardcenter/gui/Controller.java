@@ -73,6 +73,7 @@ import java.awt.event.MouseListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.Box;
@@ -1322,6 +1323,10 @@ public class Controller {
         if (!isEmpty(awardFilterTxt.getText())) {
           String name = award.getLabel().toUpperCase();
           String[] words = awardFilterTxt.getText().toUpperCase().split(" ");
+// >> TEST
+          System.out.println(name);
+          System.out.println(Arrays.toString(words));
+// << TEST
           for (String word : words) {
             if (!name.contains(word)) {
               return false;

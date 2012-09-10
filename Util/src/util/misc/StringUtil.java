@@ -2,6 +2,7 @@ package util.misc;
 
 
 import java.text.MessageFormat;
+import java.text.Normalizer;
 
 import util.collection.ArrayUtil;
 
@@ -231,6 +232,12 @@ public final class StringUtil {
    */
   public static String formatMessage(String msg, Object... params) {
     return ArrayUtil.isEmpty(params) ? msg : MessageFormat.format(msg, params);
+  }
+
+
+  public static String normalizeASCII(String text) {
+    return Normalizer.normalize(text, Normalizer.Form.NFKD).replaceAll("[^\\p{ASCII}]", "");
+//    return Normalizer.normalize(text, Normalizer.Form.NFKD).replaceAll("[\u0300-\u036F]", "");
   }
 
 

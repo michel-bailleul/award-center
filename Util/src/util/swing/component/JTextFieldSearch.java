@@ -11,6 +11,7 @@ import static java.awt.RenderingHints.VALUE_TEXT_ANTIALIAS_ON;
 import static javax.swing.UIManager.getColor;
 
 import static util.misc.StringUtil.isEmpty;
+import static util.misc.StringUtil.normalizeASCII;
 import static util.resource.ResourceUtil.getIcon;
 import static util.resource.ResourceUtil.getMsg;
 import static util.resources.SwingGuiKey.ICON_CANCEL_BUTTON;
@@ -82,6 +83,7 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
 
     super(col, getIcon(ICON_MAGNIFIER), null, Side.RIGHT);
 
+    isAsciiMode = true;
     isCaseSensitive = false;
     watermark = getMsg(JTEXTFIELDSEARCH_WATERMARK);
     colorFilter = COLOR_FILTER;
@@ -101,9 +103,17 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
         this.filter = new IFilter<T>() {
           @Override
           public boolean matches(T o) {
-            String   text  =  isCaseSensitive ? o.toString() : o.toString().toUpperCase();
-            String[] words = (isCaseSensitive ? getText()    : getText().toUpperCase()).split(" ");
-            for (String word : words) {
+            String words = getText();
+            String text  = (isAsciiMode) ? normalizeASCII(o.toString()) : o.toString();
+            if (!isCaseSensitive) {
+              text = text.toUpperCase();
+              words = words.toUpperCase();
+            }
+// >> TEST
+            System.out.println(text);
+            System.out.println(words);
+// << TEST
+            for (String word : words.split(" ")) {
               if (!text.contains(word)) {
                 return false;
               }
@@ -131,6 +141,7 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
       new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
+          System.out.println("Timer: " + System.currentTimeMillis());
           if (listenerBeforeFiltering != null) {
             listenerBeforeFiltering.actionPerformed(e);
           }
@@ -149,14 +160,23 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
       new DocumentListener() {
         @Override
         public void insertUpdate(DocumentEvent e) {
+          System.out.println("Delay        : " + timer.getDelay());
+          System.out.println("InitialDelay : " + timer.getInitialDelay());
+          System.out.println("insertUpdate : " + System.currentTimeMillis());
           timer.restart();
         }
         @Override
         public void removeUpdate(DocumentEvent e) {
+          System.out.println("Delay        : " + timer.getDelay());
+          System.out.println("InitialDelay : " + timer.getInitialDelay());
+          System.out.println("removeUpdate : " + System.currentTimeMillis());
           timer.restart();
         }
         @Override
         public void changedUpdate(DocumentEvent e) {
+          System.out.println("Delay        : " + timer.getDelay());
+          System.out.println("InitialDelay : " + timer.getInitialDelay());
+          System.out.println("changedUpdate: " + System.currentTimeMillis());
         }
       }
     );
@@ -187,6 +207,8 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
   private int latency;
 
   private boolean isCaseSensitive;
+
+  private boolean isAsciiMode;
 
   private String watermark;
 
@@ -276,6 +298,11 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
 
   public void setCaseSensitive(boolean isCaseSensitive) {
     this.isCaseSensitive = isCaseSensitive;
+  }
+
+
+  public void setAsciiMode(boolean isAsciiMode) {
+    this.isAsciiMode = isAsciiMode;
   }
 
 
