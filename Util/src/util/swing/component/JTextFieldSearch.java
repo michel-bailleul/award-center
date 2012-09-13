@@ -103,19 +103,17 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
         this.filter = new IFilter<T>() {
           @Override
           public boolean matches(T o) {
-            String words = getText();
-            String text  = (isAsciiMode) ? normalizeASCII(o.toString()) : o.toString();
-            if (!isCaseSensitive) {
-              text = text.toUpperCase();
-              words = words.toUpperCase();
-            }
-// >> TEST
-            System.out.println(text);
-            System.out.println(words);
-// << TEST
-            for (String word : words.split(" ")) {
-              if (!text.contains(word)) {
-                return false;
+            if (!isEmpty(getText())) {
+              String words = getText();
+              String text  = (isAsciiMode) ? normalizeASCII(o.toString()) : o.toString();
+              if (!isCaseSensitive) {
+                text = text.toUpperCase();
+                words = words.toUpperCase();
+              }
+              for (String word : words.split(" ")) {
+                if (!text.contains(word)) {
+                  return false;
+                }
               }
             }
             return true;
@@ -141,7 +139,7 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
       new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-          System.out.println("Timer: " + System.currentTimeMillis());
+          System.out.printf("Time: %d %n", System.currentTimeMillis() - time);
           if (listenerBeforeFiltering != null) {
             listenerBeforeFiltering.actionPerformed(e);
           }
@@ -160,23 +158,25 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
       new DocumentListener() {
         @Override
         public void insertUpdate(DocumentEvent e) {
-          System.out.println("Delay        : " + timer.getDelay());
-          System.out.println("InitialDelay : " + timer.getInitialDelay());
-          System.out.println("insertUpdate : " + System.currentTimeMillis());
+//          System.out.println("Delay        : " + timer.getDelay());
+//          System.out.println("InitialDelay : " + timer.getInitialDelay());
+//          System.out.println("insertUpdate : " + System.currentTimeMillis());
+          time = System.currentTimeMillis();
           timer.restart();
         }
         @Override
         public void removeUpdate(DocumentEvent e) {
-          System.out.println("Delay        : " + timer.getDelay());
-          System.out.println("InitialDelay : " + timer.getInitialDelay());
-          System.out.println("removeUpdate : " + System.currentTimeMillis());
+//          System.out.println("Delay        : " + timer.getDelay());
+//          System.out.println("InitialDelay : " + timer.getInitialDelay());
+//          System.out.println("removeUpdate : " + System.currentTimeMillis());
+          time = System.currentTimeMillis();
           timer.restart();
         }
         @Override
         public void changedUpdate(DocumentEvent e) {
-          System.out.println("Delay        : " + timer.getDelay());
-          System.out.println("InitialDelay : " + timer.getInitialDelay());
-          System.out.println("changedUpdate: " + System.currentTimeMillis());
+//          System.out.println("Delay        : " + timer.getDelay());
+//          System.out.println("InitialDelay : " + timer.getInitialDelay());
+//          System.out.println("changedUpdate: " + System.currentTimeMillis());
         }
       }
     );
@@ -205,6 +205,8 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
 
 
   private int latency;
+
+  private long time;
 
   private boolean isCaseSensitive;
 
@@ -335,6 +337,10 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
     this.filterable = filterable;
   }
 
+
+  public IFilter<T> getFilter() {
+    return filter;
+  }
 
   public void setFilter(IFilter<T> filter) {
     this.filter = filter;

@@ -73,7 +73,6 @@ import java.awt.event.MouseListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.Box;
@@ -892,6 +891,8 @@ public class Controller {
             case GAME_PUBLISHER :
               oldValue = game.getPublisher();
               break;
+            default :
+              break;
           }
           String newValue = inputValue(key, oldValue);
           if (newValue != null) {
@@ -908,6 +909,8 @@ public class Controller {
                   break;
                 case GAME_PUBLISHER :
                   game.setPublisher(newValue);
+                  break;
+                default :
                   break;
               }
               refreshGameInfo(game);
@@ -1320,24 +1323,16 @@ public class Controller {
         if (award.isSeparator()) {
           return true;
         }
-        if (!isEmpty(awardFilterTxt.getText())) {
-          String name = award.getLabel().toUpperCase();
-          String[] words = awardFilterTxt.getText().toUpperCase().split(" ");
-// >> TEST
-          System.out.println(name);
-          System.out.println(Arrays.toString(words));
-// << TEST
-          for (String word : words) {
-            if (!name.contains(word)) {
-              return false;
-            }
-          }
+        // text filter
+        if (!awardFilterTxt.getFilter().matches(award)) {
+          return false;
         }
+        // specific filter
         return (!achievedOkFilter.isSelected() ||  award.isAchieved()) &&
                (!achievedKoFilter.isSelected() || !award.isAchieved()) &&
-               (!secretFilter.isSelected() || award.isSecret()) &&
-               (!multiFilter.isSelected()  || award.isMulti())  &&
-               (!addedFilter.isSelected()  || award.isAdded());
+               (!secretFilter.isSelected()     ||  award.isSecret())   &&
+               (!multiFilter.isSelected()      ||  award.isMulti())    &&
+               (!addedFilter.isSelected()      ||  award.isAdded());
       }
     };
 
