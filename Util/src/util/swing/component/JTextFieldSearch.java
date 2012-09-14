@@ -88,11 +88,13 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
     watermark = getMsg(JTEXTFIELDSEARCH_WATERMARK);
     colorFilter = COLOR_FILTER;
     latency = DEFAULT_LATENCY;
-    timer = new Timer(latency, null);
+    timer = new Timer(latency, null) { public String toString() { return "JTextFieldSearch Timer"; } };
     timer.setRepeats(false);
-
+// >> TEST
+    Timer.setLogTimers(true);
+// << TEST
     if (listener != null) {
-      listenerFiltering = listener;
+      filteringActionListener = listener;
     }
     else {
       this.filterable = filterable;
@@ -100,6 +102,7 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
         this.filter = filter;
       }
       else {
+        // default filter
         this.filter = new IFilter<T>() {
           @Override
           public boolean matches(T o) {
@@ -120,7 +123,8 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
           }
         };
       }
-      listenerFiltering = new ActionListener() {
+      // default filtering operation
+      filteringActionListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
           if (JTextFieldSearch.this.filterable != null) {
@@ -140,15 +144,15 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
         @Override
         public void actionPerformed(ActionEvent e) {
           System.out.printf("Time: %d %n", System.currentTimeMillis() - time);
-          if (listenerBeforeFiltering != null) {
-            listenerBeforeFiltering.actionPerformed(e);
+          if (preFilteringActionListener != null) {
+            preFilteringActionListener.actionPerformed(e);
           }
-          if (listenerFiltering != null) {
+          if (filteringActionListener != null) {
             _updateCheckBox();
-            listenerFiltering.actionPerformed(e);
+            filteringActionListener.actionPerformed(e);
           }
-          if (listenerAfterFiltering != null) {
-            listenerAfterFiltering.actionPerformed(e);
+          if (postFilteringActionListener != null) {
+            postFilteringActionListener.actionPerformed(e);
           }
         }
       }
@@ -218,11 +222,11 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
 
   private Timer timer;
 
-  private ActionListener listenerBeforeFiltering;
+  private ActionListener preFilteringActionListener;
 
-  private ActionListener listenerFiltering;
+  private ActionListener filteringActionListener;
 
-  private ActionListener listenerAfterFiltering;
+  private ActionListener postFilteringActionListener;
 
   private IFilterable<T> filterable;
 
@@ -318,18 +322,30 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
   }
 
 
-  public void setActionListenerBeforeFiltering(ActionListener listener) {
-    listenerBeforeFiltering = listener;
+  /**
+   * Allows to perform any operations needed before filtering
+   * @param action - The action to perform before filtering
+   */
+  public void setPreFilteringActionListener(ActionListener action) {
+    preFilteringActionListener = action;
   }
 
 
-  public void setActionListenerFiltering(ActionListener listener) {
-    listenerFiltering = listener;
+  /**
+   * Allows to perform a custom filtering operation. Otherwise, a default operation is provided.
+   * @param action - The filtering action
+   */
+  public void setFilteringActionListener(ActionListener action) {
+    filteringActionListener = action;
   }
 
 
-  public void setActionListenerAfterFiltering(ActionListener listener) {
-    listenerAfterFiltering = listener;
+  /**
+   * Allows to perform any operations needed after filtering
+   * @param action - The action to perform after filtering
+   */
+  public void setPostFilteringActionListener(ActionListener action) {
+    postFilteringActionListener = action;
   }
 
 

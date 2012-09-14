@@ -532,7 +532,7 @@ public class Controller {
     gameFilterTitle = createTitledBorder(" ");
     gameFilterPanel = createPanel(new BorderLayout(), gameFilterTitle);
     gameFilterTxt = new JTextFieldSearch<Game>();
-    gameFilterTxt.setActionListenerAfterFiltering(app.getActionListener(GAME_FILTER));
+    gameFilterTxt.setPostFilteringActionListener(app.getActionListener(GAME_FILTER));
     JPanel panel = createPanel(new BorderLayout(), createEmptyBorder(0, 5, 5, 5));
     panel.add(gameFilterTxt);
     gameFilterPanel.add(panel);
@@ -823,7 +823,7 @@ public class Controller {
     awardFilterPanel.add(panel);
 
     awardFilterTxt = new JTextFieldSearch<Award>();
-    awardFilterTxt.setActionListenerFiltering(actionFilter);
+    awardFilterTxt.setFilteringActionListener(actionFilter);
     panel.add(awardFilterTxt, CENTER);
 
     // boutons de filtre
