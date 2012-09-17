@@ -1,15 +1,13 @@
 package awardcenter.gui;
 
 
-import static util.resource.ResourceUtil.*;
-
 import static java.lang.System.getProperty;
 import static java.util.Locale.FRENCH;
-import static java.util.prefs.Preferences.userNodeForPackage;
+
+import static util.resource.ResourceUtil.*;
+import static util.swing.app.ActionType.EXIT;
 
 import static awardcenter.resources.Key.*;
-
-import static util.swing.app.ActionType.EXIT;
 
 
 import java.awt.Image;
@@ -24,16 +22,14 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
 
-import awardcenter.resources.Key;
-
+import util.misc.StringUtil;
+import util.resource.Logger;
 import util.swing.app.Application;
 import util.swing.app.IActionType;
 
-import util.misc.StringUtil;
-import util.resource.Logger;
-
 import awardcenter.engine.IEngine;
 import awardcenter.engine.XMLCodecEngine;
+import awardcenter.resources.Key;
 
 
 public class AwardCenterApplication extends Application {
@@ -59,8 +55,7 @@ public class AwardCenterApplication extends Application {
   // —————————————————————————————————————————————————————————————— Constructors
 
 
-  public AwardCenterApplication(Class<?> klass) {
-    setPreferences(userNodeForPackage(klass));
+  public AwardCenterApplication() {
     setEngine(getProperty(ENGINE));
     Locale language = FRENCH; // TODO: get language from properties
     setLanguageGui(language);
@@ -258,7 +253,9 @@ public class AwardCenterApplication extends Application {
         engine = (IEngine) Class.forName(className).getConstructor().newInstance();
       }
       catch (Exception x) {
-        throw new IllegalArgumentException(className, x);
+        RuntimeException ex = new IllegalArgumentException(className, x);
+        logger.fatal("Unexpected Exception", ex);
+        throw ex;
       }
     }
 
