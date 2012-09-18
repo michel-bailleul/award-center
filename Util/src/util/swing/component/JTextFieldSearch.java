@@ -1,6 +1,7 @@
 package util.swing.component;
 
 
+import static java.awt.Color.decode;
 import static java.awt.Cursor.DEFAULT_CURSOR;
 import static java.awt.Cursor.HAND_CURSOR;
 import static java.awt.Cursor.getPredefinedCursor;
@@ -48,7 +49,7 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
 
   private static final Color COLOR_WATERMARK  = getColor("textInactiveText");
 
-  private static final Color COLOR_FILTER     = Color.decode("#FFFFCC");
+  private static final Color COLOR_FILTER     = decode("#FFFFCC");
 
 
   // —————————————————————————————————————————————————————————————— Constructors
@@ -88,11 +89,9 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
     watermark = getMsg(JTEXTFIELDSEARCH_WATERMARK);
     colorFilter = COLOR_FILTER;
     latency = DEFAULT_LATENCY;
-    timer = new Timer(latency, null) { public String toString() { return "JTextFieldSearch Timer"; } };
+    timer = new Timer(latency, null);
     timer.setRepeats(false);
-// >> TEST
-    Timer.setLogTimers(true);
-// << TEST
+
     if (listener != null) {
       filteringActionListener = listener;
     }
@@ -162,25 +161,16 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
       new DocumentListener() {
         @Override
         public void insertUpdate(DocumentEvent e) {
-//          System.out.println("Delay        : " + timer.getDelay());
-//          System.out.println("InitialDelay : " + timer.getInitialDelay());
-//          System.out.println("insertUpdate : " + System.currentTimeMillis());
           time = System.currentTimeMillis();
           timer.restart();
         }
         @Override
         public void removeUpdate(DocumentEvent e) {
-//          System.out.println("Delay        : " + timer.getDelay());
-//          System.out.println("InitialDelay : " + timer.getInitialDelay());
-//          System.out.println("removeUpdate : " + System.currentTimeMillis());
           time = System.currentTimeMillis();
           timer.restart();
         }
         @Override
         public void changedUpdate(DocumentEvent e) {
-//          System.out.println("Delay        : " + timer.getDelay());
-//          System.out.println("InitialDelay : " + timer.getInitialDelay());
-//          System.out.println("changedUpdate: " + System.currentTimeMillis());
         }
       }
     );
