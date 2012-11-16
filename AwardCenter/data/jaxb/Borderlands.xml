@@ -11,8 +11,8 @@
     <scoreMax>1750</scoreMax>
     <award-list>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Finissez 5 missions dans les Arid Badlands</description>
@@ -25,8 +25,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Finissez toutes les missions dans les Arid Badlands</description>
@@ -39,8 +39,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Finissez 5 missions dans les Rust Commons</description>
@@ -53,8 +53,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Finissez toutes les missions dans les Rust Commons</description>
@@ -67,8 +67,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuer un ennemi en sautant sur sa tête</description>
@@ -81,8 +81,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Faire le tour de l'Anneau de Vitesse des Dingues en moins de 31 secondes</description>
@@ -95,8 +95,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Appliquer une antiquité élémentale</description>
@@ -109,8 +109,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Atteindre le niveau 5</description>
@@ -123,8 +123,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Atteindre le niveau 10</description>
@@ -137,8 +137,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Atteindre le niveau 20</description>
@@ -151,8 +151,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Atteindre le niveau 30</description>
@@ -165,8 +165,8 @@
             <value>30</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Atteindre le niveau 40</description>
@@ -179,8 +179,8 @@
             <value>40</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Atteindre le niveau 50</description>
@@ -193,8 +193,8 @@
             <value>50</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Découvrir la Skag Gully</description>
@@ -207,8 +207,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Découvrir Sledge's Safe House</description>
@@ -221,8 +221,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Découvrir Headstone Mine</description>
@@ -235,8 +235,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Découvrir la Trash Coast</description>
@@ -249,8 +249,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Découvrir le Scrapyard</description>
@@ -263,8 +263,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Découvrir Krom's Canyon</description>
@@ -277,8 +277,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Découvrir Crimson Lance Enclave</description>
@@ -291,8 +291,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Découvrir Eridian Promontory</description>
@@ -305,8 +305,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Ecraser 25 ennemis avec un véhicule</description>
@@ -319,8 +319,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuer 5 Rakk en moins de 10 secondes</description>
@@ -333,8 +333,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Gagner 1 000 000 de dollars</description>
@@ -347,8 +347,8 @@
             <value>50</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Vendre 50 armes à un magasin</description>
@@ -361,8 +361,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Gagner une partie en arène</description>
@@ -375,8 +375,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Battre un autre joueur en duel</description>
@@ -389,8 +389,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Gagner un duel sans être touché</description>
@@ -403,8 +403,8 @@
             <value>35</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Secourir un allié menacé de mort dans une partie en coop</description>
@@ -417,8 +417,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Terminer 15 missions en coop</description>
@@ -431,8 +431,8 @@
             <value>30</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Jouer en coop avec un employé de Gearbox ou quelqu'un qui a ce succès</description>
@@ -445,8 +445,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Atteindre le niveau 10 d'expertise d'une arme</description>
@@ -459,8 +459,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuer 25 ennemis à l'aide d'armes corrosives</description>
@@ -473,8 +473,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuer 25 ennemis à l'aide d'armes électriques</description>
@@ -487,8 +487,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuer 25 ennemis à l'aide d'armes incendiaires</description>
@@ -501,8 +501,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuer 25 ennemis à l'aide d'armes explosives</description>
@@ -515,8 +515,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Equiper votre personnage d'un Mod de classe</description>
@@ -529,8 +529,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Secourir assez de Claptrap pour obtenir 42 emplacements dans l'inventaire</description>
@@ -543,8 +543,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuer un ennemi avec la compétence d'action de la Sirène</description>
@@ -557,8 +557,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuer 15 ennemis avec la compétence d'action du Chasseur</description>
@@ -571,8 +571,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuer 15 ennemis avec la compétence d'action du Furieux</description>
@@ -585,8 +585,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuer 15 ennemis avec la compétence d'action du Soldat</description>
@@ -599,8 +599,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Technologie de Pandore maîtrisée</description>
@@ -613,8 +613,8 @@
             <value>30</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Sledge a été tué</description>
@@ -627,8 +627,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Krom a été tué</description>
@@ -641,8 +641,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Flynt a été vaincu</description>
@@ -655,8 +655,8 @@
             <value>30</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Rakk ruchier tué</description>
@@ -669,8 +669,8 @@
             <value>40</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Gardien de l'Arche tué</description>
@@ -683,8 +683,8 @@
             <value>50</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Le Rakk ruchier, le Gardien de l'Arche, Sledge, Krom ou Flynt battus dans une partie coop</description>
@@ -697,8 +697,8 @@
             <value>35</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Je suis sûr que vous ne pensiez pas arriver là !</description>
@@ -711,10 +711,11 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
+            <description>L'île des zombies du Dr. Ned est un pack additionnel pour Borderlands qui propose de nouveaux types d'ennemis, de nouvelles missions et quelques surprises... La Jakobs Corporation vous invite à découvrir le charme subtil de la riante bourgade détenue à 51% par Jakobs Corporation : Jakobs Cove. Toutes les rumeurs concernant des "mort-vivants" qui rôderaient dans les rues sont parfaitement infondées et nous les rejetons fermement. Dans l'éventualité improbable d'une attaque de zombies, n'hésitez pas à acheter des armes dans les distributeurs Jakobs Brand et visez la tête. Merci de bien vouloir épargner nos employés. (Recommandation facultative pour les représentants du personnel) Cet article ne peut pas être remboursé. Pour plus d'informations, voir www.xbox.com/live/accounts.</description>
             <image>iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAAACW9GRnMAAABkAAAAVgClrgFQAAAACXBIWXMAAAsSAAALEgHS3X78AAAACXZwQWcAAAEIAAAA7QC0JrlxAAAR1klEQVRo3u1Ze3hU1bVfa+9zZvIkLxKZPElIQl6QaORRAdGC4kXLRR6CqAgo1VtUiK9PqFY+8FJEeai119pWW7HVqtVW+VSsiFoqIggEyPv9mEwmM5NMnjNzztl73T/OTBJEbvW/23tzvv2d78w5Z/ZZv732/q3fWpvRv/jB4F/8GAMwBmAMwBiAMQBjAMYAjAEYA/B/EAABEBHB/yLh/P0AIAAiIiEiIgICECIgAoaO4HvmwwvwE0jz6UgHQKPvEBBAqPvzHw33j/CNG98JAAUtICIiJJJSAgIiIxm8YTazdyID6ZvfRmQMOaL5MhFJkIDIEFHIgCb6iTSGDJFJKYgEIkNAIgHB90lKacKWJIhEyAP0XT0Q8hcRyAG/+80vHynveA8Zk+QnIAIDCLyBzj8fL6trO+Tqb3zr5P1/PbXhtRP3vv7VPX86/pM3T278ovnFAa0dgUkKSNIRodF16M+nN/zmy+W/PLb0N18sOVjxhGewnjF+pvmtA6ce9mkdklCQkGAYhsYYO+t4+8BXZYM+JxASyVFW/RMAaM4McxYJGYgKj0+IT/tb1X+6+ys5WqXQpGSAxic1uxyDbSmXlPgCXY3dR0hV4yLixkXGRUWOV1R+svWNd09tGQx0SbIgwZGGZ18//SgSzEi/bWH2QwW2pc29Z944vr7G9Y/s5Cs7+s9+WL8XQRJJkqRyq6P3+MGKpxPGF0WGJQnQv9ciJgDA4AQFzlQgY27uXbnj5xw497Mho4+AKVw50fpGk+v4opLHIq2XCE6RSuSszHuvK9i2sHD79QXbbpyy5+bSF9x++xnHeypjlfa/ft70yoK8+5Zc+nxJ6vLcpGtmZa1dM/23KXGXflD5uDD44pKdDZ2HT9vfULgVkQWM3gPnnspOmjUzay1KQlC+1xoYPZEQQAHgnPi8vIf92uCnNXtVxWr3nPi07pdXTd6YHjtVSgNB9EtjwO8VUvdrA5o+pOtaQmR2TESKe7DRIN/h1v3FyQtK0242DEMXupRC0/0WFj0v/6cWph5peTFpXPH8zA0H63/R3nOOM+VgzdMBGbgm7yEgAYwxZAD43T2AIXZBBEIEhooEGWlJvHbKlurOj0607/+4dl9B0hWlKYtJCsYUCw8LI7KqVs7UMEuURY1QVUub97izr9YWU+LtbxoIuAqTFxIRY6hylSFTuMWQ/kg1IeeSK9u7T/q1vqmZt+THzPy4ZteJlt9Wdx1eVPB4pJokJCLjJvUFGe97xQEAJAICQABN+LLi58zKuetQ3W608KsmP0qodA+1flix42jLfgyzHmt6+f1z2z+s2PZBxba/nNn05zNbJsb/oCR1sb2vPFwJTwjPQSDAIJ2YNhFQcnTOoOEOGIMIyvy8zWCRBxufvSb7x+kJl+mGwZBTKBqNYsjvGgdGrwcGJIEgiqsBEgooFqYQkN39tXegVdcHCDVDHxj0uzw+Z6+vK6D3RXDmC7gHfS4hEJEUIALEkc8hAgcAC4tiIHXoJwALZxZpEWCgYiECCTpiyG78VuP/yRpAQgBAAiQQFh7Z1nvyYPUL8zPXDwR6DtftZoi5yQtXznjhykkbeEDOmfyT5Zc/u+qy51aW/mLFZS+tuuylgBj8vG5fhDXOEJpf9A2PI5oUhwQIPX63AWo4i2bIPqnb6/N556bfcajqV/a+SqsaLof55yJB4H8GQECASBIIQNFE3/tVT6QmlF6Red/83AdOth+ocL4bpkRKQ2giICTqQpMkBPgF+TU5FBWeMjV1Sb23MjYigSFv9ZYzZBIEoClRDBISDWjoOR4XnhpptZ1pf+es829zCx6cO+n+tITCjyu3DgS6kRQAaU4HQiT6FhTs4hQEiCikJGEwMP5Wu8vQxcLCzbqhZ42fNStr3cfnnvb4axjnggiQcVQZco5WjmEWFgEAQ7qLIDA+cnJW7MxjTfsHNa/CVJKSyJASFNXa2PNFm+uzmek3eQP2D6v3zMq4PTvuCmEYN+Q/NqQPfFL/HENmSAkgECQSISIhXRTAhdKJiEiSolhO2d85235oQeGWKEsSMl2SuCLrDltM3oGKJwikBS1cUYa0Xp/mHgx09mrtbn/d1/bXTjW/WWxbpPDoK7LuNsh469TGjt6TRAZjqi6HTtvffOfcg/lJ83Nt17xTvjk99tJpmWuFNCRQhPWShYVbmxwHz3a9p3JVCCMghKkuYZS8/CaA83UTIgIBccabPKc/rdxzZfZd2QkzJPkZWogEA3V+weaeAedn1c8BaJrW/1Hlzpe+XP27Y+t+f3T9/mN3/aP2xcvTV8yZtF5KLTE6c1nJ0woor53Y9Ltjt7/y1Y9fPX77oZpnC5MW/FvhTz868/PBQdfCKY+qPAyZzjnoQpuYMH161q0fl++yd5/knA0rg9HybgRACJKUQghhkJQmWgQgoHDGFk/ZPi1jhSH9QJwkJ5IStFhrys2lu1Nip0RZJi4ufPKayZuuzimbl3v/dZM3LZ2y4/YfvDI3d6MFLBK4kCIpqmDFtF8smrItd8LslJickuRFq0pfvLbgMSEsmXHTbyrdG63GSikArCQlQzKMwKVpq28oetSC4SC5BRiQABKShBRCCkFSjlSnRyQk55wrkoQpdE0/TIibmmmbr3ArRwuiwhhwZmHIAPkl46bk2H4YG22bZPthzoQFBbZr8m0Lcm0L0hNmjrOmSTIkExyRMRSgcwzLSbpqTtY98yY/NG3iWltMPiKzWCPy065PismTEoQgZMC5hXOroljD1Kic5OsS4/KRc+QcGUfGGeOMc8Y5sqDlLDT4NNDj6agod9RU+PuGghMOAJFJkpIMCLE4IgAyBJWA6SIgpC5J+P39fi1gr6tqqzzZWn2qv69Xkz4gTsABEUDhoAKAIEMIYUihBXwa6Z6OtubKMx3Vp3o6W3ykGKrq7XK21VQ46is76ysc9ZUddec66s456qscddWOuipHfZWjtsreUNvVUOmorzKnDkNEkgIRWo595nx7Tdurq+zVXyOwoHglYsAYKIhASIhIhEAkAZAEYyoAO7zn8d62VouqVhz8Y/tbG7x/WVnzwW8UDAPSGAUjCiEhIAJnjDEkRbEEevrPvb5FHFp95sUNXU2NVk7VB19v+GCH66uHPUc3uo/e5z66qfvYJs+xjZ4vN7iPbuj64l7XkY2eL8t6P9/0xc7VjupTAAhEbDi6RERFZF2VnF6apIZHYVBDACESEiFR8CpIxUgSAA2/r/z3jyquv1vCLQzZ5UtWW7OLCxdER8Ipe2M1MS6FBCIkAAJCkgSCSBIgY3UnP8m/1EgqCrfNvWnyD65u/PoIdL5RnP957oSq1Liq9ISaifFVGXHVGfG16Qn1GUlNaSltyWmOlGS7dDcX3/rTy25YRVIAYnARAxEABjQjIHxMmgt4OC0IqSnzByAASJDIeeV7LycaryZNyzAEElFscrY1/sr2hugJtrPdZ94WASBOOomgNCFgCIYQnCmdTU3C+/e4qMqmhrTEKT+SRIGWyonp7V6Ht7n9hpa+21o8q5t7bmn2rm7pWdPiXdPsXdPYc2dD750Vjputc57PnHujLzCIjAUBBJcwSKQAyYApo79VPA3nvwwZElkjKD5v3KB/CIEBohQic9aP3J0ZkeAbJz5oPfupwlRGSIhmTwiADIRhdJ58d2JiubvRzycstGVNMkiGyT4runqcMcnXPly86udFt+0ounVn0S07im7ZXnTztqkrf3b58odmLNk4+7YtOTOvFoZmtVgAEU0WMqOCkAYZAgUAyqCaw4sJVXNKIHIuda5oOiEgAJIRER0dN21dczlPtXUNfvlKX58XEICk+U8pNJWrLeUnw3yHxlGrozU9bfaNIHWGqINPGGEgFaFoENIPEkCEzgBg6MKv+aXQGFcQFCQgQDZShJCS+nXZb6CUF3HAaE8QAoAmsE/nvf2MJAAg40ZAmzjtSg/NG2gVNusXbYf/yLgCRMGww5jh97mO/Do93t54gmIuvzMmNlYIyZBxn6F3G7ExSs9nr1b/9Zm6d39Z9f5/VR98serDlysOvlJ3+Hdfvbzd3d6gcBWRAzBEJDhP3wIKiT2a3qtfXHuPFtoEAKj5mUfIvgFAETSQAyFlLbynujw2IUrRTuzvczQhMiklScGZWnfozUTfp/52r0fMzpyzXNP8wACJKCCgS4+29qX27U9p353SsSu59cmU5p3JzTvT2napHz0+5KiLt6WABEAWmjRmJA4ZKg0d3UPoCTBz2Y2IOpNEIKRDRsAZPp/uNmCQhiUJ4ygMLTE7Lzp/hf2c32Z1Nr79ggAQuiRkfU6n9/BLKeFK05mIzB/dKxWOAOb6EUKHXtTs4U0tlvrWmLamKEdLtKM12tMR01JDLSJv2oZ93BoBTILpTbxAzBmGrvX4aVBKszpgJkKSgr9AEshQpkbmOhea8HulMRiSJAAEXOUKEmUvXd/anxotkU4f6Cw/iipnjDW8++t02drV4jMKF9gKpqMuFFUR5uBIkn3Q0RoWcd2+pDvfjF37evTa16JX/zHytt/HrfnTZQ/tD4+KJkMHZCBlcFQRRza6iQAlyX6haRwUBZExRUHGRhqe18xhkLqkIWboOqEMeRMBOZEMj45Lun5jYwNMGqfXv7oLGeuqPR34+x9iw9WGgcTc5WUkJWMkCRlIBJCSGT5D9/sTCopTcvKS84pScotSJxem5ORnFBbFJiYxriqqRWE8ZA8CEQZplACBUBIDCAPmczl7PJ4eZ6fX1dXjcnpcTo/L2e12edyubrfT43b3dneR0ACApEDJRieKZu7BkAlDz5j3756U6QZhkvts3fuvtL/z6/R4rc0ZSFi4Pj4xFUjKYIBBIBIkCC0KSG9LbbfL5e50dnd1ebo6PV0OT5fd43R6XC6329XV5fS43V53pxYYQtMDiACMEaISP75bU1JsYcaBp6oeu6Fu+6LarYvqti5u3Lakdeeylqduaty9sv659c17bv/H5tv6enuICEByLlVEc2ENp6FmHLSolpxVm2o6RfbEWPbhk4meIwqgJzI/77pVUhgsqMgQQBKiEpsxMESp41XPSw9Ub72+Yfv1ddsX1T+xuG77ksYdK1qevKll18q23be07lvd/Py6448sc1Ye7/Z6/T4fIwBkjCRNKL2iL3teQ0u3jXXmcnsmOjKxI4t1pENraqApbag+a6gpo68qdeistbdNCImIAX//gLN/wD9E0gAw1ZIpAQkZN4Q+oWiG5eq15bXtcVaDa/5qT1jq6i1KWJSQBEjmNJAAJCn92iWOqMIee28GdeYy50TFmQX2LGqfBO2ZsjVDa0r3N6b6GjJ8tZmD1fHeZtJFRU3twEA/C5VcQAmLKd7wNC7Y3Jy2vD1reUfmso5JS+1ZNzqyltizl7bnLO/MX9lTfItnyjrr7CVqZJiQMmbSDNfUlWEzV4RFxwEQMAiVERCRFJRg6MXrHoq+8/nWiTe6p67N2fKHjNI5mq6jwpDMQISIikEickJawSO/6p11d0vWje1ZNzkyljkmLnNkLndkLe3IXNI+aZkje1lXznJX3q2uybfKmTeHxSXNnjE9Pj4hSKOIyJEiY2ILV/xH6YNPl5TtLr5/b3HZ3uKyfSVlz5Rseqbkvj2Fd+/IW7O14I6ts+95YlxUAgAULF49bfNz0+/eFh03HggQmamcgjKKqYwzlSmTf7isdMPO4nWP2PKLQQor5xzYMBtzxlXGuZTjL0meevsDl5Y9U1L2VMn9e6c+sHfq/Xunlu2bWravuGzPlI1PFW7YWXDX9sl3/Gzag08l5hQBEVcUZhIqhcSzFAYJcV6ToXOoSSGAiCOSlFIIKQURmqQ2oviIITEADoBSCBKGmUYxZGYucp6yAmCIZkpIF2ujDCBhQLBeHczIIFS9AzbMU6EGGDzDMI0yBgBkZmyMMWQYLHycV5MhJLMyxThDpjBuxn9Tmgd3PYIkZBYxAb/x6YvxODBmejpIo6P3BOibDYM0G7ogEy+MCEz6tsp9KOvGUDCnYIYBNOLwUKFhdBd00YahMyIw82I4kOE3dnNGFygubDBqrwlGFTIukK944cbRhTtU3/mAYXtgxBgc22YdAzAGYAzAGIAxAGMAxgD8fwbw3xVPdWaIYd5bAAAAGnpUWHRKUEVHLUNvbG9yc3BhY2UAAHjaMwIAADMAMxEWfmMAAAAqelRYdEpQRUctU2FtcGxpbmctZmFjdG9ycwAAeNozqjDSMaww1DGsMAQAEYMC6QbEyigAAAAASUVORK5CYILV1eX0uN1ed6cWGELTA4gAjBGiEj++W1NSbGHGgaeqHruhbvui2q2L6rYubty2pHXnspanbmrcvbL+ufXNe27/x+bb+np7iAhAci5VRHNhDaehZhy0qJacVZtqOkX2xFj24ZOJniMKoCcyP++6VVIYLKjIEEASohKbMTBEqeNVz0sPVG+9vmH79XXbF9U/sbhu+5LGHStanrypZdfKtt23tO5b3fz8uuOPLHNWHu/2ev0+HyMAZIwkTSi9oi97XkNLt4115nJ7JjoysSOLdaRDa2qgKW2oPmuoKaOvKnXorLW3TQiJiAF//4Czf8A/RNIAMNWSKQEJGTeEPqFohuXqteW17XFWg2v+ak9Y6uotSliUkARI5jSQACQp/doljqjCHntvBnXmMudExZkF9ixqnwTtmbI1Q2tK9zem+hoyfLWZg9Xx3mbSRUVN7cBAPwuVXEAJiyk=</image>
             <index>50</index>
             <label>● DLC Pack : The Zombie Island of Dr. Ned</label>
@@ -725,8 +726,8 @@
             <value>0</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Accomplissez la misson "La maison des dam-Ned"</description>
@@ -739,8 +740,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Accomplissez la mission "Chair à canon pour la Jakobs"</description>
@@ -753,8 +754,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Accomplissez la mission "Cerveeeeeeeeeeeelle !"</description>
@@ -767,8 +768,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Ned est mort. À nouveau !</description>
@@ -781,8 +782,8 @@
             <value>49</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Ned est mort…plus ou moins</description>
@@ -795,10 +796,11 @@
             <value>1</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
+            <description>Émeute dans l'Underdome de Mad Moxxi" est un pack additionnel pour Borderlands qui propose un mode de jeu coopératif en arène et une cache pour entasser votre matos. Alors comme ça, vous croyez vous débrouiller avec un flingue ? Ça vous dit de le prouver ? Venez donc fêter l'ouverture de la Marcus Bank (une filiale de Marcus Corp) en zigouillant des centaines et des centaines d'adversaires dans Émeute dans l'Underdome de Mad Moxxi, le seul jeu d'arène compétitif dans lequel vos proches peuvent être assurés que vous reviendrez couvert de gloire... enfin, si vous revenez. (Aucun billet ne sera remboursé) Cet article ne peut pas être remboursé. Pour plus d'informations, voir www.xbox.com/live/accounts.</description>
             <image>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</image>
             <index>56</index>
             <label>● DLC Pack : Mad Moxxi's Underdome Riot</label>
@@ -809,8 +811,8 @@
             <value>0</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Accomplir la mission Faites vos preuves</description>
@@ -823,8 +825,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminer le grand défi du Coliseum Hell-Burbia</description>
@@ -837,8 +839,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminer le grand défi du Coliseum Les Angelic Ruins</description>
@@ -851,8 +853,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminer le grand défi du Coliseum Gully</description>
@@ -865,8 +867,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Finissez chacun des 3 plus grands défis avec 1 seul personnage</description>
@@ -879,10 +881,11 @@
             <value>40</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
+            <description>Borderlands ne franchit pas un cap, mais ONZE ! On a déjà vu des jeux augmenter leur niveau maximum de 5, ou de 10 pour les plus téméraires d'entre eux, mais entre les vilaines manies des assassins de la Lance Écarlate, et Crawmerax l'Invincible et son... invincibilité, donc, il vous fallait forcément bien plus que ça. Et c'est pourquoi Borderlands franchit ONZE CAPS D'UN COUP ! L'Armurerie secrète du Général Knoxx est un pack additionnel pour Borderlands qui vient ajouter des armes, des Mods de classe, des véhicules, des missions et des types d'ennemis au jeu de base, et fait passer le niveau maximum à 61. En d'autres termes... le meilleur pack. De tous les temps. Fin de l'histoire. ONZE !! Cet article ne peut pas être remboursé. Pour plus d'informations, voir www.xbox.com/live/accounts.</description>
             <image>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</image>
             <index>62</index>
             <label>● DLC Pack : The Secret Armory of General Knoxx</label>
@@ -893,8 +896,8 @@
             <value>0</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Construire une nouvelle voiture : Monster</description>
@@ -907,8 +910,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Secourir Athéna</description>
@@ -921,8 +924,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Destruire le Lance Depot</description>
@@ -935,8 +938,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Tuer Crawmerax l'Invincible</description>
@@ -949,8 +952,8 @@
             <value>50</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Tuer tous les nabots de butin</description>
@@ -963,8 +966,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Détruire un Lancer avec un Racer</description>
@@ -977,8 +980,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Atteindre le niveau 51</description>
@@ -991,8 +994,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Atteindre le niveau 61</description>
@@ -1005,8 +1008,8 @@
             <value>40</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminer toutes les missions de Secret Armory of General Knoxx</description>
@@ -1019,8 +1022,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Payé pour la visite (sans intérêt) de la World's Largest Bullet</description>
@@ -1033,10 +1036,11 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
+            <description>Afin de combattre la vente de munitions d'occasion parmi les cupides chasseurs de trésor de Pandore, Hyperion a décidé d'activer le Claptrap Assassin Ninja Interplanétaire... pour un drôle de résultat : les claptraps se révoltent et assimilent toute forme de vie sur Pandore pour en faire d'autres robots. Nos héros sont pris au piège de cette révolution et doivent mettre un terme aux agissements du Claptrap Assassin Ninja Interplanétaire pour lui faire lâcher prise sur les robots de Pandore... et récupérer une jolie récompense au passage, bien sûr.</description>
             <image>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</image>
             <index>73</index>
             <label>● DLC Pack : Claptrap's New Robot Revolution</label>
@@ -1047,8 +1051,8 @@
             <value>0</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Trouver les 6 statues de Claptrap</description>
@@ -1061,8 +1065,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Vous avez tué le Claptrap Assassin Ninja Interplanétaire</description>
@@ -1075,8 +1079,8 @@
             <value>70</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminer la mission dingo de Tannis</description>
@@ -1089,8 +1093,8 @@
             <value>50</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Trouver 25 bidons d'huile</description>
@@ -1103,8 +1107,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Trouver 15 figurines de Claptrap</description>
@@ -1117,8 +1121,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Trouver 5 paires de lunette 3D</description>
@@ -1131,8 +1135,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Trouver 3 culottes, 5 poissons et 15 pizzas</description>
@@ -1145,8 +1149,8 @@
             <value>30</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Vous avez tué le Commandant Steele-Trap</description>
@@ -1159,8 +1163,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Vous avez tué le Dr. Ned-Trap</description>
@@ -1173,8 +1177,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Vous avez tué le genéral Knoxx-Trap</description>

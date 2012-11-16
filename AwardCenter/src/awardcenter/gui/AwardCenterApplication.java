@@ -259,7 +259,7 @@ public class AwardCenterApplication extends Application {
       }
     }
 
-    logger.info("Engine: [{0}]", engine.getClass().getName());
+    logger.info("Engine : [{0}]", engine.getClass().getName());
 
   }
 
