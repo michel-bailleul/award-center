@@ -235,8 +235,17 @@ public final class StringUtil {
   }
 
 
+  /**
+   * Supprime les accents, et decompose les ligatures
+   *
+   * @param text - le texte a normaliser
+   *
+   * @return le texte apres normalisation
+   */
   public static String normalizeASCII(String text) {
-    return Normalizer.normalize(text, Normalizer.Form.NFKD).replaceAll("[^\\p{ASCII}]", "");
+    // traitement des ligatures Æ, æ, Œ, œ
+    String s = text.replaceAll("Æ", "AE").replaceAll("æ", "ae").replaceAll("Œ", "OE").replaceAll("œ", "oe");
+    return Normalizer.normalize(s, Normalizer.Form.NFKD).replaceAll("[^\\p{ASCII}]", "");
 //    return Normalizer.normalize(text, Normalizer.Form.NFKD).replaceAll("[\u0300-\u036F]", "");
   }
 
