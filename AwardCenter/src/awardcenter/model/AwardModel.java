@@ -74,14 +74,11 @@ public class AwardModel {
   public AwardModel(IEngine engine) {
     games = new ArrayList<Game>();
     this.engine = engine;
-    dataDir = engine.getDir();
   }
 
 
   // ———————————————————————————————————————————————————————— Instance Variables
 
-
-  private File dataDir;
 
   private IEngine engine;
 
@@ -92,6 +89,8 @@ public class AwardModel {
 
 
   private List<Game> _loadGames(File dir) {
+
+    dir = (dir == null) ? engine.getDir() : dir;
 
     File[] files = dir.listFiles(
       new FilenameFilter() {
@@ -143,11 +142,9 @@ public class AwardModel {
 
 
   private byte[] _getBytes(Object o) {
-    
-    //TODO: possible boolean ?
-    int type = (o instanceof Game) ? 0 : 1;
+
     try {
-      return decodeBase64ToByte((type == 0) ? ((Game)o).getImage() : ((Award)o).getImage());
+      return decodeBase64ToByte((o instanceof Game) ? ((Game)o).getImage() : ((Award)o).getImage());
     }
     catch (Exception x) {
       logger.error("Image corrompue", x); //TODO: terminer le message avec un 'choice', boolean ?
@@ -211,6 +208,7 @@ public class AwardModel {
       File trash = null;
       File file = game.getFile();
       game.setFile(null);
+      dir = (dir == null) ? engine.getDir() : dir;
 
       if (file == null || !file.getName().equals(fileName) || !file.getParentFile().equals(dir)) {
         trash = file;
@@ -329,7 +327,7 @@ public class AwardModel {
 
 
   public void loadGames() {
-    games.addAll(_loadGames(dataDir));
+    games.addAll(_loadGames(null));
   }
 
 
@@ -339,12 +337,12 @@ public class AwardModel {
 
 
   public void saveGames() {
-    _saveGames(games, dataDir, Mode.SAVE);
+    _saveGames(games, null, Mode.SAVE);
   }
 
 
   public void importGames(List<Game> games) {
-    _saveGames(games, dataDir, Mode.IMPORT);
+    _saveGames(games, null, Mode.IMPORT);
     this.games.addAll(games);
   }
 
