@@ -41,6 +41,7 @@ public class XMLCodecEngineTest {
     File file = new File(DIR, "xmlcodec-dummy-test.xml");
 
     Game game = new Game();
+    game.setId(file);
     game.setName("xmlcodec dummy test");
 
     Award award = new Award();
@@ -51,7 +52,7 @@ public class XMLCodecEngineTest {
     game.addAward(award);
 
     IEngine engine = new XMLCodecEngine();
-    engine.saveGame(game, file);
+    engine.saveGame(game);
 
   }
 

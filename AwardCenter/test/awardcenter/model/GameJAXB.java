@@ -18,7 +18,7 @@ public class GameJAXB extends Game {
 
   public GameJAXB(Game game) {
 
-    setFile(game.getFile());
+    setId(game.getId());
     setName(game.getName());
     setDeveloper(game.getDeveloper());
     setPublisher(game.getPublisher());

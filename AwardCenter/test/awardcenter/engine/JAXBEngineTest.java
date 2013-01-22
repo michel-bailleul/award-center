@@ -42,6 +42,7 @@ public class JAXBEngineTest {
     File file = new File(DIR, "jaxb-dummy-test.xml");
 
     Game game = new Game();
+    game.setId(file);
     game.setName("jaxb dummy test");
     
     Award award = new Award();
@@ -52,7 +53,7 @@ public class JAXBEngineTest {
     game.addAward(award);
 
     IEngine engine = new JAXBEngine();
-    engine.saveGame(game, file);
+    engine.saveGame(game);
 
   }
 

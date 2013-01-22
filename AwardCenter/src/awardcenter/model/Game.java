@@ -4,7 +4,6 @@ package awardcenter.model;
 import static util.misc.StringUtil.nbsp;
 
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,16 +24,16 @@ public class Game extends Bean implements Comparable<Game> {
 
   // ———————————————————————————————————————————————————————————————— Properties
 
-  // file ----------------------------------------------------------------------
+  // id ------------------------------------------------------------------------
 
-  private transient File file;
+  private transient Object id;
 
-  public File getFile() {
-    return file;
+  public Object getId() {
+    return id;
   }
 
-  public void setFile(File file) {
-    this.file = file;
+  public void setId(Object file) {
+    this.id = file;
   }
 
   // name ----------------------------------------------------------------------
@@ -237,7 +236,7 @@ public class Game extends Bean implements Comparable<Game> {
 
     Game clone = new Game();
 
-    clone.setFile(file);
+    clone.setId(id);
     clone.setName(name);
     clone.setDeveloper(developer);
     clone.setPublisher(publisher);

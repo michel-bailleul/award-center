@@ -1,10 +1,7 @@
 package awardcenter.engine;
 
 
-import java.io.File;
-
 import util.resource.Logger;
-
 
 import awardcenter.model.Game;
 
@@ -13,10 +10,10 @@ public interface IEngine {
 
   Logger logger = Logger.getLogger(IEngine.class);
 
-  File getDir();
+  Object getRoot();
 
-  Game loadGame(File file);
+  Game loadGame(Object id);
 
-  boolean saveGame(Game game, File file);
+  boolean saveGame(Game game);
 
 }

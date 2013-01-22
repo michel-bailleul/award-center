@@ -39,10 +39,11 @@ public class XStreamEngineTest {
 
   @Test
   public void testSaveGame() {
-    
+
     File file = new File(DIR, "xstream-dummy-test.xml");
 
     Game game = new Game();
+    game.setId(file);
     game.setName("xstream dummy test");
 
     Award award = new Award();
@@ -53,7 +54,7 @@ public class XStreamEngineTest {
     game.addAward(award);
 
     IEngine engine = new XStreamEngine();
-    engine.saveGame(game, file);
+    engine.saveGame(game);
 
   }
 
@@ -77,12 +78,13 @@ public class XStreamEngineTest {
 //    IEngine targetEngine = new XMLCodecEngine();
     IEngine targetEngine = new JAXBEngine();
 
-    for (File sourceFile : sourceEngine.getDir().listFiles()) {
+    for (File sourceFile : ((File)sourceEngine.getRoot()).listFiles()) {
       System.out.printf("Load [%s]%n", sourceFile.getName());
       Game game = sourceEngine.loadGame(sourceFile);
       System.out.printf("Copy [%s]%n", game.getName());
-      File targetFile = new File(targetEngine.getDir(), sourceFile.getName());
-      targetEngine.saveGame(game, targetFile);
+      File targetFile = new File((File)targetEngine.getRoot(), sourceFile.getName());
+      game.setId(targetFile);
+      targetEngine.saveGame(game);
     }
 
   }

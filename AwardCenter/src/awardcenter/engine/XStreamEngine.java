@@ -24,7 +24,7 @@ import awardcenter.model.Award;
 import awardcenter.model.Game;
 
 
-public final class XStreamEngine implements IEngine {
+public final class XStreamEngine extends FileEngine {
 
 
   // —————————————————————————————————————————————————————————————— Constructors
@@ -47,15 +47,16 @@ public final class XStreamEngine implements IEngine {
 
 
   @Override
-  public File getDir() {
+  public File getRoot() {
     return new File("data/xstream");
   }
 
 
   @Override
-  public Game loadGame(File file) {
+  public Game loadGame(Object id) {
 
     Game game = null;
+    File file = getFile(id);
 
     try {
       InputStream is = new FileInputStream(file);
@@ -76,7 +77,9 @@ public final class XStreamEngine implements IEngine {
 
 
   @Override
-  public boolean saveGame(Game game, File file) {
+  public boolean saveGame(Game game) {
+
+    File file = getFile(game);
 
     try {
       OutputStream os = new FileOutputStream(file);

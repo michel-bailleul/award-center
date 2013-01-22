@@ -90,7 +90,7 @@ public class AwardModel {
 
   private List<Game> _loadGames(File dir) {
 
-    dir = (dir == null) ? engine.getDir() : dir;
+    dir = (dir == null) ? (File) engine.getRoot() : dir;
 
     File[] files = dir.listFiles(
       new FilenameFilter() {
@@ -114,7 +114,7 @@ public class AwardModel {
         games.add(game);
         loaded++;
         logger.info("Loading [{0}]", game.getName());
-        game.setFile(file);
+        game.setId(file);
         // Game image
         if (!isEmpty(game.getImage())) {
           game.setBytes(_getBytes(game));
@@ -206,22 +206,24 @@ public class AwardModel {
 
       String fileName = clean(game.getName().replace(NBSP, '-')) + ".xml";
       File trash = null;
-      File file = game.getFile();
-      game.setFile(null);
-      dir = (dir == null) ? engine.getDir() : dir;
+      Object id = game.getId();
+      File file = (File) id;
+      game.setId(null);
+      dir = (dir == null) ? (File) engine.getRoot() : dir;
 
       if (file == null || !file.getName().equals(fileName) || !file.getParentFile().equals(dir)) {
         trash = file;
         file = new File(dir, fileName);
       }
 
-      if (isSaved = engine.saveGame(game, file)) {
+      game.setId(file);
+
+      if (isSaved = engine.saveGame(game)) {
         logger.info("{0} [{1}]", mode, game.getName());
       }
 
       if (mode != Mode.EXPORT) {
         // Game image
-        game.setFile(file);
         game.setImage(null);
         game.setBytes(bytes);
         game.setActive(true);
@@ -237,6 +239,9 @@ public class AwardModel {
           trash.delete();
           logger.info("Deleting [{0}]", trash.getAbsolutePath());
         }
+      }
+      else {
+        game.setId(id);
       }
     }
 
@@ -274,7 +279,7 @@ public class AwardModel {
     if (game != null) {
       games.remove(game);
       logger.info("Removing [{0}]", game.getName());
-      File file = game.getFile();
+      File file = (File) game.getId();
       if (file != null) {
         file.delete();
         logger.info("Deleting [{0}]", file.getAbsolutePath());

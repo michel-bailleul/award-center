@@ -31,7 +31,7 @@ import awardcenter.model.Award;
 import awardcenter.model.Game;
 
 
-public final class JAXBEngine implements IEngine {
+public final class JAXBEngine extends FileEngine {
 
 
   // ————————————————————————————————————————————————————————————— Inner Classes
@@ -44,7 +44,7 @@ public final class JAXBEngine implements IEngine {
     private GameJAXB() { }
 
     private GameJAXB(Game game) {
-      setFile(game.getFile());
+      setId(game.getId());
       setName(game.getName());
       setDeveloper(game.getDeveloper());
       setPublisher(game.getPublisher());
@@ -89,15 +89,17 @@ public final class JAXBEngine implements IEngine {
 
 
   @Override
-  public File getDir() {
-    return new File("data/jaxb");
+  public File getRoot() {
+//    return new File("data/jaxb");
+    return new File("F:/data/jaxb");
   }
 
 
   @Override
-  public Game loadGame(File file) {
+  public Game loadGame(Object id) {
 
     Game game = null;
+    File file = getFile(id);
 
     try {
       InputStream is = new FileInputStream(file);
@@ -118,7 +120,9 @@ public final class JAXBEngine implements IEngine {
 
 
   @Override
-  public boolean saveGame(Game game, File file) {
+  public boolean saveGame(Game game) {
+
+    File file = getFile(game);
 
     try {
       OutputStream os = new FileOutputStream(file);

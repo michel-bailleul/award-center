@@ -14,20 +14,22 @@ import java.io.FileOutputStream;
 import awardcenter.model.Game;
 
 
-public final class XMLCodecEngine implements IEngine {
+public final class XMLCodecEngine extends FileEngine {
 
 
   @Override
-  public File getDir() {
+  public File getRoot() {
     return new File("data/xmlcodec");
   }
 
 
   @Override
-  public Game loadGame(File file) {
+  public Game loadGame(Object id) {
 
     Game game = null;
     XMLDecoder decoder = null;
+    File file = getFile(id);
+
     ExceptionListener el = new ExceptionListener() {
       @Override
       public void exceptionThrown(Exception e) {
@@ -59,9 +61,10 @@ public final class XMLCodecEngine implements IEngine {
 
 
   @Override
-  public boolean saveGame(Game game, File file) {
+  public boolean saveGame(Game game) {
 
     XMLEncoder encoder = null;
+    File file = getFile(game);
 
     try {
       FileOutputStream fos = new FileOutputStream(file);
