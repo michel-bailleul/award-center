@@ -16,7 +16,6 @@ import static util.resource.ResourceUtil.getMsg;
 
 
 import java.io.File;
-import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -88,33 +87,61 @@ public class AwardModel {
   // ——————————————————————————————————————————————————————————— Private Methods
 
 
-  private List<Game> _loadGames(File dir) {
+  /* version 2.0 */
+  private List<Game> _loadGames(Object root) {
 
-    dir = (dir == null) ? (File) engine.getRoot() : dir;
+    long time = currentTimeMillis();
 
-    File[] files = dir.listFiles(
-      new FilenameFilter() {
-        @Override
-        public boolean accept(File dir, String name) {
-          return name.toLowerCase().endsWith(".xml");
-        }
+    int loaded = 0;
+    List<Game> games = engine.loadGames(root);
+
+    for (Game game : games) {
+      loaded++;
+      // Game image
+      if (!isEmpty(game.getImage())) {
+        game.setBytes(_getBytes(game));
       }
-    );
+      // Award images
+      for (Award award : game.getAwards()) {
+        if (!isEmpty(award.getImage())) {
+          award.setActive(false);
+          award.setBytes(_getBytes(award));
+          award.setImage(null);
+        }
+        award.setDirty(false);
+        award.setActive(true);
+      }
+      game.setImage(null);
+      game.setDirty(false);
+      game.setActive(true);
+    }
 
+    logger.info("{0} game{0, choice, |1<s} loaded in {1,number,0} ms", loaded, currentTimeMillis() - time);
+
+    return games;
+
+  }
+
+
+  /* version 1.0 : older but faster [10%]
+  private List<Game> _loadGames(Object root) {
+
+    long time = currentTimeMillis();
+
+    int loaded = 0;
     Game game = null;
     List<Game> games = new ArrayList<Game>();
+    Object[] ids = engine.getIds(root);
 
-    if (!ArrayUtil.isEmpty(files)) {
-      int loaded = 0;
-      long time = currentTimeMillis();
-      for (File file : files) {
-        if ((game = engine.loadGame(file)) == null) {
+    if (!ArrayUtil.isEmpty(ids)) {
+      for (Object id : ids) {
+        if ((game = engine.loadGame(id)) == null) {
           continue;
         }
         games.add(game);
         loaded++;
         logger.info("Loading [{0}]", game.getName());
-        game.setId(file);
+        game.setId(id);
         // Game image
         if (!isEmpty(game.getImage())) {
           game.setBytes(_getBytes(game));
@@ -133,12 +160,14 @@ public class AwardModel {
         game.setDirty(false);
         game.setActive(true);
       }
-      logger.info("{0} game{0, choice, |1<s} loaded in {1,number,0} ms", loaded, currentTimeMillis() - time);
     }
+
+    logger.info("{0} game{0, choice, |1<s} loaded in {1,number,0} ms", loaded, currentTimeMillis() - time);
 
     return games;
 
   }
+  */
 
 
   private byte[] _getBytes(Object o) {
@@ -278,12 +307,8 @@ public class AwardModel {
 
     if (game != null) {
       games.remove(game);
+      engine.removeGame(game);
       logger.info("Removing [{0}]", game.getName());
-      File file = (File) game.getId();
-      if (file != null) {
-        file.delete();
-        logger.info("Deleting [{0}]", file.getAbsolutePath());
-      }
     }
 
   }
@@ -336,7 +361,7 @@ public class AwardModel {
   }
 
 
-  public List<Game> loadGames(File dir) {
+  public List<Game> loadGames(Object dir) {
     return _loadGames(dir);
   }
 

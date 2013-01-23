@@ -185,6 +185,9 @@ public class AwardCenterApplication extends Application {
   }
 
 
+  // ———————————————————————————————————————————————————————————— Public Methods
+
+
   public Preferences getPreferences() {
     return preferences;
   }
