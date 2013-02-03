@@ -3,16 +3,17 @@
     <active>false</active>
     <dirty>false</dirty>
     <developer>Backbone Entertainment</developer>
+    <id xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">data\jaxb\Super-Street-Fighter-2-Turbo-HD-Remix.xml</id>
     <image>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</image>
     <name>Super Street Fighter 2 Turbo HD Remix</name>
     <publisher>Capcom</publisher>
     <rating>7</rating>
-    <score>0</score>
+    <score>10</score>
     <scoreMax>200</scoreMax>
     <award-list>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Remporter la victoire en mode Arcade</description>
@@ -25,8 +26,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Remporter la victoire face à Akuma en mode Arcade</description>
@@ -39,8 +40,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Disputer 5 parties avec classement en ligne</description>
@@ -53,8 +54,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Remporter 20 parties avec classement en ligne</description>
@@ -67,8 +68,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Remporter 100 parties avec classement en ligne</description>
@@ -81,8 +82,8 @@
             <value>30</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Remporter une partie avec classement en ligne avec tous les personnages</description>
@@ -95,8 +96,8 @@
             <value>30</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Réaliser 5 rounds parfaits en mode Histoire (niveau de difficulté indifférent, pas d’adversaires)</description>
@@ -109,8 +110,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Projeter l’adversaire dix fois au cours de la même partie</description>
@@ -123,9 +124,9 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
-            <achieved>false</achieved>
+            <active>false</active>
+            <dirty>false</dirty>
+            <achieved>true</achieved>
             <added>false</added>
             <description>Infliger un coup fatal en mode Arcade</description>
             <image>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</image>
@@ -137,8 +138,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Battre un adversaire en moins de 15 secondes en mode Arcade 1 joueur</description>
@@ -151,8 +152,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Réaliser un combo de 7 coups ou plus</description>
@@ -165,8 +166,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Battre Sagat avec le redoutable shoryuken de Ryu</description>

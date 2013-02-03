@@ -3,6 +3,7 @@
     <active>false</active>
     <dirty>false</dirty>
     <developer>Monolith Productions</developer>
+    <id xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">data\jaxb\F.E.A.R.-2=-Project-Origin.xml</id>
     <image>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</image>
     <name>F.E.A.R. 2: Project Origin</name>
     <publisher>Warner Bros Interactive</publisher>
@@ -11,8 +12,8 @@
     <scoreMax>1230</scoreMax>
     <award-list>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Tuez 10 ennemis d'un tir dans la tête avec le fusil de sniper</description>
@@ -25,8 +26,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Grillez 10 ennemis avec un canon au napalm</description>
@@ -39,8 +40,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Tuez 10 ennemis en mêlée</description>
@@ -53,8 +54,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Collez 10 ennemis au mur avec le Hammerhead</description>
@@ -67,8 +68,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Découpez 10 ennemis avec le laser</description>
@@ -81,8 +82,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Tuez 10 ennemis grâce à des opportunités de combat</description>
@@ -95,8 +96,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Tuez 4 ennemis à l'aide d'une seule grenade</description>
@@ -109,8 +110,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Tuez 4 ennemis avec une seule utilisation du ralenti</description>
@@ -123,8 +124,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Utilisez 50 éléments de couverture interactifs</description>
@@ -137,8 +138,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Suicidez-vous 5 fois</description>
@@ -151,8 +152,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Terminez la mission à n'importe quel niveau de difficulté : Sanctuaire</description>
@@ -165,8 +166,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Terminez la mission à n'importe quel niveau de difficulté : Réveil</description>
@@ -179,8 +180,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Terminez la mission à n'importe quel niveau de difficulté : Découverte</description>
@@ -193,8 +194,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Terminez la mission à n'importe quel niveau de difficulté : Retrait</description>
@@ -207,8 +208,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Terminez la mission à n'importe quel niveau de difficulté : Replica</description>
@@ -221,8 +222,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Terminez la mission à n'importe quel niveau de difficulté : Ruines</description>
@@ -235,8 +236,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Terminez la mission à n'importe quel niveau de difficulté : Chef</description>
@@ -249,8 +250,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Terminez la mission à n'importe quel niveau de difficulté : Primaire</description>
@@ -263,8 +264,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Terminez la mission à n'importe quel niveau de difficulté : Infirmerie</description>
@@ -277,8 +278,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Terminez la mission à n'importe quel niveau de difficulté : Snake Fist</description>
@@ -291,8 +292,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Terminez la mission à n'importe quel niveau de difficulté : Keegan</description>
@@ -305,8 +306,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Terminez la mission à n'importe quel niveau de difficulté : Épicentre</description>
@@ -319,8 +320,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Terminez la mission à n'importe quel niveau de difficulté : Approche</description>
@@ -333,8 +334,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Terminez la mission à n'importe quel niveau de difficulté : Apogée</description>
@@ -347,8 +348,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Terminez toutes les missions au plus haut niveau de difficulté</description>
@@ -361,8 +362,8 @@
             <value>30</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Récoltez tous les injecteurs réflexes du jeu</description>
@@ -375,8 +376,8 @@
             <value>30</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Récoltez 25 % des dossiers de renseignements trouvés dans le jeu</description>
@@ -389,8 +390,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Récoltez 50 % des dossiers de renseignements trouvés dans le jeu</description>
@@ -403,8 +404,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Récoltez 75 % des dossiers de renseignements trouvés dans le jeu</description>
@@ -417,8 +418,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>true</achieved>
             <added>false</added>
             <description>Récoltez 100 % des dossiers de renseignements trouvés dans le jeu</description>
@@ -431,8 +432,8 @@
             <value>30</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Promotion au rang : Soldat</description>
@@ -445,8 +446,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Promotion au rang : Sous-lieutenant</description>
@@ -459,8 +460,8 @@
             <value>30</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Promotion au rang : Général quatre étoiles</description>
@@ -473,8 +474,8 @@
             <value>60</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Intégralité des succès multijoueurs déverrouillés</description>
@@ -487,8 +488,8 @@
             <value>100</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuez 20 ennemis pendant une partie avec classement</description>
@@ -501,8 +502,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Obtenez le plus haut score dans 3 parties avec classement d'affilée dans n'importe quel mode de jeu</description>
@@ -515,8 +516,8 @@
             <value>35</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuez le même joueur 5 fois pendant une partie avec classement</description>
@@ -529,8 +530,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Posez 3 fois des charges C4 dans une partie de Sécurité intégrée avec classement</description>
@@ -543,8 +544,8 @@
             <value>30</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Désamorcez 3 fois des charges C4 dans une partie de Sécurité intégrée avec classement</description>
@@ -557,8 +558,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Capturez 10 fois l'APH pendant une partie avec classement</description>
@@ -571,8 +572,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Soyez le seul joueur des deux équipes à capturer un APH pendant une partie Blitz avec classement</description>
@@ -585,8 +586,8 @@
             <value>30</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Capturez 10 fois un point de contrôle pendant une partie Contrôle avec classement</description>
@@ -599,8 +600,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Défendez 10 fois un point de contrôle pendant une partie Contrôle avec classement</description>
@@ -613,8 +614,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Survivez à l'intégralité d'un Deathmatch avec classement</description>
@@ -627,8 +628,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuez 3 joueurs lorsque vous êtes aveuglé par une grenade EMP pendant une partie avec classement</description>
@@ -641,8 +642,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Jouez 8 heures en partie avec classement</description>
@@ -655,8 +656,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuez plus souvent que vous n'êtes tué dans une partie</description>
@@ -669,8 +670,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Détruisez 100 troupes de combat tout en pilotant une armure motorisée</description>
@@ -683,8 +684,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Détruisez 2 armures motorisées ennemies pendant la même manche avec une arme portative</description>
@@ -697,11 +698,11 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
-            <description></description>
+            <description>Vivez quatre nouvelles missions solo dans cette campagne additionnelle téléchargeable pour F.E.A.R. 2 ! Reprenant les événements développés dans le jeu complet, vous allez découvrir le chaos suivant le passage d’Alma selon une toute nouvelle perspective : celle du Soldat Replica 813. Votre mission commence par le parachutage orbital d‘une super-armure pour renforcer votre propre faction Replica… Mais méfiez-vous des apparences. Les événements surnaturels sont légion dans les décombres apocalyptiques d’Auburn. Une autre voix vous appelle et vous incite à défier les ordres du commandement de Replica. Trouvez la réponse à cette énigme… et à bien d’autres dans la campagne téléchargeable F.E.A.R. 2: Reborn ! Cet article ne peut pas être remboursé. Pour plus d'informations, voir www.xbox.com/live/accounts.</description>
             <image>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</image>
             <index>49</index>
             <label>● DLC Pack : Reborn</label>
@@ -712,8 +713,8 @@
             <value>0</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Mission 1 : Foxtrot 813 : Détruisez les hélicoptères</description>
@@ -726,8 +727,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Finir campagne ‘Reborn’</description>
@@ -740,8 +741,8 @@
             <value>35</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Mission 4 : Renaissance : détruisez une unité d'AME en moins de 30 secs</description>
@@ -754,8 +755,8 @@
             <value>30</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Mission 4 : Renaissance : tuez les DRC avant atterrissage</description>
@@ -768,8 +769,8 @@
             <value>30</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Mission 3 : Influence : fermez les panneaux d'égouts</description>
@@ -782,8 +783,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Mission 1 : Foxtrot 813 : terminez le tableau à pied sans AME</description>
@@ -796,8 +797,8 @@
             <value>30</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Mission 2 : Contact : fuyez les forces Replica sans tuer d'Armure lourde</description>
@@ -810,8 +811,8 @@
             <value>30</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Thème 'Miniature Replica Soldier' plus fort</description>
@@ -824,8 +825,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Mission 3 : Influence : tuez un ennemi au véhicule explosif</description>
