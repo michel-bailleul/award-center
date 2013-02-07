@@ -3,7 +3,6 @@ package util.resource;
 
 import static org.apache.commons.logging.LogFactory.getFactory;
 
-import static util.collection.ArrayUtil.isEmpty;
 import static util.misc.StringUtil.formatMessage;
 import static util.resource.ResourceUtil.getMsg;
 
@@ -52,14 +51,7 @@ public final class Logger {
 
   private void _log(Level level, String msg, Throwable t, Object... params) {
 
-    String message;
-
-    if (!isEmpty(params)) {
-      message = formatMessage(msg, params);
-    }
-    else {
-      message = msg;
-    }
+    String message = formatMessage(msg, params);
 
     if (logger != null) {
       switch (level) {

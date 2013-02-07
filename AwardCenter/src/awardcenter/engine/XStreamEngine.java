@@ -8,11 +8,8 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
@@ -43,33 +40,15 @@ public final class XStreamEngine extends FileEngine {
   private XStream xstream;
 
 
-  // ———————————————————————————————————————————————————————————— Public Methods
+  // ————————————————————————————————————————————————————————— Protected Methods
 
 
   @Override
-  public File getRoot() {
-    return new File("data/xstream");
-  }
+  protected Game loadFromFile(File file) throws Exception {
 
-
-  @Override
-  public Game loadGame(Object id) {
-
-    Game game = null;
-    File file = getFile(id);
-
-    try {
-      InputStream is = new FileInputStream(file);
-      Reader reader = new BufferedReader(new InputStreamReader(is, UTF_8));
-      game = (Game) xstream.fromXML(reader);
-      reader.close();
-    }
-    catch (FileNotFoundException x) {
-      logger.error("File Not Found [{0}]", x, file.getName());
-    }
-    catch (Exception x) {
-      logger.error("Unexpected Exception [{0}]", x, file.getName());
-    }
+    Reader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), UTF_8));
+    Game game = (Game) xstream.fromXML(reader);
+    reader.close();
 
     return game;
 
@@ -77,26 +56,21 @@ public final class XStreamEngine extends FileEngine {
 
 
   @Override
-  public boolean saveGame(Game game) {
+  protected void saveToFile(Game game, File file) throws Exception {
 
-    File file = getFile(game);
+    Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), UTF_8));
+    xstream.toXML(game, writer);
+    writer.close();
 
-    try {
-      OutputStream os = new FileOutputStream(file);
-      Writer writer = new BufferedWriter(new OutputStreamWriter(os, UTF_8));
-      xstream.toXML(game, writer);
-      writer.close();
-      return true;
-    }
-    catch (FileNotFoundException x) {
-      logger.error("File Not Found [{0}]", x, file.getName());
-    }
-    catch (Exception x) {
-      logger.error("Unexpected Exception [{0}]", x, file.getName());
-    }
+  }
 
-    return false;
 
+  // ———————————————————————————————————————————————————————————— Public Methods
+
+
+  @Override
+  public File getRoot() {
+    return new File("data/xstream");
   }
 
 

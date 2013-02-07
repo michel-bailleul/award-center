@@ -231,7 +231,7 @@ public final class StringUtil {
    * @see MessageFormat#format(String, Object...)
    */
   public static String formatMessage(String msg, Object... params) {
-    return ArrayUtil.isEmpty(params) || isEmpty(msg) ? msg : MessageFormat.format(msg.replace("'", "''"), params);
+    return isEmpty(msg) ? msg : MessageFormat.format(msg.replace("'", "''"), params);
   }
 
 

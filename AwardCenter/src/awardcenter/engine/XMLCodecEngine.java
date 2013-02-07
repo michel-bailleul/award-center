@@ -8,7 +8,6 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 import awardcenter.model.Game;
@@ -17,18 +16,11 @@ import awardcenter.model.Game;
 public final class XMLCodecEngine extends FileEngine {
 
 
-  @Override
-  public File getRoot() {
-    return new File("data/xmlcodec");
-  }
+  // ————————————————————————————————————————————————————————— Protected Methods
 
 
   @Override
-  public Game loadGame(Object id) {
-
-    Game game = null;
-    XMLDecoder decoder = null;
-    File file = getFile(id);
+  protected Game loadFromFile(File file) throws Exception {
 
     ExceptionListener el = new ExceptionListener() {
       @Override
@@ -37,23 +29,9 @@ public final class XMLCodecEngine extends FileEngine {
       }
     };
 
-    try {
-      FileInputStream fis = new FileInputStream(file);
-      BufferedInputStream bis = new BufferedInputStream(fis);
-      decoder = new XMLDecoder(bis, null, el);
-      game = (Game)decoder.readObject();
-    }
-    catch (FileNotFoundException x) {
-      logger.error("File Not Found [{0}]", x, file.getName());
-    }
-    catch (Exception x) {
-      logger.error("Unexpected Exception [{0}]", x, file.getName());
-    }
-    finally {
-      if (decoder != null) {
-        decoder.close();
-      }
-    }
+    XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(file)), null, el);
+    Game game = (Game)decoder.readObject();
+    decoder.close();
 
     return game;
 
@@ -61,32 +39,21 @@ public final class XMLCodecEngine extends FileEngine {
 
 
   @Override
-  public boolean saveGame(Game game) {
+  protected void saveToFile(Game game, File file) throws Exception {
 
-    XMLEncoder encoder = null;
-    File file = getFile(game);
+    XMLEncoder encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(file)));
+    encoder.writeObject(game);
+    encoder.close();
 
-    try {
-      FileOutputStream fos = new FileOutputStream(file);
-      BufferedOutputStream bos = new BufferedOutputStream(fos);
-      encoder = new XMLEncoder(bos);
-      encoder.writeObject(game);
-      return true;
-    }
-    catch (FileNotFoundException x) {
-      logger.error("File Not Found [{0}]", x, file.getName());
-    }
-    catch (Exception x) {
-      logger.error("Unexpected Exception [{0}]", x, file.getName());
-    }
-    finally {
-      if (encoder != null) {
-        encoder.close();
-      }
-    }
+  }
 
-    return false;
 
+  // ———————————————————————————————————————————————————————————— Public Methods
+
+
+  @Override
+  public File getRoot() {
+    return new File("data/xmlcodec");
   }
 
 
