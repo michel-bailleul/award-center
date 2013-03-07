@@ -6,7 +6,5 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/COMMONS_LOGGING"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/LOG4J"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/COMMONS_BEANUTILS"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/COMMONS_COLLECTIONS"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

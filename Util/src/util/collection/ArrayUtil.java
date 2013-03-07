@@ -1,6 +1,11 @@
 package util.collection;
 
 
+import static util.bean.BeanUtil.getGetter;
+import static util.bean.BeanUtil.invokeMethod;
+
+
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -10,8 +15,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.beanutils.BeanComparator;
-import org.apache.commons.beanutils.PropertyUtils;
+import util.bean.BeanComparator;
+import util.misc.StringUtil;
 
 
 public final class ArrayUtil {
@@ -146,14 +151,14 @@ public final class ArrayUtil {
 
 
   /**
-   * Permuter 2 objets d'un tableau
+   * Permute 2 elements d'un tableau
    *
    * @param a - Tableau
    * @param i - 1er index
    * @param j - 2nd index
    */
-  public static void swap(Object a[], int i, int j) {
-    Object t = a[i];
+  public static <T> void swap(T[] a, int i, int j) {
+    T t = a[i];
     a[i] = a[j];
     a[j] = t;
   }
@@ -167,41 +172,18 @@ public final class ArrayUtil {
    * @param isAsc       - Tri ascendant / descendant
    * @param isNullFisrt - Valeurs [{@code null}] au debut / a la fin
    */
-  public static void sort(Object[] array, String property, boolean isAsc, boolean isNullFisrt) {
+  public static <T> void sort(T[] array, String property, boolean isAsc, boolean isNullFisrt) {
 
-    if (!isEmpty(array) && array.length > 1) {
-      // traitement des valeurs 'null'
-      int j = isNullFisrt ? 0 : array.length;
+    if (!isEmpty(array) && array.length > 1 && !StringUtil.isEmpty(property)) {
+      Comparator<T> c = null;
       try {
-        for (int i=0; i < array.length; i++) {
-          Object o = array[i];
-          Object value = (o != null) ? PropertyUtils.getProperty(o, property) : null;
-          if (value == null) {
-            swap(array, i, isNullFisrt ? j++ : --j);
-            if (!isNullFisrt) {
-              if (i < j) {
-                i--; // il faut rester a la meme position pour traiter le nouvel element
-              }
-              else {
-                break; // ou sortir si tous les elements ont ete traites
-              }
-            }
-          }
-        }
+        c = new BeanComparator<T>(array.getClass().getComponentType(), property, isAsc, isNullFisrt);
       }
-      catch (ReflectiveOperationException x) {
-        x.printStackTrace();
+      catch (IllegalStateException x) {
+        x.printStackTrace(); // TODO: log
       }
-      // sens du tri
-      @SuppressWarnings("unchecked")
-      Comparator<Object> c = (isAsc) ? new BeanComparator(property) :
-                                       new BeanComparator(property, Collections.reverseOrder());
-      // s'il y a des valeurs 'null', elles sont ecartees du tri
-      if (isNullFisrt) {
-        Arrays.sort(array, j, array.length, c);
-      }
-      else {
-        Arrays.sort(array, 0, j, c);
+      if (c != null) {
+        Arrays.sort(array, 0, array.length, c);
       }
     }
 
@@ -214,9 +196,9 @@ public final class ArrayUtil {
    * @param array    - Tableau a trier
    * @param property - Propriete cible du tri
    *
-   * @see #sort(Object[], String, boolean, boolean)
+   * @see #sort(T[], String, boolean, boolean)
    */
-  public static void sort(Object[] array, String property) {
+  public static <T> void sort(T[] array, String property) {
     sort(array, property, true, true);
   }
 
@@ -232,28 +214,27 @@ public final class ArrayUtil {
    *
    * @param array    - Le tableau de donnees
    * @param property - Le nom de la propriete qui sert de critere de regroupement
-   * @return Une map de la forme [key:property;value:Object[]]
+   *
+   * @return Une map de la forme [key:property;value:T[]]
    */
   public static <T> Map<Object,T[]> groupBy(T[] array, String property) {
 
     Map<Object,T[]> mapTab = new HashMap<Object,T[]>();
 
-    if (!isEmpty(array)) {
+    if (!isEmpty(array) && !StringUtil.isEmpty(property)) {
       Map<Object,List<T>> mapList = new HashMap<Object,List<T>>();
-      try {
+      Method method = getGetter(array.getClass().getComponentType(), property);
+      if (method != null) {
         for (int i=0; i < array.length; i++) {
           T o = array[i];
           if (o != null) {
-            Object key = PropertyUtils.getProperty(o, property);
+            Object key = invokeMethod(o, method);
             if (!mapList.containsKey(key)) {
               mapList.put(key, new ArrayList<T>()); // liste temporaire
             }
             mapList.get(key).add(o); // ajout du bean au groupe
           }
         }
-      }
-      catch (ReflectiveOperationException x) {
-        x.printStackTrace();
       }
       // substitution de la liste temporaire par son tableau equivalent
       Iterator<Object> it = mapList.keySet().iterator();

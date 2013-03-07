@@ -33,7 +33,7 @@ public class TestArrayUtil {
   // —————————————————————————————————————————————————————————————— Test Methods
 
 
-//  @Test
+  @Test
   public void isEmptyObject() {
 
     Object[] array = null;
@@ -57,19 +57,19 @@ public class TestArrayUtil {
   }
 
 
-//  @Test
+  @Test
   public void sort() {
 
     Product[] array = new Product[8];
 
-    array[0] = new Product("g", "G", 0);
+    array[0] = new Product("g", "Red", 0);
     array[1] = new Product("e", null, 0);
-    array[2] = new Product("c", "C", 0);
-    array[3] = new Product("a", "A", 0);
-    array[4] = new Product("h", "H", 0);
-    array[5] = new Product("f", "F", 0);
+    array[2] = new Product("c", "Orange", 0);
+    array[3] = new Product("a", "Blue", 0);
+    array[4] = new Product("h", "Yellow", 0);
+    array[5] = new Product("f", "Pink", 0);
     array[6] = new Product("b", null, 0);
-    array[7] = new Product("d", "D", 0);
+    array[7] = new Product("d", "Green", 0);
 
     System.out.println(Arrays.toString(array));
     ArrayUtil.sort(array, "color", true, true);
@@ -78,7 +78,7 @@ public class TestArrayUtil {
   }
 
 
-//  @Test
+  @Test
   public void groupBy() {
 
     Product[] array = new Product[8];
