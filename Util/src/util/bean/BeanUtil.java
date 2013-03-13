@@ -1,14 +1,15 @@
 package util.bean;
 
 
+import static java.beans.Introspector.getBeanInfo;
+import static util.misc.StringUtil.isEmptyTrim;
+
+
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
-import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
-import util.misc.StringUtil;
 
 
 public final class BeanUtil {
@@ -25,17 +26,17 @@ public final class BeanUtil {
 
   private static Method _getGetterOrSetter(Class<?> klass, String name, boolean isGetter) {
 
-    if (klass == null || StringUtil.isEmpty(name)) {
-      throw new IllegalArgumentException("class or name is null"); // TODO: externaliser
+    if (klass == null || isEmptyTrim(name)) {
+      throw new IllegalArgumentException("class or property is null"); // TODO: externaliser
     }
 
     BeanInfo info = null;
 
     try {
-      info = Introspector.getBeanInfo(klass);
+      info = getBeanInfo(klass);
     }
     catch (IntrospectionException x) {
-      x.printStackTrace(); //TODO: log
+      x.printStackTrace(); // TODO: log
     }
 
     if (info != null) {

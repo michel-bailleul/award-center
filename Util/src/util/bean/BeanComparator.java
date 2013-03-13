@@ -30,7 +30,7 @@ public class BeanComparator<T> implements Comparator<T> {
     this.isNullFirst = isNullFirst;
     method = getGetter(klass, name);
     if (method == null) {
-      throw new IllegalStateException("unable to find method"); // TODO: externaliser
+      throw new IllegalStateException("unable to find getter for property: " + name); // TODO: externaliser
     }
   }
 
@@ -52,22 +52,21 @@ public class BeanComparator<T> implements Comparator<T> {
   @SuppressWarnings({ "unchecked", "rawtypes" })
   public int compare(T o1, T o2) {
 
-    int x = 0;
-    Object value1 = invokeMethod(o1, method);
-    Object value2 = invokeMethod(o2, method);
+    int i = 0;
+    Object v1 = invokeMethod(o1, method);
+    Object v2 = invokeMethod(o2, method);
 
-    if (value1 != null && value2 != null) {
-      x = isAsc ? ((Comparable)value1).compareTo(value2) :
-                  ((Comparable)value2).compareTo(value1);
+    if (v1 != null && v2 != null) {
+      i = isAsc ? ((Comparable)v1).compareTo(v2) : ((Comparable)v2).compareTo(v1);
     }
-    else if (value1 != null) {
-      x = isNullFirst ? 1 : -1;
+    else if (v1 != null) {
+      i = isNullFirst ? 1 : -1;
     }
-    else if (value2 != null) {
-      x = isNullFirst ? -1 : 1;
+    else if (v2 != null) {
+      i = isNullFirst ? -1 : 1;
     }
 
-    return x;
+    return i;
 
   }
 
