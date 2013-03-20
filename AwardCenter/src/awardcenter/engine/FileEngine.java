@@ -1,7 +1,9 @@
 package awardcenter.engine;
 
 
+import static util.io.FileUtil.clean;
 import static util.misc.StringUtil.formatMessage;
+import static util.misc.StringUtil.NBSP;
 
 
 import java.io.File;
@@ -20,6 +22,12 @@ public abstract class FileEngine implements IEngine {
 
 
   private static final String DEFAULT_EXT = ".xml";
+
+
+  // ———————————————————————————————————————————————————————— Instance Variables
+
+
+  private File root;
 
 
   // —————————————————————————————————————————————————————————— Abstract Methods
@@ -50,7 +58,7 @@ public abstract class FileEngine implements IEngine {
   // ——————————————————————————————————————————————————————————— Private Methods
 
 
-  private File getFile(Object id) {
+  private File _getFile(Object id) {
 
     if (id instanceof File) {
       return (File) id;
@@ -62,8 +70,8 @@ public abstract class FileEngine implements IEngine {
   }
 
 
-  private File getFile(Game game) {
-    return getFile(game.getId());
+  private File _getFile(Game game) {
+    return _getFile(game.getId());
   }
 
 
@@ -75,7 +83,17 @@ public abstract class FileEngine implements IEngine {
   }
 
 
+  protected void setRoot(String root) {
+    this.root = new File(root);
+  }
+
+
   // ———————————————————————————————————————————————————————————— Public Methods
+
+
+  public File getRoot() {
+    return root;
+  }
 
 
   @Override
@@ -135,7 +153,7 @@ public abstract class FileEngine implements IEngine {
   public Game loadGame(Object id) {
 
     Game game = null;
-    File file = getFile(id);
+    File file = _getFile(id);
 
     try {
       game = loadFromFile(file);
@@ -155,11 +173,22 @@ public abstract class FileEngine implements IEngine {
   @Override
   public boolean saveGame(Game game) {
 
-    File file = null;
+    File trash = null;
+    File file = _getFile(game);
+    String fileName = clean(game.getName().replace(NBSP, '-')) + getExt();
+
+    if (file == null || !file.getName().equals(fileName) || !file.getParentFile().equals(getRoot())) {
+      trash = file;
+      file = new File(getRoot(), fileName);
+      game.setId(file);
+    }
 
     try {
-      file = getFile(game);
       saveToFile(game, file);
+      if (trash != null) {
+        trash.delete();
+        logger.info("Deleting [{0}]", trash.getAbsolutePath());
+      }
       return true;
     }
     catch (IOException x) {
@@ -172,6 +201,9 @@ public abstract class FileEngine implements IEngine {
     return false;
 
   }
+
+
+  public void stop() { }
 
 
 }

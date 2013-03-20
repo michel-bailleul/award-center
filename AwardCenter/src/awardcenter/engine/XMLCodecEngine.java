@@ -16,6 +16,14 @@ import awardcenter.model.Game;
 public final class XMLCodecEngine extends FileEngine {
 
 
+  // —————————————————————————————————————————————————————————————— Constructors
+
+
+  public XMLCodecEngine() {
+    setRoot("data/xmlcodec");
+  }
+
+
   // ————————————————————————————————————————————————————————— Protected Methods
 
 
@@ -45,15 +53,6 @@ public final class XMLCodecEngine extends FileEngine {
     encoder.writeObject(game);
     encoder.close();
 
-  }
-
-
-  // ———————————————————————————————————————————————————————————— Public Methods
-
-
-  @Override
-  public File getRoot() {
-    return new File("data/xmlcodec");
   }
 
 

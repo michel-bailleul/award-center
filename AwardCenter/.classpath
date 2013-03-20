@@ -8,5 +8,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/LOG4J"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Util"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/XSTREAM"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/DB_SQLJET"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

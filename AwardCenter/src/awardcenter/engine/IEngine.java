@@ -14,7 +14,7 @@ import awardcenter.model.Game;
  *
  * @author Michel BAILLEUL
  *
- * @version 1.1 [2o13-o1-23]
+ * @version 1.2 [2o13-o3-2o]
  * @since   1.0 [2o1o-o1-o1]
  */
 public interface IEngine {
@@ -79,5 +79,12 @@ public interface IEngine {
    * @return {@code true} if and only if the game is successfully removed
    */
   boolean removeGame(Game game);
+
+  /**
+   * <p>
+   * Stop the engine
+   * </p>
+   */
+  void stop();
 
 }

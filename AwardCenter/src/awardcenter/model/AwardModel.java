@@ -9,8 +9,6 @@ import static awardcenter.resources.Key.GAME_NEW;
 
 import static util.codec.Base64.decodeBase64ToByte;
 import static util.codec.Base64.encodeBase64ToString;
-import static util.io.FileUtil.clean;
-import static util.misc.StringUtil.NBSP;
 import static util.misc.StringUtil.isEmpty;
 import static util.resource.ResourceUtil.getMsg;
 
@@ -21,7 +19,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import util.collection.ArrayUtil;
 import util.resource.Logger;
 
 import awardcenter.engine.IEngine;
@@ -216,7 +213,7 @@ public class AwardModel {
 
     if (isDirty) {
       game.setActive(false);
-      game.setDirty(false);
+//      game.setDirty(false);
 
       // Game image
       byte[] bytes = game.getBytes();
@@ -227,25 +224,13 @@ public class AwardModel {
       Map<Award, byte[]> awardImages = new HashMap<Award, byte[]>();
       for (Award award : game.getAwards()) {
         award.setActive(false);
-        award.setDirty(false);
+//        award.setDirty(false);
         award.setImage(encodeBase64ToString(award.getBytes()));
         awardImages.put(award, award.getBytes());
         award.setBytes(null);
       }
 
-      String fileName = clean(game.getName().replace(NBSP, '-')) + ".xml";
-      File trash = null;
       Object id = game.getId();
-      File file = (File) id;
-      game.setId(null);
-      dir = (dir == null) ? (File) engine.getRoot() : dir;
-
-      if (file == null || !file.getName().equals(fileName) || !file.getParentFile().equals(dir)) {
-        trash = file;
-        file = new File(dir, fileName);
-      }
-
-      game.setId(file);
 
       if (isSaved = engine.saveGame(game)) {
         logger.info("{0} [{1}]", mode, game.getName());
@@ -255,19 +240,21 @@ public class AwardModel {
         // Game image
         game.setImage(null);
         game.setBytes(bytes);
+        game.setDirty(!isSaved && game.isDirty());
         game.setActive(true);
 
         // Award images
         for (Award award : game.getAwards()) {
           award.setImage(null);
           award.setBytes(awardImages.get(award));
+          award.setDirty(!isSaved && award.isDirty());
           award.setActive(true);
         }
 
-        if (mode == Mode.SAVE && trash != null) {
-          trash.delete();
-          logger.info("Deleting [{0}]", trash.getAbsolutePath());
-        }
+//        if (mode == Mode.SAVE && trash != null) {
+//          trash.delete();
+//          logger.info("Deleting [{0}]", trash.getAbsolutePath());
+//        }
       }
       else {
         game.setId(id);

@@ -73,6 +73,7 @@ public final class JAXBEngine extends FileEngine {
 
 
   public JAXBEngine() throws JAXBException {
+    setRoot("data/jaxb");
     JAXBContext jc = JAXBContext.newInstance(GameJAXB.class);
     marshaller = jc.createMarshaller();
     marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
@@ -110,15 +111,6 @@ public final class JAXBEngine extends FileEngine {
     marshaller.marshal(new GameJAXB(game), writer);
     writer.close();
 
-  }
-
-
-  // ———————————————————————————————————————————————————————————— Public Methods
-
-
-  @Override
-  public File getRoot() {
-    return new File("data/jaxb");
   }
 
 

@@ -28,6 +28,7 @@ public final class XStreamEngine extends FileEngine {
 
 
   public XStreamEngine() {
+    setRoot("data/xstream");
     xstream = new XStream(new PureJavaReflectionProvider());
     xstream.alias("game", Game.class);
     xstream.alias("award", Award.class);
@@ -62,15 +63,6 @@ public final class XStreamEngine extends FileEngine {
     xstream.toXML(game, writer);
     writer.close();
 
-  }
-
-
-  // ———————————————————————————————————————————————————————————— Public Methods
-
-
-  @Override
-  public File getRoot() {
-    return new File("data/xstream");
   }
 
 

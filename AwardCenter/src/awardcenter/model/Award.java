@@ -15,6 +15,18 @@ public class Award extends Bean implements Comparable<Award> {
 
   // ———————————————————————————————————————————————————————————————— Properties
 
+  // id ------------------------------------------------------------------------
+
+  private transient Object id;
+
+  public Object getId() {
+    return id;
+  }
+
+  public void setId(Object file) {
+    this.id = file;
+  }
+
   // value ---------------------------------------------------------------------
 
   private int value;
@@ -179,6 +191,32 @@ public class Award extends Bean implements Comparable<Award> {
     byte[] old = this.bytes;
     this.bytes = bytes;
     firePropertyChange("bytes", old, bytes);
+  }
+
+  // flags ---------------------------------------------------------------------
+
+  private static final int ACHIEVED  = 0b00000001;
+  private static final int ADDED     = 0b00000010;
+  private static final int MULTI     = 0b00000100;
+  private static final int SECRET    = 0b00001000;
+  private static final int SEPARATOR = 0b00010000;
+
+  public int getFlags() {
+    int flags = 0;
+    flags += isAchieved  ? ACHIEVED  : 0;
+    flags += isAdded     ? ADDED     : 0;
+    flags += isMulti     ? MULTI     : 0;
+    flags += isSecret    ? SECRET    : 0;
+    flags += isSeparator ? SEPARATOR : 0;
+    return flags;
+  }
+
+  public void setFlags(int flags) {
+    isAchieved  = (flags & ACHIEVED)  > 0;
+    isAdded     = (flags & ADDED)     > 0;
+    isMulti     = (flags & MULTI)     > 0;
+    isSecret    = (flags & SECRET)    > 0;
+    isSeparator = (flags & SEPARATOR) > 0;
   }
 
 

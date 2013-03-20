@@ -1520,7 +1520,9 @@ public class Controller {
   boolean actionClose() {
     File dir = awardImagePanel.getImageDir();
     app.setImageDir((dir != null) ? dir : gameImagePanel.getImageDir());
-    return actionSave();
+    actionSave();
+    app.getEngine().stop();
+    return true;
   }
 
 
