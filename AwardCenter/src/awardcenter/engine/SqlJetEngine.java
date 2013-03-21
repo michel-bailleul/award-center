@@ -3,10 +3,8 @@ package awardcenter.engine;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.tmatesoft.sqljet.core.SqlJetException;
@@ -294,21 +292,20 @@ public class SqlJetEngine implements IEngine {
 
       if (!cursor.eof()) {
         do {
-          Object[] values = cursor.getRowValues();
-          ids.add(values[0]);
+          ids.add(cursor.getRowId());
         }
         while (cursor.next());
       }
       cursor.close();
-      
+
       for (Award award : game.getAwards()) {
         if (award.getId() == null) {
-          // insert
+          // INSERT
           long id = table.insert(_toValues(game, award));
           award.setId(id);
         }
         else if (award.isDirty()) {
-          // update
+          // UPDATE
           cursor = table.lookup(null, award.getId());
           if (!cursor.eof()) {
             cursor.update(_toValues(game, award));
@@ -318,7 +315,7 @@ public class SqlJetEngine implements IEngine {
         ids.remove(award.getId());
       }
 
-      // delete
+      // DELETE
       for (Object id : ids) {
         cursor = table.lookup(null, id);
         if (!cursor.eof()) {
