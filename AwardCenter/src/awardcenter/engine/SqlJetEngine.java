@@ -3,7 +3,10 @@ package awardcenter.engine;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.tmatesoft.sqljet.core.SqlJetException;
@@ -56,7 +59,7 @@ public class SqlJetEngine implements IEngine {
   private static final String INDEX_AWARD = "INDEX_AWARD";
 
   private static final String CREATE_INDEX_AWARD =
-    "CREATE INDEX " + INDEX_AWARD + " ON AWARD(ID_GAME)";
+    "CREATE INDEX INDEX_AWARD ON AWARD(ID_GAME)";
 
 
   // —————————————————————————————————————————————————————————————— Constructors
@@ -71,11 +74,11 @@ public class SqlJetEngine implements IEngine {
   // ———————————————————————————————————————————————————————— Instance Variables
 
 
-  String root;
+  private String root;
 
-  File file;
+  private File file;
 
-  SqlJetDb db;
+  private SqlJetDb db;
 
 
   // ——————————————————————————————————————————————————————————— Private Methods
@@ -276,7 +279,9 @@ public class SqlJetEngine implements IEngine {
       else if (game.isDirty()) {
         // update
         cursor = table.lookup(null, game.getId());
-        cursor.update(_toValues(game));
+        if (!cursor.eof()) {
+          cursor.update(_toValues(game));
+        }
         cursor.close();
       }
 
@@ -284,6 +289,18 @@ public class SqlJetEngine implements IEngine {
 
       table = db.getTable(TABLE_AWARD);
 
+      Set<Object> ids = new HashSet<Object>();
+      cursor = table.lookup(INDEX_AWARD, game.getId());
+
+      if (!cursor.eof()) {
+        do {
+          Object[] values = cursor.getRowValues();
+          ids.add(values[0]);
+        }
+        while (cursor.next());
+      }
+      cursor.close();
+      
       for (Award award : game.getAwards()) {
         if (award.getId() == null) {
           // insert
@@ -293,11 +310,21 @@ public class SqlJetEngine implements IEngine {
         else if (award.isDirty()) {
           // update
           cursor = table.lookup(null, award.getId());
-          cursor.update(_toValues(game, award));
+          if (!cursor.eof()) {
+            cursor.update(_toValues(game, award));
+          }
           cursor.close();
         }
-        // TODO
-        // add/remove awards
+        ids.remove(award.getId());
+      }
+
+      // delete
+      for (Object id : ids) {
+        cursor = table.lookup(null, id);
+        if (!cursor.eof()) {
+          cursor.delete();
+        }
+        cursor.close();
       }
 
       return true;
@@ -346,7 +373,7 @@ public class SqlJetEngine implements IEngine {
       table = db.getTable(TABLE_GAME);
 
       cursor = table.lookup(null, game.getId());
-      while (!cursor.eof()) {
+      if (!cursor.eof()) {
         cursor.delete();
       }
       cursor.close();
@@ -377,7 +404,7 @@ public class SqlJetEngine implements IEngine {
     if (db != null) {
       try {
         db.close();
-        logger.info("Close SqlJet Engine");
+        logger.info("Stop SqlJet Engine");
       }
       catch (SqlJetException x) {
         logger.error("todo", x); // TODO: externalize

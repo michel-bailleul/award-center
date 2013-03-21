@@ -71,24 +71,4 @@ public class XStreamEngineTest {
   }
 
 
-  @Test
-  public void copyGames() throws JAXBException {
-
-    IEngine sourceEngine = new JAXBEngine();
-//    IEngine targetEngine = new XMLCodecEngine();
-    IEngine targetEngine = new SqlJetEngine();
-
-    for (File sourceFile : ((File)sourceEngine.getRoot()).listFiles()) {
-      System.out.printf("Load [%s]%n", sourceFile.getName());
-      Game game = sourceEngine.loadGame(sourceFile);
-      System.out.printf("Copy [%s]%n", game.getName());
-//      File targetFile = new File((File)targetEngine.getRoot(), sourceFile.getName());
-//      game.setId(targetFile);
-      game.setId(null);
-      targetEngine.saveGame(game);
-    }
-
-  }
-
-
 }
