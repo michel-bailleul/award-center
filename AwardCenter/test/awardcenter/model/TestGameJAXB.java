@@ -9,14 +9,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 @XmlRootElement(name="game")
-public class GameJAXB extends Game {
+public class TestGameJAXB extends Game {
 
 
   /** default constructor */
-  public GameJAXB() { }
+  public TestGameJAXB() { }
 
 
-  public GameJAXB(Game game) {
+  public TestGameJAXB(Game game) {
 
     setId(game.getId());
     setName(game.getName());

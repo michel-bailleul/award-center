@@ -22,6 +22,105 @@ import awardcenter.model.Game;
 public class SqlJetEngine implements IEngine {
 
 
+  // ————————————————————————————————————————————————————————————— Inner Classes
+
+
+  private class SqlJetIterator extends ReadOnlyIterator {
+
+    private boolean hasNext = false;
+
+    private ISqlJetTable table = null;
+    private ISqlJetCursor cursorGame = null;
+    private ISqlJetCursor cursorAward = null;
+
+    private SqlJetIterator() {
+
+      try {
+        db.beginTransaction(SqlJetTransactionMode.READ_ONLY);
+        table = db.getTable(TABLE_GAME);
+        cursorGame = table.open();
+        hasNext = !cursorGame.eof();
+      }
+      catch (SqlJetException x) {
+        logger.error("todo", x); // TODO: externalize
+      }
+
+    }
+
+    @Override
+    public boolean hasNext() {
+      return hasNext;
+    }
+
+    @Override
+    public Game next() {
+
+      Game game = null;
+
+      try {
+        if (hasNext) {
+          Object[] values = cursorGame.getRowValues();
+          game = new Game();
+          game.setId(values[0]);
+          game.setName((String)values[1]);
+          game.setDeveloper((String)values[2]);
+          game.setPublisher((String)values[3]);
+          game.setRating(((Long)values[4]).intValue());
+          game.setScore(((Long)values[5]).intValue());
+          game.setScoreMax(((Long)values[6]).intValue());
+          game.setImage((String)values[7]);
+
+          // awards
+          List<Award> awards = new ArrayList<Award>();
+          game.setAwards(awards);
+          table = db.getTable(TABLE_AWARD);
+          cursorAward = table.lookup(INDEX_AWARD, game.getId());
+
+          if (!cursorAward.eof()) {
+            do {
+              values = cursorAward.getRowValues();
+              Award award = new Award();
+              award.setId(values[0]);
+              award.setValue(((Long)values[2]).intValue());
+              award.setIndex(((Long)values[3]).intValue());
+              award.setFlags(((Long)values[4]).intValue());
+              award.setLabel((String)values[5]);
+              award.setDescription((String)values[6]);
+              award.setTipsAndTricks((String)values[7]);
+              award.setImage((String)values[8]);
+              awards.add(award);
+            }
+            while (cursorAward.next());
+            cursorAward.close();
+          }
+          hasNext = cursorGame.next();
+        }
+        if (!hasNext) {
+          cursorGame.close();
+          db.commit();
+        }
+      }
+      catch (SqlJetException x) {
+        logger.error("todo", x); // TODO: externalize
+      }
+      finally {
+        try {
+          if (cursorAward != null) {
+            cursorAward.close();
+          }
+        }
+        catch (SqlJetException x) {
+          logger.error("todo", x); // TODO: externalize
+        }
+      }
+
+      return game;
+
+    }
+
+  }
+
+
   // —————————————————————————————————————————————————————————— Static Constants
 
 
@@ -64,7 +163,7 @@ public class SqlJetEngine implements IEngine {
 
 
   public SqlJetEngine() {
-    root = "data/sqljet/awardcenter.db";
+    root = "data/sqljet/game.db";
     _init();
   }
 
@@ -157,102 +256,6 @@ public class SqlJetEngine implements IEngine {
   @Override
   public Object getRoot() {
     return root;
-  }
-
-
-  @Override
-  public Object[] getIds(Object root) {
-    return null;
-  }
-
-
-  @Override
-  public Game loadGame(Object id) {
-    return null;
-  }
-
-
-  @Override
-  public List<Game> loadGames(Object root) {
-
-    Object[] values = null;
-    List<Game> games = new ArrayList<Game>();
-
-    ISqlJetTable table = null;
-    ISqlJetCursor cursorGame = null;
-    ISqlJetCursor cursorAward = null;
-
-    try {
-      db.beginTransaction(SqlJetTransactionMode.READ_ONLY);
-
-      // game
-      table = db.getTable(TABLE_GAME);
-      cursorGame = table.open();
-
-      if (!cursorGame.eof()) {
-        do {
-          values = cursorGame.getRowValues();
-          Game game = new Game();
-          game.setId(values[0]);
-          game.setName((String)values[1]);
-          game.setDeveloper((String)values[2]);
-          game.setPublisher((String)values[3]);
-          game.setRating(((Long)values[4]).intValue());
-          game.setScore(((Long)values[5]).intValue());
-          game.setScoreMax(((Long)values[6]).intValue());
-          game.setImage((String)values[7]);
-          games.add(game);
-
-          logger.info("Loading [{0}]", game.getName());
-
-          // awards
-          List<Award> awards = new ArrayList<Award>();
-          game.setAwards(awards);
-          table = db.getTable(TABLE_AWARD);
-          cursorAward = table.lookup(INDEX_AWARD, game.getId());
-
-          if (!cursorAward.eof()) {
-            do {
-              values = cursorAward.getRowValues();
-              Award award = new Award();
-              award.setId(values[0]);
-              award.setValue(((Long)values[2]).intValue());
-              award.setIndex(((Long)values[3]).intValue());
-              award.setFlags(((Long)values[4]).intValue());
-              award.setLabel((String)values[5]);
-              award.setDescription((String)values[6]);
-              award.setTipsAndTricks((String)values[7]);
-              award.setImage((String)values[8]);
-              awards.add(award);
-            }
-            while (cursorAward.next());
-            cursorAward.close();
-          }
-        }
-        while (cursorGame.next());
-        cursorGame.close();
-      }
-    }
-    catch (SqlJetException x) {
-      logger.error("todo", x); // TODO: externalize
-    }
-    finally {
-      try {
-        if (cursorGame != null) {
-          cursorGame.close();
-        }
-        if (cursorAward != null) {
-          cursorAward.close();
-        }
-        db.commit();
-      }
-      catch (SqlJetException x) {
-        logger.error("todo", x); // TODO: externalize
-      }
-    }
-
-    return games;
-
   }
 
 
@@ -397,6 +400,7 @@ public class SqlJetEngine implements IEngine {
   }
 
 
+  @Override
   public void stop() {
     if (db != null) {
       try {
@@ -407,6 +411,12 @@ public class SqlJetEngine implements IEngine {
         logger.error("todo", x); // TODO: externalize
       }
     }
+  }
+
+
+  @Override
+  public ReadOnlyIterator iterator() {
+    return new SqlJetIterator();
   }
 
 

@@ -10,7 +10,7 @@ import org.junit.Test;
 import awardcenter.model.Game;
 
 
-public class CopyGame {
+public class TestCopy {
 
 
   // —————————————————————————————————————————————————————————————— Test Methods
@@ -23,9 +23,7 @@ public class CopyGame {
 //    IEngine targetEngine = new XMLCodecEngine();
     IEngine targetEngine = new SqlJetEngine();
 
-    for (File sourceFile : ((File)sourceEngine.getRoot()).listFiles()) {
-      System.out.printf("Load [%s]%n", sourceFile.getName());
-      Game game = sourceEngine.loadGame(sourceFile);
+    for (Game game : sourceEngine) {
       System.out.printf("Copy [%s]%n", game.getName());
 //      File targetFile = new File((File)targetEngine.getRoot(), sourceFile.getName());
 //      game.setId(targetFile);

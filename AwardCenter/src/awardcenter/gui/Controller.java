@@ -74,6 +74,8 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -1156,7 +1158,7 @@ public class Controller {
 
   private String refreshGameFilterTitle() {
     int viewSize = gameListModel.getSize();
-    int dataSize = gameListModel.getList().size();
+    int dataSize = gameListModel.getList() != null ? gameListModel.getList().size() : 0;
     return refreshFilterTitle(gameFilterPanel, gameFilterTitle, viewSize, dataSize);
   }
 
@@ -1164,7 +1166,7 @@ public class Controller {
   private String refreshAwardFilterTitle() {
 
     int viewSize = awardListModel.getSize();
-    int dataSize = awardListModel.getList().size();
+    int dataSize = awardListModel.getList() != null ? awardListModel.getList().size() : 0;
     Game game = gameListModel.getSelection();
 
     if (game != null) {
@@ -1283,12 +1285,10 @@ public class Controller {
   private void createModel() {
 
     model = new AwardModel(app.getEngine());
-    model.loadGames();
 
     // Game --------------------------------------------------------------------
 
     gameListModel = new ListModel<Game>();
-    gameListModel.setList(model.getGames());
     gameList.setModel(gameListModel);
     gameListModel.addPropertyChangeListener("selection",
       new PropertyChangeListener() {
@@ -1339,8 +1339,17 @@ public class Controller {
     gameListModel.setSelection(null);
     awardListModel.setSelection(null);
 
-    refreshGameFilterTitle();
     refreshAwardFilterTitle();
+    refreshGameFilterTitle();
+
+    new Timer().schedule(
+      new TimerTask() {
+        @Override
+        public void run() {
+          model.loadGames(gameListModel);
+          refreshGameFilterTitle();
+        }
+      }, 0);
 
   }
 

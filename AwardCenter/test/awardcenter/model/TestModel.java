@@ -30,7 +30,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 
-public class ModelTest {
+public class TestModel {
 
 
   // —————————————————————————————————————————————————————————— Static Constants
@@ -74,7 +74,7 @@ public class ModelTest {
    */
   @Before
   public void setUp() throws Exception {
-    jc = JAXBContext.newInstance(GameJAXB.class);
+    jc = JAXBContext.newInstance(TestGameJAXB.class);
     file = new File(DIR, "jaxb-wrapper-test.xml");
   }
 
@@ -93,7 +93,7 @@ public class ModelTest {
   @Test
   public void testWrapperMarshal() throws JAXBException, IOException {
 
-    Game game = new GameJAXB();
+    Game game = new TestGameJAXB();
     game.setName("The Game");
     
     // awards

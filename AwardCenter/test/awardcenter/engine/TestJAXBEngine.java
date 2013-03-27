@@ -13,7 +13,7 @@ import awardcenter.model.Award;
 import awardcenter.model.Game;
 
 
-public class JAXBEngineTest {
+public class TestJAXBEngine {
 
 
   // —————————————————————————————————————————————————————————— Static Constants
@@ -44,7 +44,7 @@ public class JAXBEngineTest {
     Game game = new Game();
     game.setId(file);
     game.setName("jaxb dummy test");
-    
+
     Award award = new Award();
     award.setLabel("award 1");
     game.addAward(award);
@@ -64,8 +64,8 @@ public class JAXBEngineTest {
     File file = new File(DIR, "jaxb-ikaruga.xml");
 
     IEngine engine = new JAXBEngine();
-    Game game = engine.loadGame(file);
-    System.out.printf("%s : %s", game, game.getAwards());
+//    Game game = engine.loadGame(file);
+//    System.out.printf("%s : %s", game, game.getAwards());
 
   }
 

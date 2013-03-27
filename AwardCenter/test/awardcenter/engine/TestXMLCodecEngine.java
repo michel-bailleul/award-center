@@ -12,7 +12,7 @@ import awardcenter.model.Award;
 import awardcenter.model.Game;
 
 
-public class XMLCodecEngineTest {
+public class TestXMLCodecEngine {
 
 
   // —————————————————————————————————————————————————————————— Static Constants
@@ -63,8 +63,8 @@ public class XMLCodecEngineTest {
     File file = new File(DIR, "xmlcodec-ikaruga.xml");
 
     IEngine engine = new XMLCodecEngine();
-    Game game = engine.loadGame(file);
-    System.out.printf("%s : %s", game, game.getAwards());
+//    Game game = engine.loadGame(file);
+//    System.out.printf("%s : %s", game, game.getAwards());
 
   }
 

@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 import util.resource.Logger;
+import util.swing.app.ListModel;
 
 import awardcenter.engine.IEngine;
 
@@ -84,8 +85,69 @@ public class AwardModel {
   // ——————————————————————————————————————————————————————————— Private Methods
 
 
-  /* version 2.0 */
-  private List<Game> _loadGames(Object root) {
+  /* version 3.0 - Iterator */
+  private List<Game> _loadGames(Object root, ListModel<Game> model) {
+
+    long time = currentTimeMillis();
+    long lastUpdate = time;
+
+    int loaded = 0;
+    List<Game> games = new ArrayList<Game>();
+
+    if (model != null) {
+      model.setList(games);
+    }
+
+    if (root != null) {
+//      engine.setRoot(root); //TODO
+    }
+
+    for (Game game : engine) {
+      loaded++;
+      logger.info("Loading [{0}]", game.getName());
+      // Game image
+      if (!isEmpty(game.getImage())) {
+        game.setBytes(_getBytes(game));
+      }
+      // Award images
+      for (Award award : game.getAwards()) {
+        if (!isEmpty(award.getImage())) {
+          award.setActive(false);
+          award.setBytes(_getBytes(award));
+          award.setImage(null);
+        }
+        award.setDirty(false);
+        award.setActive(true);
+      }
+      game.setImage(null);
+      game.setDirty(false);
+      game.setActive(true);
+      // update list & model
+      games.add(game);
+      //TODO: BUG !
+      if (model != null && (currentTimeMillis() - lastUpdate) > 500) {
+        model.update();
+        lastUpdate = currentTimeMillis();
+      }
+    }
+
+    if (model != null) {
+      model.update();
+    }
+
+    if (root == null) {
+      setGames(games);
+    }
+
+    logger.info("{0} game{0, choice, |1<s} loaded in {1,number,0} ms", loaded, currentTimeMillis() - time);
+
+    return games;
+
+  }
+
+
+  /* version 2.0
+  private List<Game> _loadGames(Object root, ListModel<Game> model) {
 
     long time = currentTimeMillis();
 
@@ -118,6 +180,7 @@ public class AwardModel {
     return games;
 
   }
+  */
 
 
   /* version 1.0 : older but faster [10%]
@@ -343,13 +406,13 @@ public class AwardModel {
   }
 
 
-  public void loadGames() {
-    games.addAll(_loadGames(null));
+  public List<Game> loadGames(Object dir) {
+    return _loadGames(dir, null);
   }
 
 
-  public List<Game> loadGames(Object dir) {
-    return _loadGames(dir);
+  public List<Game> loadGames(ListModel<Game> model) {
+    return _loadGames(null, model);
   }
 
 

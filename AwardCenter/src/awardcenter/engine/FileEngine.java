@@ -9,13 +9,45 @@ import static util.misc.StringUtil.NBSP;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import awardcenter.model.Game;
 
 
 public abstract class FileEngine implements IEngine {
+
+
+  // ————————————————————————————————————————————————————————————— Inner Classes
+
+
+  private class FileIterator extends ReadOnlyIterator {
+
+    private int index = 0;
+    private File[] files = null;
+
+    private FileIterator() {
+      if (root != null) {
+        files = root.listFiles(
+          new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+              return name.toLowerCase().endsWith(getExt());
+            }
+          }
+        );
+      }
+    }
+
+    @Override
+    public boolean hasNext() {
+      return (files != null) && (index < files.length);
+    }
+
+    @Override
+    public Game next() {
+      return hasNext() ? _loadGame(files[index++]) : null;
+    }
+
+  }
 
 
   // —————————————————————————————————————————————————————————— Static Constants
@@ -75,6 +107,27 @@ public abstract class FileEngine implements IEngine {
   }
 
 
+  private Game _loadGame(Object id) {
+
+    Game game = null;
+    File file = _getFile(id);
+
+    try {
+      game = loadFromFile(file);
+      game.setId(file);
+    }
+    catch (IOException x) {
+      logger.error("I/O Exception [{0}]", x, file);
+    }
+    catch (Exception x) {
+      logger.error("Unexpected Exception [{0}]", x, id);
+    }
+
+    return game;
+
+  }
+
+
   // ————————————————————————————————————————————————————————— Protected Methods
 
 
@@ -91,82 +144,9 @@ public abstract class FileEngine implements IEngine {
   // ———————————————————————————————————————————————————————————— Public Methods
 
 
+  @Override
   public File getRoot() {
     return root;
-  }
-
-
-  @Override
-  public File[] getIds(Object root) {
-
-    File dir = (File) ((root == null) ? getRoot() : root);
-
-    File[] ids = dir.listFiles(
-      new FilenameFilter() {
-        @Override
-        public boolean accept(File dir, String name) {
-          return name.toLowerCase().endsWith(getExt());
-        }
-      }
-    );
-
-    return ids;
-
-  }
-
-
-  @Override
-  public List<Game> loadGames(Object root) {
-
-    List<Game> games = new ArrayList<Game>();
-
-    for (File file : getIds(root)) {
-      Game game = loadGame(file);
-      if (game != null) {
-        game.setId(file);
-        games.add(game);
-        logger.info("Loading [{0}]", game.getName());
-      }
-    }
-
-    return games;
-
-  }
-
-
-  @Override
-  public boolean removeGame(Game game) {
-
-    boolean isOk;
-    File file = (File) game.getId();
-
-    if (isOk = (file != null && file.delete())) {
-      logger.info("Deleting file [{0}]", file.getAbsolutePath());
-    }
-
-    return isOk;
-
-  }
-
-
-  @Override
-  public Game loadGame(Object id) {
-
-    Game game = null;
-    File file = _getFile(id);
-
-    try {
-      game = loadFromFile(file);
-    }
-    catch (IOException x) {
-      logger.error("I/O Exception [{0}]", x, file);
-    }
-    catch (Exception x) {
-      logger.error("Unexpected Exception [{0}]", x, id);
-    }
-
-    return game;
-
   }
 
 
@@ -203,7 +183,30 @@ public abstract class FileEngine implements IEngine {
   }
 
 
-  public void stop() { }
+  @Override
+  public boolean removeGame(Game game) {
+
+    boolean isOk;
+    File file = (File) game.getId();
+
+    if (isOk = (file != null && file.delete())) {
+      logger.info("Deleting file [{0}]", file.getAbsolutePath());
+    }
+
+    return isOk;
+
+  }
+
+
+  @Override
+  public void stop() {
+  }
+
+
+  @Override
+  public ReadOnlyIterator iterator() {
+    return new FileIterator();
+  }
 
 
 }

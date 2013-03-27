@@ -14,7 +14,7 @@ import awardcenter.model.Award;
 import awardcenter.model.Game;
 
 
-public class XStreamEngineTest {
+public class TestXStreamEngine {
 
 
   // —————————————————————————————————————————————————————————— Static Constants
@@ -65,8 +65,8 @@ public class XStreamEngineTest {
     File file = new File(DIR, "xstream-ikaruga.xml");
 
     IEngine engine = new XStreamEngine();
-    Game game = engine.loadGame(file);
-    System.out.printf("%s : %s", game, game.getAwards());
+//    Game game = engine.loadGame(file);
+//    System.out.printf("%s : %s", game, game.getAwards());
 
   }
 
