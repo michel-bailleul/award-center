@@ -26,8 +26,10 @@ public final class StringUtil {
    * Verifie si le texte est vide ou {@code null}
    *
    * @param text - Le texte a verifier
+   *
    * @return {@code true} si le texte est vide ou {@code null}<br/>
    *         {@code false} si le texte n'est pas vide
+   *
    * @see #isEmptyTrim(String)
    */
   public static boolean isEmpty(String text) {
@@ -40,8 +42,10 @@ public final class StringUtil {
    * avec un {@code trim()} en plus
    *
    * @param text - Le texte a verifier
+   *
    * @return {@code true} si le texte est vide ou {@code null}<br/>
    *         {@code false} si le texte n'est pas vide
+   *
    * @see #isEmpty(String)
    */
   public static boolean isEmptyTrim(String text) {
@@ -53,8 +57,10 @@ public final class StringUtil {
    * Verifie le contenu d'un tableau de {@code String}
    *
    * @param text - Le tableau de {@code String} a verifier
+   *
    * @return {@code true} si le tableau ne contient pas de texte<br/>
    *         {@code false} si le tableau contient du texte
+   *
    * @see #isEmptyTrim(String[])
    */
   public static boolean isEmpty(String[] text) {
@@ -77,8 +83,10 @@ public final class StringUtil {
    * avec un {@code trim()} en plus
    *
    * @param text - Le tableau de {@code String} a verifier
+   *
    * @return {@code true} si le tableau ne contient pas de texte<br/>
    *         {@code false} si le tableau contient du texte
+   *
    * @see #isEmpty(String[])
    */
   public static boolean isEmptyTrim(String[] text) {
@@ -102,6 +110,7 @@ public final class StringUtil {
    * @param text   - Le texte a modifier
    * @param c      - Le caractere de a ajouter
    * @param length - La longueur souhaitee
+   *
    * @return Le texte apres modification
    */
   public static String lPad(String text, char c, int length) {
@@ -133,6 +142,7 @@ public final class StringUtil {
    *
    * @param text   - Le texte a modifier
    * @param length - La longueur souhaitee
+   *
    * @return Le texte apres modification
    */
   public static String lPad(String text, int length) {
@@ -146,6 +156,7 @@ public final class StringUtil {
    * @param text   - Le texte a modifier
    * @param c      - Le caractere de a ajouter
    * @param length - La longueur souhaitee
+   *
    * @return Le texte apres modification
    */
   public static String rPad(String text, char c, int length) {
@@ -179,6 +190,7 @@ public final class StringUtil {
    *
    * @param text   - Le texte a modifier
    * @param length - La longueur souhaitee
+   *
    * @return Le texte apres modification
    */
   public static String rPad(String text, int length) {
@@ -190,7 +202,8 @@ public final class StringUtil {
    * Convertit les espaces ordinaires d'un texte en espaces insecables.<br/>
    * nbsp : Non-Breaking SPace
    *
-   * @param text - le texte a modifier
+   * @param text - Le texte a modifier
+   *
    * @return Le texte avec tous ses espaces insecables
    */
   public static String nbsp(String text) {
@@ -208,8 +221,8 @@ public final class StringUtil {
   /**
    * Formate un texte avec une liste de parametres
    *
-   * @param msg    - le texte a formater
-   * @param params - liste de parametres [facultatif]
+   * @param msg    - Le texte a formater
+   * @param params - Liste de parametres [facultatif]
    *
    * @return le texte apres formatage
    *
@@ -223,8 +236,8 @@ public final class StringUtil {
   /**
    * Formate un texte avec une liste de parametres
    *
-   * @param msg    - le texte a formater
-   * @param params - liste de parametres [facultatif]
+   * @param msg    - Le texte a formater
+   * @param params - Liste de parametres [facultatif]
    *
    * @return le texte apres formatage
    *
@@ -238,7 +251,7 @@ public final class StringUtil {
   /**
    * Supprime les accents, et decompose les ligatures
    *
-   * @param text - le texte a normaliser
+   * @param text - Le texte a normaliser
    *
    * @return le texte apres normalisation
    */
@@ -247,6 +260,31 @@ public final class StringUtil {
     String s = text.replaceAll("Æ", "AE").replaceAll("æ", "ae").replaceAll("Œ", "OE").replaceAll("œ", "oe");
     return Normalizer.normalize(s, Normalizer.Form.NFKD).replaceAll("[^\\p{ASCII}]", "");
 //    return Normalizer.normalize(text, Normalizer.Form.NFKD).replaceAll("[\u0300-\u036F]", "");
+  }
+
+
+  /**
+   * Compte le nombre d'occurrences d'un caractere dans un texte
+   *
+   * @param text - Le texte a analyser
+   * @param c    - Le caractere a rechercher
+   *
+   * @return Le nombre d'occurrences du caractere dans le texte
+   */
+  public static int count(String text, char c) {
+
+    int count = 0;
+
+    if (!isEmpty(text)) {
+      for (char x : text.toCharArray()) {
+        if (x == c) {
+          count++;
+        }
+      }
+    }
+
+    return count;
+
   }
 
 

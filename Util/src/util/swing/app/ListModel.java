@@ -143,11 +143,9 @@ public class ListModel<T extends Comparable<T>> extends AbstractListModel<T> imp
   }
 
   public void setList(List<T> list) {
-
     data = (list != null) ? list : new ArrayList<T>();
     filter(filter);
     fireContentsChanged(this, 0, view.size());
-
   }
 
 

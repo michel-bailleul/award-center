@@ -39,6 +39,7 @@ import static javax.swing.SwingConstants.VERTICAL;
 
 import static util.io.FileUtil.getBytes;
 import static util.misc.StringUtil.NBSP;
+import static util.misc.StringUtil.count;
 import static util.misc.StringUtil.isEmpty;
 import static util.misc.StringUtil.rPad;
 import static util.resource.Logger.getLogger;
@@ -534,6 +535,19 @@ public class Controller {
     gameFilterTitle = createTitledBorder(" ");
     gameFilterPanel = createPanel(new BorderLayout(), gameFilterTitle);
     gameFilterTxt = new JTextFieldSearch<Game>();
+    final IFilter<Game> filter = gameFilterTxt.getFilter(); // default filter on name
+    gameFilterTxt.setFilter(new IFilter<Game>() { // customized filter on rating
+      @Override
+      public boolean matches(Game obj) {
+        if (!filter.matches(obj)) {
+          int count = count(gameFilterTxt.getText(), '*');
+          return (count > 0) && (obj.getRating() == count);
+        }
+        else {
+          return true;
+        }
+      }
+    });
     gameFilterTxt.setPostFilteringActionListener(app.getActionListener(GAME_FILTER));
     JPanel panel = createPanel(new BorderLayout(), createEmptyBorder(0, 5, 5, 5));
     panel.add(gameFilterTxt);
