@@ -7,8 +7,11 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.junit.After;
 import org.junit.Before;
@@ -16,7 +19,6 @@ import org.junit.Test;
 
 import util.collection.CollectionUtil;
 import util.collection.IFilter;
-
 
 
 public class TestCollectionUtil {
@@ -187,6 +189,56 @@ public class TestCollectionUtil {
     assertEquals(set.size(), setSize);
     System.out.println(trg);
     assertEquals(trg.size(), expected);
+
+  }
+
+
+  @Test
+  public void testGroupByList() {
+
+    System.out.println("Test Group By List ----------");
+
+    List<Product> array = new LinkedList<Product>();
+
+    array.add(new Product("Car", "RED", 20000));
+    array.add(new Product("Boat", null, 500000));
+    array.add(new Product("Bike", "BLUE", 200));
+    array.add(new Product("Plane", "RED", 1000000));
+    array.add(new Product("Book", "", 0));
+    array.add(new Product("Flower", "BLUE", 0));
+    array.add(new Product("Computer", null, 0));
+    array.add(new Product("Object", "", 0));
+
+    System.out.println(array);
+    Map<Object, List<Product>> map = CollectionUtil.groupBy(array, "color");
+    for (Map.Entry<Object, List<Product>> entry : map.entrySet()) {
+      System.out.println(entry.getKey() + " : " + entry.getValue());
+    }
+
+  }
+
+
+  @Test
+  public void testGroupBySet() {
+
+    System.out.println("Test Group By Set ----------");
+
+    Set<Product> set = new TreeSet<Product>();
+
+    set.add(new Product("Car", "RED", 20000));
+    set.add(new Product("Boat", null, 500000));
+    set.add(new Product("Bike", "BLUE", 200));
+    set.add(new Product("Plane", "RED", 1000000));
+    set.add(new Product("Book", "", 0));
+    set.add(new Product("Flower", "BLUE", 0));
+    set.add(new Product("Computer", null, 0));
+    set.add(new Product("Object", "", 0));
+
+    System.out.println(set);
+    Map<Object, Set<Product>> map = CollectionUtil.groupBy(set, "color");
+    for (Map.Entry<Object, Set<Product>> entry : map.entrySet()) {
+      System.out.println(entry.getKey() + " : " + entry.getValue());
+    }
 
   }
 

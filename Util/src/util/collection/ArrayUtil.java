@@ -11,7 +11,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -204,11 +203,11 @@ public final class ArrayUtil {
 
 
   /**
-   * Regroupement d'un tableau de beans par une de leurs proprietes.<br/>
+   * Regroupement d'un tableau de beans par une de leurs proprietes.<br/><br/>
    * Exemple avec le tableau suivant :<br/>
-   * <code>[{"Jean","DURAND"},{"Paul","DURAND"},{"Jean","DUPOND"},{"Paul","DUPOND"}]</code><br/>
+   * <code>[{"Jean","DURAND"},{"Paul","DURAND"},{"Jean","DUPOND"},{"Paul","DUPOND"}]</code><br/><br/>
    * Un regroupement par la propriete "nom" donnera la Map :<br/>
-   * <code>["DURAND":[{"Jean","DURAND"},{"Paul","DURAND"}];"DUPOND":[{"Jean","DUPOND"},{"Paul","DUPOND"}]]</code><br/>
+   * <code>["DURAND":[{"Jean","DURAND"},{"Paul","DURAND"}];"DUPOND":[{"Jean","DUPOND"},{"Paul","DUPOND"}]]</code><br/><br/>
    * Un regroupement par la propriete "prenom" donnera la Map :<br/>
    * <code>["Jean":[{"Jean","DURAND"},{"Jean","DUPOND"}];"Paul":[{"Paul","DURAND"},{"Paul","DUPOND"}]]</code><br/>
    *
@@ -221,12 +220,11 @@ public final class ArrayUtil {
 
     Map<Object,T[]> mapTab = new HashMap<Object,T[]>();
 
-    if (!isEmpty(array) && !StringUtil.isEmpty(property)) {
+    if (!StringUtil.isEmpty(property) && !isEmpty(array)) {
       Map<Object,List<T>> mapList = new HashMap<Object,List<T>>();
       Method method = getGetter(array.getClass().getComponentType(), property);
       if (method != null) {
-        for (int i=0; i < array.length; i++) {
-          T o = array[i];
+        for (T o : array) {
           if (o != null) {
             Object key = invokeMethod(o, method);
             if (!mapList.containsKey(key)) {
@@ -237,11 +235,8 @@ public final class ArrayUtil {
         }
       }
       // substitution de la liste temporaire par son tableau equivalent
-      Iterator<Object> it = mapList.keySet().iterator();
-      while (it.hasNext()) {
-        Object key = it.next();
-        List<T> list = mapList.get(key);
-        mapTab.put(key, list.toArray(Arrays.copyOf(array, 0)));
+      for (Map.Entry<Object, List<T>> entry : mapList.entrySet()) {
+        mapTab.put(entry.getKey(), entry.getValue().toArray(Arrays.copyOf(array, 0)));
       }
     }
 

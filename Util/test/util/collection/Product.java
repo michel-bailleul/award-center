@@ -4,7 +4,7 @@ package util.collection;
 import util.collection.IFilter;
 
 
-public class Product implements IFilter<Product> {
+public class Product implements IFilter<Product>, Comparable<Product> {
 
 
   // —————————————————————————————————————————————————————————— Static Variables
@@ -65,6 +65,15 @@ public class Product implements IFilter<Product> {
   @Override
   public String toString() {
     return "[" + name + "|" + color + "|" + price + "]";
+  }
+
+
+  @Override
+  public int compareTo(Product o) {
+    if (name != null && o != null && o.getName() != null) {
+      return name.compareTo(o.getName());
+    }
+    return 0;
   }
 
 
