@@ -56,7 +56,7 @@ public final class CollectionUtil {
    *
    * @see IFilter
    */
-  public static <T extends IFilter<? super T>>  void filter(Collection<T> c) {
+  public static <T extends IFilter<? super T>> void filter(Collection<T> c) {
 
     if (c != null) {
       Iterator<T> it = c.iterator();
@@ -80,8 +80,8 @@ public final class CollectionUtil {
    *
    * @see IFilter
    */
-  public static <T extends IFilter<? super T>> void filter(Collection<T> src, Collection<T> trg)
-  {
+  public static <T extends IFilter<? super T>> void filter(Collection<T> src, Collection<T> trg) {
+
     if (src != null && trg != null) {
       trg.clear();
       for (T obj : src) {
@@ -128,8 +128,8 @@ public final class CollectionUtil {
    *
    * @see IFilter
    */
-  public static <T> void filter(Collection<T> src, Collection<T> trg, IFilter<T> f)
-  {
+  public static <T> void filter(Collection<T> src, Collection<T> trg, IFilter<T> f) {
+
     if (src != null && trg != null) {
       trg.clear();
       for (T obj : src) {
@@ -151,25 +151,25 @@ public final class CollectionUtil {
    * Un regroupement par la propriete "prenom" donnera la Map :<br/>
    * <code>["Jean":[{"Jean","DURAND"},{"Jean","DUPOND"}];"Paul":[{"Paul","DURAND"},{"Paul","DUPOND"}]]</code><br/>
    *
-   * @param collection - La collection de donnees
-   * @param property   - Le nom de la propriete qui sert de critere de regroupement
+   * @param c        - La collection de donnees
+   * @param property - Le nom de la propriete qui sert de critere de regroupement
    * @return Une map de la forme [key:property;value:List]
    */
-  public static <T,C extends Collection<T>> Map<Object,C> groupBy(C collection, String property) {
+  public static <T,C extends Collection<T>> Map<Object,C> groupBy(C c, String property) {
 
     Map<Object,C> map = new HashMap<Object,C>();
 
-    if (!StringUtil.isEmpty(property) && !isEmpty(collection)) {
-      Method method = getGetter(collection.iterator().next().getClass(), property);
+    if (!StringUtil.isEmpty(property) && !isEmpty(c)) {
+      Method method = getGetter(c.iterator().next().getClass(), property);
       if (method != null) {
-        for (T o : collection) {
+        for (T o : c) {
           if (o != null) {
             Object key = invokeMethod(o, method);
             if (!map.containsKey(key)) {
               try {
                 @SuppressWarnings("unchecked")
-                C c = (C) collection.getClass().newInstance();
-                map.put(key, c);
+                C value = (C) c.getClass().newInstance();
+                map.put(key, value);
               }
               catch (ReflectiveOperationException x) {
                 throw new UnsupportedOperationException(x);
