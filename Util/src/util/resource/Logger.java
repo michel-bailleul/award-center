@@ -51,67 +51,67 @@ public final class Logger {
 
   private void _log(Level level, String msg, Throwable t, Object... params) {
 
-    String message = formatMessage(msg, params);
+    String s = formatMessage(msg, params);
 
     if (logger != null) {
       switch (level) {
         case TRACE :
           if (logger.isTraceEnabled()) {
             if (t == null) {
-              logger.trace(message);
+              logger.trace(s);
             }
             else {
-              logger.trace(message, t);
+              logger.trace(s, t);
             }
           }
           break;
         case DEBUG :
           if (logger.isDebugEnabled()) {
             if (t == null) {
-              logger.debug(message);
+              logger.debug(s);
             }
             else {
-              logger.debug(message, t);
+              logger.debug(s, t);
             }
           }
           break;
         case INFO :
           if (logger.isInfoEnabled()) {
             if (t == null) {
-              logger.info(message);
+              logger.info(s);
             }
             else {
-              logger.info(message, t);
+              logger.info(s, t);
             }
           }
           break;
         case WARN :
           if (logger.isWarnEnabled()) {
             if (t == null) {
-              logger.warn(message);
+              logger.warn(s);
             }
             else {
-              logger.warn(message, t);
+              logger.warn(s, t);
             }
           }
           break;
         case ERROR :
           if (logger.isErrorEnabled()) {
             if (t == null) {
-              logger.error(message);
+              logger.error(s);
             }
             else {
-              logger.error(message, t);
+              logger.error(s, t);
             }
           }
           break;
         case FATAL :
           if (logger.isFatalEnabled()) {
             if (t == null) {
-              logger.fatal(message);
+              logger.fatal(s);
             }
             else {
-              logger.fatal(message, t);
+              logger.fatal(s, t);
             }
           }
           break;
