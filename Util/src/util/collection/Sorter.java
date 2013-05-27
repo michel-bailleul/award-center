@@ -567,6 +567,18 @@ public final class Sorter {
   }
 
 
+  /**
+   * Stooge sort
+   *
+   * Stooge sort is a recursive sorting algorithm with a time complexity of
+   * O(nlog 3 / log 1.5 ) = O(n2.7095...).
+   * The running time of the algorithm is thus extremely slow compared
+   * to efficient sorting algorithms, such as Merge sort,
+   * and is even slower than Bubble sort,
+   * a canonical example of a fairly inefficient and simple sort.
+   */
+
+
   // Selection sorts -----------------------------------------------------------
 
 
@@ -674,7 +686,21 @@ public final class Sorter {
    * whereas heapsort averages O(n log n) regardless of the initial sorted state
    */
 
-  /** Cartesian tree */
+
+  /**
+   * Cartesian tree sort
+   *
+   * In computer science, a Cartesian tree is a binary tree derived from
+   * a sequence of numbers; it can be uniquely defined from the properties that
+   * it is heap-ordered and that a symmetric (in-order) traversal of the tree
+   * returns the original sequence. Introduced by Vuillemin (1980) in the context
+   * of geometric range searching data structures, Cartesian trees have also been
+   * used in the definition of the treap and randomized binary search tree data
+   * structures for binary search problems. The Cartesian tree for a sequence may
+   * be constructed in linear time using a stack-based algorithm for finding all
+   * nearest smaller values in a sequence.
+   */
+
 
   /**
    * Tournament sort
@@ -687,6 +713,25 @@ public final class Sorter {
    * temporary array with the winning elements based on your priority condition.
    * We repeat this process until we get the greatest or smallest element based
    * on your choice
+   */
+
+
+  /**
+   * Cycle sort
+   *
+   * Cycle sort is an in-place, unstable sorting algorithm, a comparison sort
+   * that is theoretically optimal in terms of the total number of writes to the
+   * original array, unlike any other in-place sorting algorithm. It is based on
+   * the idea that the permutation to be sorted can be factored into cycles,
+   * which can individually be rotated to give a sorted result.
+   * Unlike nearly every other sort, items are never written elsewhere in the
+   * array simply to push them out of the way of the action. Each value is
+   * either written zero times, if it's already in its correct position, or
+   * written one time to its correct position. This matches the minimal number
+   * of overwrites required for a completed in-place sort. Minimizing the number
+   * of writes is useful when making writes to some huge data set is very
+   * expensive, such as with EEPROMs or Flash memory where each write reduces
+   * the lifespan of the memory.
    */
 
 
@@ -812,11 +857,11 @@ public final class Sorter {
    */
   public static final boolean mergeSort(int[] a, int lo, int hi) {
 
-  if (!_check(a, lo, hi)) return false;
+    if (!_check(a, lo, hi)) return false;
 
-  _mergeSort(a, lo, hi, new int[a.length]);
+    _mergeSort(a, lo, hi, new int[a.length]);
 
-  return true;
+    return true;
 
   }
 
@@ -844,11 +889,11 @@ public final class Sorter {
    */
   public static final boolean mergeSortInPlace(int[] a, int lo, int hi) {
 
-  if (!_check(a, lo, hi)) return false;
+    if (!_check(a, lo, hi)) return false;
 
-  _mergeSortInPlace(a, lo, hi);
+    _mergeSortInPlace(a, lo, hi);
 
-  return true;
+    return true;
 
   }
 
@@ -863,30 +908,7 @@ public final class Sorter {
    */
 
 
-  // Hybrid --------------------------------------------------------------------
-
-
-  /**
-   * Timsort
-   *
-   * Timsort is a hybrid sorting algorithm derived from merge sort and insertion
-   * sort, designed to perform well on many kinds of real-world data. It was
-   * invented by Tim Peters in 2002, for use in versions 2.3 and later of the
-   * Python programming language, and may soon be used in Java as well
-   */
-
-
-  /**
-   * Introsort
-   *
-   * Introsort or introspective sort is a sorting algorithm designed by
-   * David Musser in 1997. It begins with quicksort and switches to heapsort
-   * when the recursion depth exceeds a level based on (the logarithm of) the
-   * number of elements being sorted. It is the best of both worlds, with a
-   * worst-case O(n log n) runtime and practical performance comparable to
-   * quicksort on typical data sets. Since both algorithms it uses are
-   * comparison sorts, it too is a comparison sort
-   */
+  // Distribution sorts --------------------------------------------------------
 
 
   /**
@@ -955,6 +977,70 @@ public final class Sorter {
     }
 
   }
+
+
+  // Hybrid sorts --------------------------------------------------------------
+
+
+  /**
+   * Timsort
+   *
+   * Timsort is a hybrid sorting algorithm derived from merge sort and insertion
+   * sort, designed to perform well on many kinds of real-world data. It was
+   * invented by Tim Peters in 2002, for use in versions 2.3 and later of the
+   * Python programming language, and may soon be used in Java as well
+   */
+
+
+  /**
+   * Introsort
+   *
+   * Introsort or introspective sort is a sorting algorithm designed by
+   * David Musser in 1997. It begins with quicksort and switches to heapsort
+   * when the recursion depth exceeds a level based on (the logarithm of) the
+   * number of elements being sorted. It is the best of both worlds, with a
+   * worst-case O(n log n) runtime and practical performance comparable to
+   * quicksort on typical data sets. Since both algorithms it uses are
+   * comparison sorts, it too is a comparison sort
+   */
+
+
+  /**
+   * Spreadsort
+   *
+   * Spreadsort is a sorting algorithm invented by Steven J. Ross in 2002.[1]
+   * It combines concepts from distribution-based sorts, such as radix sort and
+   * bucket sort, with partitioning concepts from comparison sorts such as
+   * quicksort and mergesort. In experimental results it was shown to be highly
+   * efficient, often outperforming traditional algorithms such as quicksort,
+   * particularly on distributions exhibiting structure.
+   */
+
+
+  /**
+   * UnShuffle sort
+   *
+   * The UnShuffle Sort is a distribution or merge sort which was developed by
+   * Art S. Kagel. UnShuffle is most efficient when sorting data which exhibits
+   * low entropy, in effect where the data is well ordered or contains
+   * sub-sequences of ordered items. It was first mentioned in an article in
+   * Computer Language Magazine (Vol. 3 No. 11, November 1985). The current
+   * implementation is the result of several years of additional experimentation.
+   * The sort involves two phases. During the first distribution phase items are
+   * distributed to a variable number of ordered lists using a structure that
+   * minimizes the number of comparisons required. Once all items have been
+   * distributed the sorted lists are merged to the output list. UnShuffle is
+   * one of a very few sorts that can be applied directly to linked lists.
+   */
+
+
+  /**
+   * JSort
+   *
+   * JSort is an in-place sort algorithm that uses build heap twice to largely
+   * order the array then finishes with an insertion sort. JSort is attributed
+   * to Jason Morrison.
+   */
 
 
   // ——————————————————————————————————————————————————————————————— Constructor
