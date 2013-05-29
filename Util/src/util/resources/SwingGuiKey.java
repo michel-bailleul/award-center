@@ -20,7 +20,7 @@ public enum SwingGuiKey implements IKey {
   JTEXTFIELDSEARCH_WATERMARK ("jtextfieldsearch.watermark"),
   JTEXTFIELDSEARCH_CLEAR     ("jtextfieldsearch.clear"),
 
-  // --------------------------------------------------------------------- Icons
+  // Icons ---------------------------------------------------------------------
 
   ICON_SPACER        ("icon/spacer.png"),
   ICON_MAGNIFIER     ("icon/magnifier.png"),

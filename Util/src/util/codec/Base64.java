@@ -2,8 +2,8 @@ package util.codec;
 
 
 import static util.resource.ResourceUtil.getMsg;
-import static util.resources.CodecKey.CODEC_ERROR_CHARACTER;
-import static util.resources.CodecKey.CODEC_ERROR_LENGTH;
+import static util.resources.CodecKey.BASE64_ERR_CHARACTER;
+import static util.resources.CodecKey.BASE64_ERR_LENGTH;
 
 
 public final class Base64 {
@@ -89,7 +89,7 @@ public final class Base64 {
     }
 
     if (c.length % 4 != 0) {
-      throw new IllegalArgumentException(getMsg(CODEC_ERROR_LENGTH));
+      throw new IllegalArgumentException(getMsg(BASE64_ERR_LENGTH));
     }
 
     int il = c.length;
@@ -106,14 +106,14 @@ public final class Base64 {
       int i2 = (i < il) ? c[i++] : 'A';
       int i3 = (i < il) ? c[i++] : 'A';
       if (i0 > 127 || i1 > 127 || i2 > 127 || i3 > 127) {
-        throw new IllegalArgumentException(getMsg(CODEC_ERROR_CHARACTER));
+        throw new IllegalArgumentException(getMsg(BASE64_ERR_CHARACTER));
       }
       int b0 = BASE64_TO_BYTE[i0];
       int b1 = BASE64_TO_BYTE[i1];
       int b2 = BASE64_TO_BYTE[i2];
       int b3 = BASE64_TO_BYTE[i3];
       if (b0 < 0 || b1 < 0 || b2 < 0 || b3 < 0) {
-        throw new IllegalArgumentException(getMsg(CODEC_ERROR_CHARACTER));
+        throw new IllegalArgumentException(getMsg(BASE64_ERR_CHARACTER));
       }
                    out[op++] = (byte)(( b0         << 2) | (b1 >>> 4));
       if (op < ol) out[op++] = (byte)(((b1 & 0x0F) << 4) | (b2 >>> 2));

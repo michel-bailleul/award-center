@@ -3,7 +3,7 @@
 <properties>
 
   <entry key="resource.util.add">Chargement De La Ressource [{0}] [{1}]</entry>
-  <entry key="resource.util.error.missing.resource">Ressource Introuvable [{0}]</entry>
-  <entry key="resource.util.error.missing.bundle">ResourceBundle Introuvable [{0}]</entry>
+  <entry key="resource.util.err.missing.resource">Ressource Introuvable [{0}]</entry>
+  <entry key="resource.util.err.missing.bundle">ResourceBundle Introuvable [{0}]</entry>
 
 </properties>

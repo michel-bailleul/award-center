@@ -7,9 +7,9 @@
   <entry key="image.util.add">Cache Image : Ecriture [{0}x{1}]</entry>
   <entry key="image.util.get">Cache Image : Lecture [{0}x{1}]</entry>
   <entry key="image.util.default">Cache Image : Lecture [Image Par Defaut]</entry>
-  <entry key="image.util.error.create">Cache Image : Echec Ecriture [{0}x{1}]</entry>
-  <entry key="image.util.error.url">Cache Image : Echec Lecture [{0}]</entry>
-  <entry key="image.util.error.not.found">Cache Image : Image Introuvable [{0}]</entry>
+  <entry key="image.util.err.create">Cache Image : Echec Ecriture [{0}x{1}]</entry>
+  <entry key="image.util.err.url">Cache Image : Echec Lecture [{0}]</entry>
+  <entry key="image.util.err.not.found">Cache Image : Image Introuvable [{0}]</entry>
 
   <!-- ImageViewer -->
   <entry key="imageviewer.read.file">Lecture Fichier [{0}]</entry>

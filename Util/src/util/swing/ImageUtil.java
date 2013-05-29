@@ -9,9 +9,9 @@ import static java.awt.image.BufferedImage.TYPE_INT_ARGB;
 import static util.resource.Logger.getLogger;
 import static util.resources.SwingLogKey.IMAGE_UTIL_ADD;
 import static util.resources.SwingLogKey.IMAGE_UTIL_DEFAULT;
-import static util.resources.SwingLogKey.IMAGE_UTIL_ERROR_CREATE;
-import static util.resources.SwingLogKey.IMAGE_UTIL_ERROR_NOT_FOUND;
-import static util.resources.SwingLogKey.IMAGE_UTIL_ERROR_URL;
+import static util.resources.SwingLogKey.IMAGE_UTIL_ERR_CREATE;
+import static util.resources.SwingLogKey.IMAGE_UTIL_ERR_NOT_FOUND;
+import static util.resources.SwingLogKey.IMAGE_UTIL_ERR_URL;
 import static util.resources.SwingLogKey.IMAGE_UTIL_GET;
 import static util.resources.SwingGuiKey.ICON_SPACER;
 
@@ -177,7 +177,7 @@ public final class ImageUtil {
       return imageIcon;
     }
 
-    logger.error(IMAGE_UTIL_ERROR_CREATE, sourceHeight, sourceWidth);
+    logger.error(IMAGE_UTIL_ERR_CREATE, sourceHeight, sourceWidth);
     return null;
 
   }
@@ -208,7 +208,7 @@ public final class ImageUtil {
       return getImageIcon(c, path.toURL(), h, w);
     }
     catch (MalformedURLException x) {
-      logger.error(IMAGE_UTIL_ERROR_URL, x, path.getPath());
+      logger.error(IMAGE_UTIL_ERR_URL, x, path.getPath());
       return null;
     }
 
@@ -306,7 +306,7 @@ public final class ImageUtil {
     URL url = key.getClass().getResource(key.getKey());
 
     if (url == null) {
-      logger.error(IMAGE_UTIL_ERROR_NOT_FOUND, key.getKey());
+      logger.error(IMAGE_UTIL_ERR_NOT_FOUND, key.getKey());
     }
 
     return getImageIcon(c, url, h, w);

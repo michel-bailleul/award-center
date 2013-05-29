@@ -11,17 +11,17 @@ public enum SwingLogKey implements IKey {
 
   // ImageUtil -----------------------------------------------------------------
 
-  IMAGE_UTIL_ADD             ("image.util.add"),
-  IMAGE_UTIL_GET             ("image.util.get"),
-  IMAGE_UTIL_DEFAULT         ("image.util.default"),
-  IMAGE_UTIL_ERROR_CREATE    ("image.util.error.create"),
-  IMAGE_UTIL_ERROR_URL       ("image.util.error.url"),
-  IMAGE_UTIL_ERROR_NOT_FOUND ("image.util.error.not.found"),
+  IMAGE_UTIL_ADD           ("image.util.add"),
+  IMAGE_UTIL_GET           ("image.util.get"),
+  IMAGE_UTIL_DEFAULT       ("image.util.default"),
+  IMAGE_UTIL_ERR_CREATE    ("image.util.err.create"),
+  IMAGE_UTIL_ERR_URL       ("image.util.err.url"),
+  IMAGE_UTIL_ERR_NOT_FOUND ("image.util.err.not.found"),
 
 
   // ImageViewer ---------------------------------------------------------------
 
-  IMAGEVIEWER_READ_FILE    ("imageviewer.read.file"),
+  IMAGEVIEWER_READ_FILE ("imageviewer.read.file"),
 
 
   // GradientPanel -------------------------------------------------------------

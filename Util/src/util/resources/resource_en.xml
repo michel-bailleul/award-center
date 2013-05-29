@@ -3,7 +3,7 @@
 <properties>
 
   <entry key="resource.util.add">Loading ResourceBundle [{0}] [{1}]</entry>
-  <entry key="resource.util.error.missing.resource">Missing Resource [{0}]</entry>
-  <entry key="resource.util.error.missing.bundle">Missing ResourceBundle [{0}]</entry>
+  <entry key="resource.util.err.missing.resource">Missing Resource [{0}]</entry>
+  <entry key="resource.util.err.missing.bundle">Missing ResourceBundle [{0}]</entry>
 
 </properties>

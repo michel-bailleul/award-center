@@ -11,8 +11,8 @@ import static util.swing.ImageUtil.getImageIcon;
 import static util.misc.StringUtil.formatMessage;
 import static util.resource.Logger.getLogger;
 import static util.resources.ResourceKey.RESOURCE_UTIL_ADD;
-import static util.resources.ResourceKey.RESOURCE_UTIL_ERROR_MISSING_BUNDLE;
-import static util.resources.ResourceKey.RESOURCE_UTIL_ERROR_MISSING_RESOURCE;
+import static util.resources.ResourceKey.RESOURCE_UTIL_ERR_MISSING_BUNDLE;
+import static util.resources.ResourceKey.RESOURCE_UTIL_ERR_MISSING_RESOURCE;
 
 
 import java.awt.Image;
@@ -102,7 +102,7 @@ public final class ResourceUtil {
       bundles.put(klass, bundle);
     }
     catch (MissingResourceException x) {
-      logger.error(RESOURCE_UTIL_ERROR_MISSING_BUNDLE, x, baseName);
+      logger.error(RESOURCE_UTIL_ERR_MISSING_BUNDLE, x, baseName);
     }
 
     logger.debug(RESOURCE_UTIL_ADD, locale, baseName);
@@ -121,7 +121,7 @@ public final class ResourceUtil {
     }
     catch (MissingResourceException x) {
       msg = "!" + key.getKey() + "!";
-      logger.error(RESOURCE_UTIL_ERROR_MISSING_RESOURCE, x, msg);
+      logger.error(RESOURCE_UTIL_ERR_MISSING_RESOURCE, x, msg);
     }
 
     return msg;

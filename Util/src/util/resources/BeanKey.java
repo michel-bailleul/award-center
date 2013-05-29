@@ -9,12 +9,15 @@ import util.resource.IKey;
 public enum BeanKey implements IKey {
 
 
-  // FileUtil ------------------------------------------------------------------
+  // BeanUtil ------------------------------------------------------------------
 
   BEAN_UTIL_ERR_CLASS_NULL    ("bean.util.err.class.null"),
   BEAN_UTIL_ERR_BEAN_INFO     ("bean.util.err.bean.info"),
   BEAN_UTIL_ERR_BEAN_NULL     ("bean.util.err.bean.null"),
   BEAN_UTIL_ERR_INVOKE_METHOD ("bean.util.err.invoke.method"),
+
+  // BeanComparator ------------------------------------------------------------
+
   BEAN_COMPARATOR_ERR_GETTER  ("bean.comparator.err.getter");
 
 

@@ -9,10 +9,10 @@ import util.resource.IKey;
 public enum CodecKey implements IKey {
 
 
-  // Coder ------------------------------------------------------------------
+  // Base64 --------------------------------------------------------------------
 
-  CODEC_ERROR_LENGTH    ("codec.error.length"),
-  CODEC_ERROR_CHARACTER ("codec.error.character");
+  BASE64_ERR_LENGTH    ("base64.err.length"),
+  BASE64_ERR_CHARACTER ("base64.err.character");
 
 
   // —————————————————————————————————————————————————————————————— Constructors

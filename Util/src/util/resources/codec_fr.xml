@@ -2,7 +2,7 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 
-  <entry key="codec.error.length">Longueur de donnees Base64 non multiple de 4</entry>
-  <entry key="codec.error.character">Caractere Base64 illegal</entry>
+  <entry key="base64.err.length">Longueur de donnees Base64 non multiple de 4</entry>
+  <entry key="base64.err.character">Caractere Base64 illegal</entry>
 
 </properties>
