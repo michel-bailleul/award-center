@@ -11,7 +11,7 @@ public enum ResourceKey implements IKey {
 
   // ResourceUtil --------------------------------------------------------------
 
-  RESOURCE_UTIL_ADD                  ("resource.util.add"),
+  RESOURCE_UTIL_ADD_BUNDLE           ("resource.util.add.bundle"),
   RESOURCE_UTIL_ERR_MISSING_RESOURCE ("resource.util.err.missing.resource"),
   RESOURCE_UTIL_ERR_MISSING_BUNDLE   ("resource.util.err.missing.bundle");
 

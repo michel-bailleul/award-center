@@ -29,7 +29,7 @@ public class GradientPanel extends JPanel {
   // —————————————————————————————————————————————————————————— Static Constants
 
 
-  private static final int side = 100;
+  private static final int SIDE = 100;
 
 
   // —————————————————————————————————————————————————————————————— Constructors
@@ -56,8 +56,8 @@ public class GradientPanel extends JPanel {
       colors[i] = (i%2 == 0) ? color1 : color2;
     }
 
-    Point start = new Point(0, side);
-    Point end   = new Point(side, 0);
+    Point start = new Point(0, SIDE);
+    Point end   = new Point(SIDE, 0);
     paint = new LinearGradientPaint(start, end, fractions, colors);
 
   }
@@ -91,7 +91,7 @@ public class GradientPanel extends JPanel {
       try {
         g2d.setRenderingHint(KEY_ANTIALIASING, VALUE_ANTIALIAS_ON);
         g2d.setPaint(paint);
-        g2d.scale((double)width/side, (double)height/side);
+        g2d.scale((double)width/SIDE, (double)height/SIDE);
         if (arc > 0) {
           int arcx=arc, arcy=arc;
           if (height > width) {
@@ -100,10 +100,10 @@ public class GradientPanel extends JPanel {
           else {
             arcx *= (double)height/width;
           }
-          g2d.fillRoundRect(0, 0, side, side, arcx, arcy);
+          g2d.fillRoundRect(0, 0, SIDE, SIDE, arcx, arcy);
         }
         else {
-          g2d.fillRect(0, 0, side, side);
+          g2d.fillRect(0, 0, SIDE, SIDE);
         }
       }
       finally {

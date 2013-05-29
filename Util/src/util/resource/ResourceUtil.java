@@ -10,7 +10,7 @@ import static util.swing.ImageUtil.getImageIcon;
 
 import static util.misc.StringUtil.formatMessage;
 import static util.resource.Logger.getLogger;
-import static util.resources.ResourceKey.RESOURCE_UTIL_ADD;
+import static util.resources.ResourceKey.RESOURCE_UTIL_ADD_BUNDLE;
 import static util.resources.ResourceKey.RESOURCE_UTIL_ERR_MISSING_BUNDLE;
 import static util.resources.ResourceKey.RESOURCE_UTIL_ERR_MISSING_RESOURCE;
 
@@ -25,6 +25,7 @@ import java.util.ResourceBundle.Control;
 
 import javax.swing.Icon;
 
+import util.resources.BeanKey;
 import util.resources.SwingGuiKey;
 import util.resources.AppKey;
 import util.resources.CodecKey;
@@ -42,22 +43,23 @@ public final class ResourceUtil {
 
   private static final Logger logger = getLogger(ResourceUtil.class);
 
-  private static final Map<Class<? extends IKey>, ResourceBundle> bundles =
+  private static final Map<Class<? extends IKey>, ResourceBundle> BUNDLES =
                new HashMap<Class<? extends IKey>, ResourceBundle>();
 
   // logs
   static {
-    loadBundles(ENGLISH, true);
+    setLanguageLog(ENGLISH); // default language
   }
 
 
   // ——————————————————————————————————————————————————————————— Private Methods
 
 
-  private static void loadBundles(Locale language, boolean isLog) {
+  private static void _loadBundles(Locale language, boolean isLog) {
     if (isLog) {
       // Logs
       addBundle(ResourceKey.class,   language); // util.resource : 1st !!!
+      addBundle(BeanKey.class,       language); // util.bean
       addBundle(CodecKey.class,      language); // util.codec
       addBundle(CollectionKey.class, language); // util.collection
       addBundle(IOKey.class,         language); // util.io
@@ -75,12 +77,12 @@ public final class ResourceUtil {
 
 
   public static void setLanguageLog(Locale language) {
-    loadBundles(language, true);
+    _loadBundles(language, true);
   }
 
 
   public static void setLanguageGui(Locale language) {
-    loadBundles(language, false);
+    _loadBundles(language, false);
   }
 
 
@@ -99,13 +101,12 @@ public final class ResourceUtil {
 
     try {
       ResourceBundle bundle = getBundle(baseName, (locale != null) ? locale : getDefault(), control);
-      bundles.put(klass, bundle);
+      BUNDLES.put(klass, bundle);
+      logger.debug(RESOURCE_UTIL_ADD_BUNDLE, locale, baseName);
     }
     catch (MissingResourceException x) {
       logger.error(RESOURCE_UTIL_ERR_MISSING_BUNDLE, x, baseName);
     }
-
-    logger.debug(RESOURCE_UTIL_ADD, locale, baseName);
 
   }
 
@@ -113,15 +114,14 @@ public final class ResourceUtil {
   public static String getMsg(IKey key, Object... params) {
 
     String msg = null;
-    ResourceBundle bundle = bundles.get(key.getClass());
+    ResourceBundle bundle = BUNDLES.get(key.getClass());
 
     try {
       msg = bundle.getString(key.getKey());
       msg = formatMessage(msg, params);
     }
     catch (MissingResourceException x) {
-      msg = "!" + key.getKey() + "!";
-      logger.error(RESOURCE_UTIL_ERR_MISSING_RESOURCE, x, msg);
+      logger.error(RESOURCE_UTIL_ERR_MISSING_RESOURCE, x, key.getKey());
     }
 
     return msg;
