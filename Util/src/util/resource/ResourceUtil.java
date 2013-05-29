@@ -116,11 +116,11 @@ public final class ResourceUtil {
     ResourceBundle bundle = bundles.get(key.getClass());
 
     try {
-      msg = bundle.getString(key.getValue());
+      msg = bundle.getString(key.getKey());
       msg = formatMessage(msg, params);
     }
     catch (MissingResourceException x) {
-      msg = "!" + key.getValue() + "!";
+      msg = "!" + key.getKey() + "!";
       logger.error(RESOURCE_UTIL_ERROR_MISSING_RESOURCE, x, msg);
     }
 

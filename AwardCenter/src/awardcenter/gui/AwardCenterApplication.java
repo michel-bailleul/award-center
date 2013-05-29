@@ -4,6 +4,7 @@ package awardcenter.gui;
 import static java.lang.System.getProperty;
 import static java.util.Locale.FRENCH;
 
+import static util.resource.Logger.getLogger;
 import static util.resource.ResourceUtil.*;
 import static util.swing.app.ActionType.EXIT;
 
@@ -38,7 +39,7 @@ public class AwardCenterApplication extends Application {
   // —————————————————————————————————————————————————————————— Static Constants
 
 
-  private static final Logger logger = Logger.getLogger(AwardCenterApplication.class);
+  private static final Logger logger = getLogger(AwardCenterApplication.class);
 
 
   public static final int GAP = 10;

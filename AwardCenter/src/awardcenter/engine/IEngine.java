@@ -1,6 +1,9 @@
 package awardcenter.engine;
 
 
+import static util.resource.Logger.getLogger;
+
+
 import util.resource.Logger;
 
 import awardcenter.model.Game;
@@ -17,7 +20,7 @@ import awardcenter.model.Game;
  */
 public interface IEngine extends Iterable<Game> {
 
-  Logger logger = Logger.getLogger(IEngine.class);
+  Logger logger = getLogger(IEngine.class);
 
   /**
    * <p>

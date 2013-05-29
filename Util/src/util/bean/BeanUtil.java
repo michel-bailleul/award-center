@@ -3,6 +3,12 @@ package util.bean;
 
 import static java.beans.Introspector.getBeanInfo;
 import static util.misc.StringUtil.isEmptyTrim;
+import static util.resource.Logger.getLogger;
+import static util.resource.ResourceUtil.getMsg;
+import static util.resources.BeanKey.BEAN_UTIL_ERR_BEAN_INFO;
+import static util.resources.BeanKey.BEAN_UTIL_ERR_BEAN_NULL;
+import static util.resources.BeanKey.BEAN_UTIL_ERR_CLASS_NULL;
+import static util.resources.BeanKey.BEAN_UTIL_ERR_INVOKE_METHOD;
 
 
 import java.beans.BeanInfo;
@@ -11,6 +17,8 @@ import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import util.resource.Logger;
+
 
 public final class BeanUtil {
 
@@ -18,7 +26,7 @@ public final class BeanUtil {
   // —————————————————————————————————————————————————————————— Static Constants
 
 
-//  private static final Logger logger = Logger.getLogger(BeanUtil.class);
+  private static final Logger logger = getLogger(BeanUtil.class);
 
 
   // ——————————————————————————————————————————————————————————— Private Methods
@@ -27,7 +35,9 @@ public final class BeanUtil {
   private static Method _getGetterOrSetter(Class<?> klass, String name, boolean isGetter) {
 
     if (klass == null || isEmptyTrim(name)) {
-      throw new IllegalArgumentException("class or property is null"); // TODO: externaliser
+      String msg = getMsg(BEAN_UTIL_ERR_CLASS_NULL);
+      logger.error(msg);
+      throw new IllegalArgumentException(msg);
     }
 
     BeanInfo info = null;
@@ -36,7 +46,7 @@ public final class BeanUtil {
       info = getBeanInfo(klass);
     }
     catch (IntrospectionException x) {
-      x.printStackTrace(); // TODO: log
+      logger.error(BEAN_UTIL_ERR_BEAN_INFO, x, klass.getName());
     }
 
     if (info != null) {
@@ -77,14 +87,16 @@ public final class BeanUtil {
   public static Object invokeMethod(Object bean, Method method, Object... args) {
 
     if (bean == null || method == null) {
-      throw new IllegalArgumentException("bean or method is null"); // TODO: externaliser
+      String msg = getMsg(BEAN_UTIL_ERR_BEAN_NULL);
+      logger.error(msg);
+      throw new IllegalArgumentException(msg);
     }
 
     try {
       return method.invoke(bean, args);
     }
     catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException x) {
-      x.printStackTrace(); // TODO: log
+      logger.error(BEAN_UTIL_ERR_INVOKE_METHOD, x, method.getName());
     }
 
     return null;

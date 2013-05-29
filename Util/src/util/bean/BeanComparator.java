@@ -3,13 +3,24 @@ package util.bean;
 
 import static util.bean.BeanUtil.getGetter;
 import static util.bean.BeanUtil.invokeMethod;
+import static util.resource.Logger.getLogger;
+import static util.resource.ResourceUtil.getMsg;
+import static util.resources.BeanKey.BEAN_COMPARATOR_ERR_GETTER;
 
 
 import java.lang.reflect.Method;
 import java.util.Comparator;
 
+import util.resource.Logger;
+
 
 public class BeanComparator<T> implements Comparator<T> {
+
+
+  // —————————————————————————————————————————————————————————— Static Constants
+
+
+  private static final Logger logger = getLogger(BeanComparator.class);
 
 
   // —————————————————————————————————————————————————————————————— Constructors
@@ -30,7 +41,9 @@ public class BeanComparator<T> implements Comparator<T> {
     this.isNullFirst = isNullFirst;
     method = getGetter(klass, name);
     if (method == null) {
-      throw new IllegalStateException("unable to find getter for property: " + name); // TODO: externaliser
+      String msg = getMsg(BEAN_COMPARATOR_ERR_GETTER, name);
+      logger.error(msg);
+      throw new IllegalStateException(msg);
     }
   }
 

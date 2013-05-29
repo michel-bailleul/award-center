@@ -3,7 +3,7 @@ package util.resource;
 
 public interface IKey {
 
-  String getValue();
+  String getKey();
 
 /*
   Copy this code into sub-class/enum
@@ -26,7 +26,7 @@ public interface IKey {
 
 
   @Override
-  public String getValue() {
+  public String getKey() {
     return key;
   }
 */

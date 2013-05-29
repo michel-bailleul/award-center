@@ -33,7 +33,7 @@ public enum AppKey implements IKey {
 
 
   @Override
-  public String getValue() {
+  public String getKey() {
     return key;
   }
 

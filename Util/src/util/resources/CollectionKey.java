@@ -32,7 +32,7 @@ public enum CollectionKey implements IKey {
 
 
   @Override
-  public String getValue() {
+  public String getKey() {
     return key;
   }
 

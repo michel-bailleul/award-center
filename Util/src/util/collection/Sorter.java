@@ -1,6 +1,7 @@
 package util.collection;
 
 
+import static util.resource.Logger.getLogger;
 import static util.resources.CollectionKey.SORTER_CHECK_KO;
 
 
@@ -13,7 +14,7 @@ public final class Sorter {
   // —————————————————————————————————————————————————————————— Static Constants
 
 
-  private static final Logger logger = Logger.getLogger(Sorter.class);
+  private static final Logger logger = getLogger(Sorter.class);
 
   private static final float SHRINK_FACTOR = (float) 1.3; // comb sort
 

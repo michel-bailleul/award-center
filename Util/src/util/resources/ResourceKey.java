@@ -34,7 +34,7 @@ public enum ResourceKey implements IKey {
 
 
   @Override
-  public String getValue() {
+  public String getKey() {
     return key;
   }
 

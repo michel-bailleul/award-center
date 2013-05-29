@@ -303,10 +303,10 @@ public final class ImageUtil {
 
   public static ImageIcon getImageIcon(Component c, IKey key, int h, int w) {
 
-    URL url = key.getClass().getResource(key.getValue());
+    URL url = key.getClass().getResource(key.getKey());
 
     if (url == null) {
-      logger.error(IMAGE_UTIL_ERROR_NOT_FOUND, key.getValue());
+      logger.error(IMAGE_UTIL_ERROR_NOT_FOUND, key.getKey());
     }
 
     return getImageIcon(c, url, h, w);

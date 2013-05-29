@@ -10,6 +10,7 @@ import static awardcenter.resources.Key.GAME_NEW;
 import static util.codec.Base64.decodeBase64ToByte;
 import static util.codec.Base64.encodeBase64ToString;
 import static util.misc.StringUtil.isEmpty;
+import static util.resource.Logger.getLogger;
 import static util.resource.ResourceUtil.getMsg;
 
 
@@ -62,7 +63,7 @@ public class AwardModel {
   // —————————————————————————————————————————————————————————— Static Constants
 
 
-  private static final Logger logger = Logger.getLogger(AwardModel.class);
+  private static final Logger logger = getLogger(AwardModel.class);
 
 
   // —————————————————————————————————————————————————————————————— Constructors
