@@ -151,6 +151,40 @@ public final class StringUtil {
 
 
   /**
+   * Complete a gauche avec un caractere a une longueur fixe,
+   * <b><u>OU</u></b> tronque le texte s'il depasse cette longueur
+   *
+   * @param text   - Le texte a modifier
+   * @param c      - Le caractere a ajouter
+   * @param length - La longueur souhaitee
+   * @return Le texte apres modification
+   */
+  public static String lPadTrunc(String text, char c, int length) {
+
+    if (!isEmpty(text) && text.length() > length) {
+      return text.substring(text.length() - length, text.length());
+    }
+    else {
+      return lPad(text, c, length);
+    }
+
+  }
+
+
+  /**
+   * Complete a gauche avec des espaces a une longueur fixe,
+   * <b><u>OU</u></b> tronque le texte s'il depasse cette longueur
+   *
+   * @param text   - Le texte a modifier
+   * @param length - La longueur souhaitee
+   * @return Le texte apres modification
+   */
+  public static String lPadTrunc(String text, int length) {
+    return lPadTrunc(text, ' ', length);
+  }
+
+
+  /**
    * Complete a droite avec un caractere a une longueur fixe
    *
    * @param text   - Le texte a modifier
@@ -195,6 +229,57 @@ public final class StringUtil {
    */
   public static String rPad(String text, int length) {
     return rPad(text, ' ', length);
+  }
+
+
+  /**
+   * Complete a droite avec un caractere a une longueur fixe,
+   * <b><u>OU</u></b> tronque le texte s'il depasse cette longueur
+   *
+   * @param text   - Le texte a modifier
+   * @param c      - Le caractere a ajouter
+   * @param length - La longueur maximum souhaitee
+   * @return Le texte apres modification
+   */
+  public static String rPadTrunc(String text, char c, int length) {
+
+    if (!isEmpty(text) && text.length() > length) {
+      return text.substring(0, length);
+    }
+    else {
+      return rPad(text, c, length);
+    }
+
+  }
+
+
+  /**
+   * Complete a droite avec des espaces a une longueur fixe,
+   * <b><u>OU</u></b> tronque le texte s'il depasse cette longueur
+   *
+   * @param text   - Le texte a modifier
+   * @param length - La longueur maximum souhaitee
+   * @return Le texte apres modification
+   */
+  public static String rPadTrunc(String text, int length) {
+    return rPadTrunc(text, ' ', length);
+  }
+
+
+  /**
+   * Transforme null ou "null" en chaine vide
+   *
+   * @param txt - La chaine de caracteres a traitee
+   * @return La nouvelle chaine de caracteres
+   */
+  public static String trimNull(String txt) {
+
+    if (txt == null || txt.trim().equalsIgnoreCase("null")) {
+      return "";
+    }
+
+    return txt;
+
   }
 
 
