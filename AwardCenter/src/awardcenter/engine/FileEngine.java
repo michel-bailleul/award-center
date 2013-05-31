@@ -92,7 +92,7 @@ public abstract class FileEngine implements IEngine {
 
   private File _getFile(Object id) {
 
-    if (id instanceof File) {
+    if (id == null || id instanceof File) {
       return (File) id;
     }
     else {

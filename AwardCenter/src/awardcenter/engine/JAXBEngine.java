@@ -22,7 +22,6 @@ import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.transform.stream.StreamSource;
 
 import awardcenter.model.Award;
@@ -58,12 +57,6 @@ public final class JAXBEngine extends FileEngine {
     @XmlElementWrapper(name="award-list")
     public List<Award> getAwards() {
       return super.getAwards();
-    }
-
-    @Override
-    @XmlTransient
-    public Object getId() {
-      return super.getId();
     }
 
   }

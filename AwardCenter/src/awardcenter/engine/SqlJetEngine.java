@@ -83,11 +83,11 @@ public class SqlJetEngine implements IEngine {
               award.setId(values[0]);
               award.setValue(((Long)values[2]).intValue());
               award.setIndex(((Long)values[3]).intValue());
-              award.setFlags(((Long)values[4]).intValue());
               award.setLabel((String)values[5]);
               award.setDescription((String)values[6]);
               award.setTipsAndTricks((String)values[7]);
               award.setImage((String)values[8]);
+              _setFlags(award, ((Long)values[4]).intValue());
               awards.add(award);
             }
             while (cursorAward.next());
@@ -124,6 +124,8 @@ public class SqlJetEngine implements IEngine {
   // —————————————————————————————————————————————————————————— Static Constants
 
 
+  // database ------------------------------------------------------------------
+
   private static final String TABLE_GAME = "GAME";
 
   private static final String TABLE_AWARD = "AWARD";
@@ -157,6 +159,67 @@ public class SqlJetEngine implements IEngine {
 
   private static final String CREATE_INDEX_AWARD =
     "CREATE INDEX INDEX_AWARD ON AWARD(ID_GAME)";
+
+
+  // flags ---------------------------------------------------------------------
+
+  private static final int ACHIEVED  = 0b00000001;
+  private static final int ADDED     = 0b00000010;
+  private static final int MULTI     = 0b00000100;
+  private static final int SECRET    = 0b00001000;
+  private static final int SEPARATOR = 0b00010000;
+
+
+  // ———————————————————————————————————————————————————————————— Static Methods
+
+
+  private static int _getFlags(Award award) {
+    int flags = 0;
+    flags += award.isAchieved()  ? ACHIEVED  : 0;
+    flags += award.isAdded()     ? ADDED     : 0;
+    flags += award.isMulti()     ? MULTI     : 0;
+    flags += award.isSecret()    ? SECRET    : 0;
+    flags += award.isSeparator() ? SEPARATOR : 0;
+    return flags;
+  }
+
+
+  private static void _setFlags(Award award, int flags) {
+    award.setAchieved( (flags & ACHIEVED)  > 0);
+    award.setAdded(    (flags & ADDED)     > 0);
+    award.setMulti(    (flags & MULTI)     > 0);
+    award.setSecret(   (flags & SECRET)    > 0);
+    award.setSeparator((flags & SEPARATOR) > 0);
+  }
+
+
+  private static Object[] _toValues(Game game) {
+    return new Object[] {
+      game.getId(),
+      game.getName(),
+      game.getDeveloper(),
+      game.getPublisher(),
+      game.getRating(),
+      game.getScore(),
+      game.getScoreMax(),
+      game.getImage()
+    };
+  }
+
+
+  private static Object[] _toValues(Game game, Award award) {
+    return new Object[] {
+      award.getId(),
+      game.getId(),
+      award.getValue(),
+      award.getIndex(),
+      _getFlags(award),
+      award.getLabel(),
+      award.getDescription(),
+      award.getTipsAndTricks(),
+      award.getImage()
+    };
+  }
 
 
   // —————————————————————————————————————————————————————————————— Constructors
@@ -218,35 +281,6 @@ public class SqlJetEngine implements IEngine {
       logger.error("todo", x); // TODO: externalize
     }
 
-  }
-
-
-  private Object[] _toValues(Game game) {
-    return new Object[] {
-      game.getId(),
-      game.getName(),
-      game.getDeveloper(),
-      game.getPublisher(),
-      game.getRating(),
-      game.getScore(),
-      game.getScoreMax(),
-      game.getImage()
-    };
-  }
-
-
-  private Object[] _toValues(Game game, Award award) {
-    return new Object[] {
-      award.getId(),
-      game.getId(),
-      award.getValue(),
-      award.getIndex(),
-      award.getFlags(),
-      award.getLabel(),
-      award.getDescription(),
-      award.getTipsAndTricks(),
-      award.getImage()
-    };
   }
 
 
