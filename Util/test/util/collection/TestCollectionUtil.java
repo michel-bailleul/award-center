@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -99,6 +100,20 @@ public class TestCollectionUtil {
 
 
   // —————————————————————————————————————————————————————————————— Test Methods
+
+
+  private void fill(Collection c) {
+
+    c.add(new Product("Car", "RED", 20000));
+    c.add(new Product("Boat", null, 500000));
+    c.add(new Product("Bike", "BLUE", 200));
+    c.add(new Product("Plane", "RED", 1000000));
+    c.add(new Product("Book", "", 0));
+    c.add(new Product("Flower", "BLUE", 0));
+    c.add(new Product("Computer", null, 0));
+    c.add(new Product("Object", "", 0));
+
+  }
 
 
   @Test
@@ -193,24 +208,19 @@ public class TestCollectionUtil {
   }
 
 
+  /**
+   * Test de la methode {@link CollectionUtil#groupBy(Collection, String)}
+   */
   @Test
   public void testGroupByList() {
 
     System.out.println("Test Group By List ----------");
 
-    List<Product> array = new LinkedList<Product>();
+    List<Product> list = new LinkedList<Product>();
+    fill(list);
+    System.out.println(list);
 
-    array.add(new Product("Car", "RED", 20000));
-    array.add(new Product("Boat", null, 500000));
-    array.add(new Product("Bike", "BLUE", 200));
-    array.add(new Product("Plane", "RED", 1000000));
-    array.add(new Product("Book", "", 0));
-    array.add(new Product("Flower", "BLUE", 0));
-    array.add(new Product("Computer", null, 0));
-    array.add(new Product("Object", "", 0));
-
-    System.out.println(array);
-    Map<Object, List<Product>> map = CollectionUtil.groupBy(array, "color");
+    Map<Object, List<Product>> map = CollectionUtil.groupBy(list, "color");
     for (Map.Entry<Object, List<Product>> entry : map.entrySet()) {
       System.out.println(entry.getKey() + " : " + entry.getValue());
     }
@@ -218,27 +228,76 @@ public class TestCollectionUtil {
   }
 
 
+  /**
+   * Test de la methode {@link CollectionUtil#groupBy(Collection, String)}
+   */
   @Test
   public void testGroupBySet() {
 
     System.out.println("Test Group By Set ----------");
 
     Set<Product> set = new TreeSet<Product>();
-
-    set.add(new Product("Car", "RED", 20000));
-    set.add(new Product("Boat", null, 500000));
-    set.add(new Product("Bike", "BLUE", 200));
-    set.add(new Product("Plane", "RED", 1000000));
-    set.add(new Product("Book", "", 0));
-    set.add(new Product("Flower", "BLUE", 0));
-    set.add(new Product("Computer", null, 0));
-    set.add(new Product("Object", "", 0));
-
+    fill(set);
     System.out.println(set);
+
     Map<Object, Set<Product>> map = CollectionUtil.groupBy(set, "color");
     for (Map.Entry<Object, Set<Product>> entry : map.entrySet()) {
       System.out.println(entry.getKey() + " : " + entry.getValue());
     }
+
+  }
+
+
+  /**
+   * Test de la methode {@link CollectionUtil#groupBy(Collection, String)}
+   */
+  @Test
+  public void testGroupByQueue() {
+
+    System.out.println("Test Group By Queue ----------");
+
+    Queue<Product> queue = new LinkedList<Product>();
+    fill(queue);
+    System.out.println(queue);
+
+    Map<Object, Queue<Product>> map = CollectionUtil.groupBy(queue, "color");
+    for (Map.Entry<Object, Queue<Product>> entry : map.entrySet()) {
+      System.out.println(entry.getKey() + " : " + entry.getValue());
+    }
+
+  }
+
+
+  /**
+   * Test de la methode {@link CollectionUtil#collect(Collection, String)}
+   */
+  @Test
+  public void testCollectList() {
+
+    List<Product> list = new ArrayList<Product>();
+
+    fill(list);
+    System.out.println(list);
+
+    List<Object> values = CollectionUtil.collect(list, "color");
+    System.out.println(values);
+
+  }
+
+
+  /**
+   * Test de la methode {@link CollectionUtil#collect(Collection, String)}
+   */
+  @Test
+  public void testCollectSet() {
+
+    Set<Product> set = new HashSet<Product>();
+
+    fill(set);
+    System.out.println(set);
+
+    Set<Object> values = CollectionUtil.collect(set, "color");
+    System.out.println(values);
 
   }
 

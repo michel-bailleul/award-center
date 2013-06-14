@@ -69,6 +69,19 @@ public final class BeanUtil {
   // ———————————————————————————————————————————————————————————— Public Methods
 
 
+  @SuppressWarnings("unchecked")
+  public static <T> T instantiate(T o) {
+
+    try {
+      return (T) ((o != null) ? o.getClass().newInstance() : null);
+    }
+    catch (ReflectiveOperationException x) {
+      throw new UnsupportedOperationException(x);
+    }
+
+  }
+
+
   public static Object getProperty(Object bean, String name) {
     return invokeMethod(bean, getGetter(bean.getClass(), name));
   }

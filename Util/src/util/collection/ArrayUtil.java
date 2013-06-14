@@ -265,6 +265,38 @@ public final class ArrayUtil {
   }
 
 
+  /**
+   * Collecte la valeur d'une propriete de chaque element d'un tableau
+   *
+   * @param array    - Tableau d'elements
+   * @param property - Propriete a collecter
+   *
+   * @return La valeur de la propriete de chaque element
+   */
+  public static <T> Object[] collect(T[] array, String property) {
+
+    Object[] values = null;
+
+    /* TODO
+    if (array != null && !StringUtil.isEmpty(property)) {
+      values = new Object[array.length];
+      for (int i=0; i < array.length; i++) {
+        try {
+          Object value = (array[i] != null) ? PropertyUtils.getProperty(array[i], property) : null;
+          values[i] = value;
+        }
+        catch (Exception x) {
+          x.printStackTrace();
+        }
+      }
+    }
+     */
+
+    return values;
+
+  }
+
+
   // —————————————————————————————————————————————————————————————— Constructors
 
 
