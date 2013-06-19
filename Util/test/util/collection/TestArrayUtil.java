@@ -102,6 +102,27 @@ public class TestArrayUtil {
 
 
   @Test
+  public void collect() {
+
+    Product[] array = new Product[8];
+
+    array[0] = new Product("g", "Red", 0);
+    array[1] = new Product("e", null, 0);
+    array[2] = new Product("c", "Orange", 0);
+    array[3] = new Product("a", "Blue", 0);
+    array[4] = new Product("h", "Yellow", 0);
+    array[5] = new Product("f", "Pink", 0);
+    array[6] = new Product("b", null, 0);
+    array[7] = new Product("d", "Green", 0);
+
+    System.out.println(Arrays.toString(array));
+    Object[] values = ArrayUtil.collect(array, "color");
+    System.out.println(Arrays.toString(values));
+
+  }
+
+
+  @Test
   public void trim() {
 
     Object[] array = { null, "A", null, "B", "C", null, null, "D" };

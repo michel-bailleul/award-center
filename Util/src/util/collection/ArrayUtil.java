@@ -246,6 +246,33 @@ public final class ArrayUtil {
 
 
   /**
+   * Collecte la valeur d'une propriete de chaque element d'un tableau
+   *
+   * @param array    - Tableau d'elements
+   * @param property - Propriete a collecter
+   *
+   * @return La valeur de la propriete de chaque element
+   */
+  public static <T> Object[] collect(T[] array, String property) {
+
+    Object[] values = null;
+
+    if (array != null && !StringUtil.isEmpty(property)) {
+      values = new Object[array.length];
+      Method method = getGetter(array.getClass().getComponentType(), property);
+      if (method != null) {
+        for (int i=0; i < array.length; i++) {
+          values[i] = (array[i] != null) ? invokeMethod(array[i], method) : null;
+        }
+      }
+    }
+
+    return values;
+
+  }
+
+
+  /**
    * Supprime les cellules vides [{@code null}] d'un tableau
    *
    * @param array - Le tableau a traiter
@@ -261,38 +288,6 @@ public final class ArrayUtil {
     list.removeAll(Collections.singleton(null));
 
     return list.toArray(Arrays.copyOf(array, 0));
-
-  }
-
-
-  /**
-   * Collecte la valeur d'une propriete de chaque element d'un tableau
-   *
-   * @param array    - Tableau d'elements
-   * @param property - Propriete a collecter
-   *
-   * @return La valeur de la propriete de chaque element
-   */
-  public static <T> Object[] collect(T[] array, String property) {
-
-    Object[] values = null;
-
-    /* TODO
-    if (array != null && !StringUtil.isEmpty(property)) {
-      values = new Object[array.length];
-      for (int i=0; i < array.length; i++) {
-        try {
-          Object value = (array[i] != null) ? PropertyUtils.getProperty(array[i], property) : null;
-          values[i] = value;
-        }
-        catch (Exception x) {
-          x.printStackTrace();
-        }
-      }
-    }
-     */
-
-    return values;
 
   }
 
