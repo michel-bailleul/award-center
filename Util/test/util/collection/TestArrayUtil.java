@@ -72,7 +72,7 @@ public class TestArrayUtil {
     array[7] = new Product("d", "Green", 0);
 
     System.out.println(Arrays.toString(array));
-    ArrayUtil.sort(array, "color", true, true);
+    ArrayUtil.sort("color", true, true, array);
     System.out.println(Arrays.toString(array));
 
   }
@@ -93,7 +93,7 @@ public class TestArrayUtil {
     array[7] = new Product("Object", "", 0);
 
     System.out.println(Arrays.toString(array));
-    Map<Object, Product[]> map = ArrayUtil.groupBy(array, "color");
+    Map<Object, Product[]> map = ArrayUtil.groupBy("color", array);
     for (Map.Entry<Object, Product[]> entry : map.entrySet()) {
       System.out.println(entry.getKey() + " : " + Arrays.toString(entry.getValue()));
     }
@@ -116,7 +116,7 @@ public class TestArrayUtil {
     array[7] = new Product("d", "Green", 0);
 
     System.out.println(Arrays.toString(array));
-    Object[] values = ArrayUtil.collect(array, "color");
+    String[] values = ArrayUtil.collect("color", String.class, array);
     System.out.println(Arrays.toString(values));
 
   }
@@ -148,7 +148,6 @@ public class TestArrayUtil {
     assertArrayEquals(new Object[0], array);
 
   }
-
 
 
 }

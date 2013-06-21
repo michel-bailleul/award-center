@@ -5,6 +5,7 @@ import static util.bean.BeanUtil.getGetter;
 import static util.bean.BeanUtil.invokeMethod;
 
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,17 +32,19 @@ public final class ArrayUtil {
 
 
   /**
-   * Verifie le contenu de chaque emplacement d'un tableau
+   * Controle le contenu de chaque emplacement d'un tableau
    * et pas seulement sa taille.
    *
-   * @param array - Le tableau a verifier
-   * @return <b>true</b> si tous les emplacements du tableau sont vides<br/>
-   *         <b>false</b> si le tableau n'est pas vide
+   * @param array - Le tableau a controler
+   *
+   * @return {@code true} : si tous les emplacements du tableau sont vides<br/>
+   *         {@code false} : si le tableau n'est pas vide
    */
-  public static boolean isEmpty(Object[] array) {
+  @SafeVarargs
+  public static <T> boolean isEmpty(T... array) {
 
     if (array != null && array.length > 0) {
-      for (Object o : array) {
+      for (T o : array) {
         if (o != null) {
           return false;
         }
@@ -54,11 +57,12 @@ public final class ArrayUtil {
 
 
   /**
-   * Verifie si le tableau est vide ou <code>null</code>
+   * Verifie si le tableau est vide ou {@code null}
    *
-   * @param array - Le tableau a verifier
-   * @return <b>true</b> si le tableau est vide ou <code>null</code><br/>
-   *         <b>false</b> si le tableau n'est pas vide
+   * @param array - Le tableau a controler
+   *
+   * @return {@code true} : si le tableau est vide ou {@code null}<br/>
+   *         {@code false} : si le tableau n'est pas vide
    */
   public static boolean isEmpty(byte[] array) {
     return array == null || array.length == 0;
@@ -66,11 +70,12 @@ public final class ArrayUtil {
 
 
   /**
-   * Verifie si le tableau est vide ou <code>null</code>
+   * Verifie si le tableau est vide ou {@code null}
    *
-   * @param array - Le tableau a verifier
-   * @return <b>true</b> si le tableau est vide ou <code>null</code><br/>
-   *         <b>false</b> si le tableau n'est pas vide
+   * @param array - Le tableau a controler
+   *
+   * @return {@code true} : si le tableau est vide ou {@code null}<br/>
+   *         {@code false} : si le tableau n'est pas vide
    */
   public static boolean isEmpty(short[] array) {
     return array == null || array.length == 0;
@@ -78,11 +83,12 @@ public final class ArrayUtil {
 
 
   /**
-   * Verifie si le tableau est vide ou <code>null</code>
+   * Verifie si le tableau est vide ou {@code null}
    *
-   * @param array - Le tableau a verifier
-   * @return <b>true</b> si le tableau est vide ou <code>null</code><br/>
-   *         <b>false</b> si le tableau n'est pas vide
+   * @param array - Le tableau a controler
+   *
+   * @return {@code true} : si le tableau est vide ou {@code null}<br/>
+   *         {@code false} : si le tableau n'est pas vide
    */
   public static boolean isEmpty(char[] array) {
     return array == null || array.length == 0;
@@ -90,11 +96,12 @@ public final class ArrayUtil {
 
 
   /**
-   * Verifie si le tableau est vide ou <code>null</code>
+   * Verifie si le tableau est vide ou {@code null}
    *
-   * @param array - Le tableau a verifier
-   * @return <b>true</b> si le tableau est vide ou <code>null</code><br/>
-   *         <b>false</b> si le tableau n'est pas vide
+   * @param array - Le tableau a controler
+   *
+   * @return {@code true} : si le tableau est vide ou {@code null}<br/>
+   *         {@code false} : si le tableau n'est pas vide
    */
   public static boolean isEmpty(int[] array) {
     return array == null || array.length == 0;
@@ -102,11 +109,12 @@ public final class ArrayUtil {
 
 
   /**
-   * Verifie si le tableau est vide ou <code>null</code>
+   * Verifie si le tableau est vide ou {@code null}
    *
-   * @param array - Le tableau a verifier
-   * @return <b>true</b> si le tableau est vide ou <code>null</code><br/>
-   *         <b>false</b> si le tableau n'est pas vide
+   * @param array - Le tableau a controler
+   *
+   * @return {@code true} : si le tableau est vide ou {@code null}<br/>
+   *         {@code false} : si le tableau n'est pas vide
    */
   public static boolean isEmpty(long[] array) {
     return array == null || array.length == 0;
@@ -114,11 +122,12 @@ public final class ArrayUtil {
 
 
   /**
-   * Verifie si le tableau est vide ou <code>null</code>
+   * Verifie si le tableau est vide ou {@code null}
    *
-   * @param array - Le tableau a verifier
-   * @return <b>true</b> si le tableau est vide ou <code>null</code><br/>
-   *         <b>false</b> si le tableau n'est pas vide
+   * @param array - Le tableau a controler
+   *
+   * @return {@code true} : si le tableau est vide ou {@code null}<br/>
+   *         {@code false} : si le tableau n'est pas vide
    */
   public static boolean isEmpty(float[] array) {
     return array == null || array.length == 0;
@@ -126,11 +135,12 @@ public final class ArrayUtil {
 
 
   /**
-   * Verifie si le tableau est vide ou <code>null</code>
+   * Verifie si le tableau est vide ou {@code null}
    *
-   * @param array - Le tableau a verifier
-   * @return <b>true</b> si le tableau est vide ou <code>null</code><br/>
-   *         <b>false</b> si le tableau n'est pas vide
+   * @param array - Le tableau a controler
+   *
+   * @return {@code true} : si le tableau est vide ou {@code null}<br/>
+   *         {@code false} : si le tableau n'est pas vide
    */
   public static boolean isEmpty(double[] array) {
     return array == null || array.length == 0;
@@ -138,11 +148,12 @@ public final class ArrayUtil {
 
 
   /**
-   * Verifie si le tableau est vide ou <code>null</code>
+   * Verifie si le tableau est vide ou {@code null}
    *
-   * @param array - Le tableau a verifier
-   * @return <b>true</b> si le tableau est vide ou <code>null</code><br/>
-   *         <b>false</b> si le tableau n'est pas vide
+   * @param array - Le tableau a controler
+   *
+   * @return {@code true} : si le tableau est vide ou {@code null}<br/>
+   *         {@code false} : si le tableau n'est pas vide
    */
   public static boolean isEmpty(boolean[] array) {
     return array == null || array.length == 0;
@@ -150,13 +161,61 @@ public final class ArrayUtil {
 
 
   /**
+   * Controle la presence d'une valeur dans une liste de valeurs
+   *
+   * @param value  - La valeur a controler
+   * @param values - La liste de valeurs
+   *
+   * @return {@code true} si la valeur existe dans la liste
+   * @see Collection#contains(Object)
+   */
+  @SafeVarargs
+  public static <T> boolean contains(T value, T... values) {
+
+    if (values != null) {
+      for (T o : values) {
+        // la valeur 'null' est une valeur valide comme une autre !
+        if (o == null ? values == null : o.equals(value)) {
+          return true;
+        }
+      }
+    }
+
+    return false;
+
+  }
+
+
+  /**
+   * Supprime les cellules vides [{@code null}] d'un tableau
+   *
+   * @param array - Le tableau a traiter
+   *
+   * @return Un tableau sans element {@code null}
+   */
+  @SafeVarargs
+  public static <T> T[] trim(T... array) {
+
+    if (array == null) {
+      return null;
+    }
+
+    List<T> list = new ArrayList<T>(Arrays.asList(array));
+    list.removeAll(Collections.singleton(null));
+
+    return list.toArray(Arrays.copyOf(array, 0));
+
+  }
+
+
+  /**
    * Permute 2 elements d'un tableau
    *
-   * @param a - Tableau
    * @param i - 1er index
    * @param j - 2nd index
+   * @param a - Tableau
    */
-  public static <T> void swap(T[] a, int i, int j) {
+  public static <T> void swap(int i, int j, T[] a) {
     T t = a[i];
     a[i] = a[j];
     a[j] = t;
@@ -166,17 +225,17 @@ public final class ArrayUtil {
   /**
    * Trie un tableau en fonction d'une propriete de ses elements
    *
-   * @param array       - Tableau a trier
-   * @param property    - Propriete cible du tri
+   * @param property    - Nom de la propriete cible du tri
    * @param isAsc       - Tri ascendant / descendant
    * @param isNullFisrt - Valeurs [{@code null}] au debut / a la fin
+   * @param array       - Tableau a trier
    */
-  public static <T> void sort(T[] array, String property, boolean isAsc, boolean isNullFisrt) {
+  public static <T> void sort(String property, boolean isAsc, boolean isNullFisrt, T[] array) {
 
     if (!isEmpty(array) && array.length > 1 && !StringUtil.isEmpty(property)) {
       Comparator<T> c = null;
       try {
-        c = new BeanComparator<T>(array.getClass().getComponentType(), property, isAsc, isNullFisrt);
+        c = new BeanComparator<T>(property, isAsc, isNullFisrt, array.getClass().getComponentType());
       }
       catch (IllegalStateException x) {
         x.printStackTrace(); // TODO: log
@@ -192,13 +251,13 @@ public final class ArrayUtil {
   /**
    * Equivalent a {@code sort(array, property, true, true)}
    *
+   * @param property - Nom de la propriete cible du tri
    * @param array    - Tableau a trier
-   * @param property - Propriete cible du tri
    *
    * @see #sort(T[], String, boolean, boolean)
    */
-  public static <T> void sort(T[] array, String property) {
-    sort(array, property, true, true);
+  public static <T> void sort(String property, T[] array) {
+    sort(property, true, true, array);
   }
 
 
@@ -211,12 +270,13 @@ public final class ArrayUtil {
    * Un regroupement par la propriete "prenom" donnera la Map :<br/>
    * <code>["Jean":[{"Jean","DURAND"},{"Jean","DUPOND"}];"Paul":[{"Paul","DURAND"},{"Paul","DUPOND"}]]</code><br/>
    *
-   * @param array    - Le tableau de donnees
    * @param property - Le nom de la propriete qui sert de critere de regroupement
+   * @param array    - Le tableau de donnees
    *
    * @return Une map de la forme [key:property;value:T[]]
    */
-  public static <T> Map<Object,T[]> groupBy(T[] array, String property) {
+  @SafeVarargs
+  public static <T> Map<Object,T[]> groupBy(String property, T... array) {
 
     Map<Object,T[]> mapTab = new HashMap<Object,T[]>();
 
@@ -248,21 +308,24 @@ public final class ArrayUtil {
   /**
    * Collecte la valeur d'une propriete de chaque element d'un tableau
    *
+   * @param property - Nom de la propriete a collecter
+   * @param klass    - Type de la propriete a collecter
    * @param array    - Tableau d'elements
-   * @param property - Propriete a collecter
    *
    * @return La valeur de la propriete de chaque element
    */
-  public static <T> Object[] collect(T[] array, String property) {
+  @SafeVarargs
+  @SuppressWarnings("unchecked")
+  public static <T,U> U[] collect(String property, Class<U> klass, T... array) {
 
-    Object[] values = null;
+    U[] values = null;
 
     if (array != null && !StringUtil.isEmpty(property)) {
-      values = new Object[array.length];
+      values = (U[]) Array.newInstance(klass, array.length);
       Method method = getGetter(array.getClass().getComponentType(), property);
       if (method != null) {
         for (int i=0; i < array.length; i++) {
-          values[i] = (array[i] != null) ? invokeMethod(array[i], method) : null;
+          values[i] = (U) ((array[i] != null) ? invokeMethod(array[i], method) : null);
         }
       }
     }
@@ -273,22 +336,16 @@ public final class ArrayUtil {
 
 
   /**
-   * Supprime les cellules vides [{@code null}] d'un tableau
+   * Collecte la valeur d'une propriete de chaque element d'un tableau
    *
-   * @param array - Le tableau a traiter
-   * @return Un tableau sans element {@code null}
+   * @param property - Nom de la propriete a collecter
+   * @param array    - Tableau d'elements
+   *
+   * @return La valeur de la propriete de chaque element
    */
-  public static <T> T[] trim(T[] array) {
-
-    if (array == null) {
-      return null;
-    }
-
-    List<T> list = new ArrayList<T>(Arrays.asList(array));
-    list.removeAll(Collections.singleton(null));
-
-    return list.toArray(Arrays.copyOf(array, 0));
-
+  @SafeVarargs
+  public static <T> Object[] collect(String property, T... array) {
+    return collect(property, Object.class, array);
   }
 
 

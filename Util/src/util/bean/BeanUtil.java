@@ -71,9 +71,14 @@ public final class BeanUtil {
 
   @SuppressWarnings("unchecked")
   public static <T> T instantiate(T o) {
+    return (T) ((o != null) ? instantiate(o.getClass()) : null);
+  }
+
+
+  public static <T> T instantiate(Class<T> klass) {
 
     try {
-      return (T) ((o != null) ? o.getClass().newInstance() : null);
+      return (klass != null) ? klass.newInstance() : null;
     }
     catch (ReflectiveOperationException x) {
       throw new UnsupportedOperationException(x);

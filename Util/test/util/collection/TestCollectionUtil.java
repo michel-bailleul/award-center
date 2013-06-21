@@ -220,7 +220,7 @@ public class TestCollectionUtil {
     fill(list);
     System.out.println(list);
 
-    Map<Object, List<Product>> map = CollectionUtil.groupBy(list, "color");
+    Map<Object, List<Product>> map = CollectionUtil.groupBy("color", list);
     for (Map.Entry<Object, List<Product>> entry : map.entrySet()) {
       System.out.println(entry.getKey() + " : " + entry.getValue());
     }
@@ -240,7 +240,7 @@ public class TestCollectionUtil {
     fill(set);
     System.out.println(set);
 
-    Map<Object, Set<Product>> map = CollectionUtil.groupBy(set, "color");
+    Map<Object, Set<Product>> map = CollectionUtil.groupBy("color", set);
     for (Map.Entry<Object, Set<Product>> entry : map.entrySet()) {
       System.out.println(entry.getKey() + " : " + entry.getValue());
     }
@@ -260,7 +260,7 @@ public class TestCollectionUtil {
     fill(queue);
     System.out.println(queue);
 
-    Map<Object, Queue<Product>> map = CollectionUtil.groupBy(queue, "color");
+    Map<Object, Queue<Product>> map = CollectionUtil.groupBy("color", queue);
     for (Map.Entry<Object, Queue<Product>> entry : map.entrySet()) {
       System.out.println(entry.getKey() + " : " + entry.getValue());
     }
@@ -279,7 +279,7 @@ public class TestCollectionUtil {
     fill(list);
     System.out.println(list);
 
-    List<Object> values = CollectionUtil.collect(list, "color");
+    List<Object> values = CollectionUtil.collect("color", list);
     System.out.println(values);
 
   }
@@ -296,7 +296,7 @@ public class TestCollectionUtil {
     fill(set);
     System.out.println(set);
 
-    Set<Object> values = CollectionUtil.collect(set, "color");
+    Set<Object> values = CollectionUtil.collect("color", set);
     System.out.println(values);
 
   }

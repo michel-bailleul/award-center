@@ -156,12 +156,12 @@ public final class CollectionUtil {
    * Un regroupement par la propriete "prenom" donnera la Map :<br/>
    * <code>["Jean":[{"Jean","DURAND"},{"Jean","DUPOND"}];"Paul":[{"Paul","DURAND"},{"Paul","DUPOND"}]]</code><br/>
    *
-   * @param c        - La collection source
    * @param property - Le nom de la propriete qui sert de critere de regroupement
+   * @param c        - La collection source
    *
    * @return Une map de la forme [key:property;value:List]
    */
-  public static <T, C extends Collection<T>> Map<Object,C> groupBy(C c, String property) {
+  public static <T, C extends Collection<T>> Map<Object,C> groupBy(String property, C c) {
 
     if (c == null) {
       return null;
@@ -194,12 +194,12 @@ public final class CollectionUtil {
   /**
    * Collecte la valeur d'une propriete de chaque element d'une collection
    *
-   * @param c        - La collection source
    * @param property - Le nom de la propriete a collecter
+   * @param c        - La collection source
    *
    * @return La valeur de la propriete de chaque element
    */
-  public static <C1 extends Collection<?>, C2 extends Collection<Object>> C2 collect(C1 c, String property) {
+  public static <C1 extends Collection<?>, C2 extends Collection<Object>> C2 collect(String property, C1 c) {
 
     if (c == null) {
       return null;

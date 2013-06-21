@@ -26,17 +26,17 @@ public class BeanComparator<T> implements Comparator<T> {
   // —————————————————————————————————————————————————————————————— Constructors
 
 
-  public BeanComparator(Class<?> klass, String name) {
-    this(klass, name, true);
+  public BeanComparator(String name, Class<?> klass) {
+    this(name, true, klass);
   }
 
 
-  public BeanComparator(Class<?> klass, String name, boolean isAsc) {
-    this(klass, name, true, false);
+  public BeanComparator(String name, boolean isAsc, Class<?> klass) {
+    this(name, true, false, klass);
   }
 
 
-  public BeanComparator(Class<?> klass, String name, boolean isAsc, boolean isNullFirst) {
+  public BeanComparator(String name, boolean isAsc, boolean isNullFirst, Class<?> klass) {
     this.isAsc = isAsc;
     this.isNullFirst = isNullFirst;
     method = getGetter(klass, name);
