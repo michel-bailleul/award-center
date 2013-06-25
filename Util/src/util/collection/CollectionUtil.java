@@ -171,7 +171,7 @@ public final class CollectionUtil {
 
     if (!StringUtil.isEmpty(property)) {
       // TODO: [WARNING] if (1st element == null) => NullPointerException
-      Method method = getGetter(c.iterator().next().getClass(), property);
+      Method method = getGetter(property, c.iterator().next().getClass());
       if (method != null) {
         for (T o : c) {
           if (o != null) {
@@ -210,7 +210,7 @@ public final class CollectionUtil {
 
     if (!StringUtil.isEmpty(property)) {
       // TODO: [WARNING] if (1st element == null) => NullPointerException
-      Method method = getGetter(c.iterator().next().getClass(), property);
+      Method method = getGetter(property, c.iterator().next().getClass());
       if (method != null) {
         for (Object o : c) {
           Object value = (o != null) ? invokeMethod(o, method) : null;

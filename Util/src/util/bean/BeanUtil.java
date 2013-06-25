@@ -32,7 +32,7 @@ public final class BeanUtil {
   // ——————————————————————————————————————————————————————————— Private Methods
 
 
-  private static Method _getGetterOrSetter(Class<?> klass, String name, boolean isGetter) {
+  private static Method _getGetterOrSetter(String name, Class<?> klass, boolean isGetter) {
 
     if (klass == null || isEmptyTrim(name)) {
       String msg = getMsg(BEAN_UTIL_ERR_CLASS_NULL);
@@ -87,18 +87,18 @@ public final class BeanUtil {
   }
 
 
-  public static Object getProperty(Object bean, String name) {
-    return invokeMethod(bean, getGetter(bean.getClass(), name));
+  public static Object getProperty(String name, Object bean) {
+    return invokeMethod(bean, getGetter(name, bean.getClass()));
   }
 
 
-  public static Method getGetter(Class<?> klass, String name) {
-    return _getGetterOrSetter(klass, name, true);
+  public static Method getGetter(String name, Class<?> klass) {
+    return _getGetterOrSetter(name, klass, true);
   }
 
 
-  public static Method getSetter(Class<?> klass, String name) {
-    return _getGetterOrSetter(klass, name, false);
+  public static Method getSetter(String name, Class<?> klass) {
+    return _getGetterOrSetter(name, klass, false);
   }
 
 

@@ -39,7 +39,7 @@ public class BeanComparator<T> implements Comparator<T> {
   public BeanComparator(String name, boolean isAsc, boolean isNullFirst, Class<?> klass) {
     this.isAsc = isAsc;
     this.isNullFirst = isNullFirst;
-    method = getGetter(klass, name);
+    method = getGetter(name, klass);
     if (method == null) {
       String msg = getMsg(BEAN_COMPARATOR_ERR_GETTER, name);
       logger.error(msg);

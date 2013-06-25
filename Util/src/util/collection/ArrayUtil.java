@@ -187,6 +187,20 @@ public final class ArrayUtil {
 
 
   /**
+   * Permute 2 elements d'un tableau
+   *
+   * @param i - 1er index
+   * @param j - 2nd index
+   * @param a - Tableau
+   */
+  public static <T> void swap(int i, int j, T[] a) {
+    T t = a[i];
+    a[i] = a[j];
+    a[j] = t;
+  }
+
+
+  /**
    * Supprime les cellules vides [{@code null}] d'un tableau
    *
    * @param array - Le tableau a traiter
@@ -209,28 +223,17 @@ public final class ArrayUtil {
 
 
   /**
-   * Permute 2 elements d'un tableau
-   *
-   * @param i - 1er index
-   * @param j - 2nd index
-   * @param a - Tableau
-   */
-  public static <T> void swap(int i, int j, T[] a) {
-    T t = a[i];
-    a[i] = a[j];
-    a[j] = t;
-  }
-
-
-  /**
-   * Trie un tableau en fonction d'une propriete de ses elements
+   * Trie un tableau ou une liste de valeurs en fonction d'une propriete de ses elements
    *
    * @param property    - Nom de la propriete cible du tri
    * @param isAsc       - Tri ascendant / descendant
    * @param isNullFisrt - Valeurs [{@code null}] au debut / a la fin
-   * @param array       - Tableau a trier
+   * @param array       - Tableau ou liste de valeurs a trier
+   *
+   * @return Le meme tableau, et non une copie
    */
-  public static <T> void sort(String property, boolean isAsc, boolean isNullFisrt, T[] array) {
+  @SafeVarargs
+  public static <T> T[] sort(String property, boolean isAsc, boolean isNullFisrt, T... array) {
 
     if (!isEmpty(array) && array.length > 1 && !StringUtil.isEmpty(property)) {
       Comparator<T> c = null;
@@ -241,9 +244,11 @@ public final class ArrayUtil {
         x.printStackTrace(); // TODO: log
       }
       if (c != null) {
-        Arrays.sort(array, 0, array.length, c);
+        Arrays.sort(array, c);
       }
     }
+
+    return array;
 
   }
 
@@ -252,12 +257,15 @@ public final class ArrayUtil {
    * Equivalent a {@code sort(array, property, true, true)}
    *
    * @param property - Nom de la propriete cible du tri
-   * @param array    - Tableau a trier
+   * @param array    - Tableau ou liste de valeurs a trier
    *
+   * @return Le meme tableau, et non une copie
+   * 
    * @see #sort(T[], String, boolean, boolean)
    */
-  public static <T> void sort(String property, T[] array) {
-    sort(property, true, true, array);
+  @SafeVarargs
+  public static <T> T[] sort(String property, T... array) {
+    return sort(property, true, true, array);
   }
 
 
@@ -282,7 +290,7 @@ public final class ArrayUtil {
 
     if (!StringUtil.isEmpty(property) && !isEmpty(array)) {
       Map<Object,List<T>> mapList = new HashMap<Object,List<T>>();
-      Method method = getGetter(array.getClass().getComponentType(), property);
+      Method method = getGetter(property, array.getClass().getComponentType());
       if (method != null) {
         for (T o : array) {
           if (o != null) {
@@ -322,7 +330,7 @@ public final class ArrayUtil {
 
     if (array != null && !StringUtil.isEmpty(property)) {
       values = (U[]) Array.newInstance(klass, array.length);
-      Method method = getGetter(array.getClass().getComponentType(), property);
+      Method method = getGetter(property, array.getClass().getComponentType());
       if (method != null) {
         for (int i=0; i < array.length; i++) {
           values[i] = (U) ((array[i] != null) ? invokeMethod(array[i], method) : null);
