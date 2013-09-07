@@ -2,6 +2,8 @@ package awardcenter.engine;
 
 
 import static java.nio.charset.StandardCharsets.UTF_8;
+import static javax.xml.bind.JAXBContext.newInstance;
+import static javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT;
 
 
 import java.io.BufferedReader;
@@ -67,9 +69,9 @@ public final class JAXBEngine extends FileEngine {
 
   public JAXBEngine() throws JAXBException {
     setRoot("data/jaxb");
-    JAXBContext jc = JAXBContext.newInstance(GameJAXB.class);
+    JAXBContext jc = newInstance(GameJAXB.class);
     marshaller = jc.createMarshaller();
-    marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+    marshaller.setProperty(JAXB_FORMATTED_OUTPUT, true);
     unmarshaller = jc.createUnmarshaller();
   }
 

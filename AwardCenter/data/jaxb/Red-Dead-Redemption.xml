@@ -7,12 +7,12 @@
     <name>Red Dead Redemption</name>
     <publisher>Rockstar Games</publisher>
     <rating>0</rating>
-    <score>0</score>
+    <score>10</score>
     <scoreMax>1500</scoreMax>
     <award-list>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Remportez plus de 2000 jetons en une main de poker</description>
@@ -25,8 +25,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Terminez une partie de poker menteur sans perdre un seul dé</description>
@@ -39,8 +39,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Atteignez le poteau lors d'une partie de lancer de fer à cheval</description>
@@ -53,8 +53,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Nettoyez les repaires de Twin Rocks, Pike's Basin et Gaptooth Breach en mode Histoire</description>
@@ -67,8 +67,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Nettoyez les repaires de Tumbleweed et Tesoro Azul en mode Histoire</description>
@@ -81,8 +81,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Nettoyez les repaires de Fort Mercer et Nosalida en mode Histoire</description>
@@ -95,8 +95,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Assommez au moins une personne dans chaque saloon en mode Histoire</description>
@@ -109,8 +109,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Accomplissez une mission pour un étranger</description>
@@ -123,8 +123,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Accomplissez 15 missions pour des étrangers</description>
@@ -137,8 +137,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Dressez un cheval du Kentucky, un Trotteur américain et un Demi-sang hongrois</description>
@@ -151,8 +151,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Capturez un criminel recherché et ramenez-le vivant</description>
@@ -165,8 +165,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Achetez une arme rare à un armurier</description>
@@ -179,8 +179,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuez et dépecez 18 grizzlys</description>
@@ -193,8 +193,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Obtenez le costume élégant</description>
@@ -207,8 +207,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Gagnez 10 000 dollars en mode Histoire</description>
@@ -221,8 +221,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Obtenez le niveau Légendaire dans un Défi du mode Histoire</description>
@@ -235,8 +235,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Réussissez un tir en pleine tête sur un ennemi en utilisant le mode de visée expert</description>
@@ -249,8 +249,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Obtenez le plus haut niveau de Réputation et le plus haut ou le plus bas niveau d'Honneur</description>
@@ -263,8 +263,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Gagnez une médaille d'or dans une mission de combat en mode Histoire</description>
@@ -277,8 +277,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Découvrez tous les secteurs de la carte en mode Histoire</description>
@@ -291,8 +291,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Utilisez une lettre de grâce pour effacer une prime supérieure à 5 000 dollars en mode Histoire</description>
@@ -305,8 +305,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Obtenez un pourcentage de progression en mode Histoire de 100 %</description>
@@ -319,8 +319,8 @@
             <value>100</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuez 500 ennemis avec une arme montée dans n'importe quel mode de jeu</description>
@@ -333,8 +333,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuez 500 ennemis avec un pistolet ou un revolver dans n'importe quel mode de jeu</description>
@@ -347,8 +347,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuez 500 ennemis avec un fusil, une carabine ou un fusil à pompe dans n'importe quel mode de jeu</description>
@@ -361,8 +361,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Réussissez 250 tirs en pleine tête dans n'importe quel mode de jeu</description>
@@ -375,8 +375,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuez un spécimen de chaque espèce animale dans n'importe quel mode de jeu</description>
@@ -389,8 +389,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Nettoyez tous les repaires de bandes en une seule session publique en mode Exploration</description>
@@ -403,8 +403,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Réussissez 10 aides en nettoyant un repaire de bande en mode Exploration</description>
@@ -417,8 +417,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Ralliez Blackwater à Escalera avant la tombée de la nuit lors d'une session en mode Exploration</description>
@@ -431,8 +431,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Créez un groupe et obtenez le nombre maximum de membres</description>
@@ -445,8 +445,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Obtenez le meilleur score dans trois parties libres en public consécutives</description>
@@ -459,8 +459,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Atteignez le niveau maximum d'expérience en multijoueur</description>
@@ -473,8 +473,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Faites partie de l'équipe victorieuse lors de quatre parties multijoueur consécutives</description>
@@ -487,8 +487,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Soyez Ennemi Public pendant 10 minutes et échappez-en vivant dans une session Exploration publique</description>
@@ -501,8 +501,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuez un développeur de Rockstar ou quelqu'un qui a obtenu ce succès lors d'une partie multijoueur</description>
@@ -515,9 +515,9 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
+            <active>false</active>
             <dirty>true</dirty>
-            <achieved>false</achieved>
+            <achieved>true</achieved>
             <added>false</added>
             <description>Terminez "Exode en Amérique"</description>
             <image>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</image>
@@ -529,8 +529,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Terminez "L'attaque de Fort Mercer"</description>
@@ -543,8 +543,8 @@
             <value>30</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Terminez "Les portes d'El Presidio"</description>
@@ -557,8 +557,8 @@
             <value>40</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Terminez "A l'heure convenue"</description>
@@ -571,8 +571,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Terminez "Ce bon vieux Dutch"</description>
@@ -585,8 +585,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Terminez "Et la Vérité vous libérera"</description>
@@ -599,8 +599,8 @@
             <value>90</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Terminez "Le dernier ennemi à abattre"</description>
@@ -613,8 +613,8 @@
             <value>100</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Terminez "Souvenez-vous de ma famille"</description>
@@ -627,8 +627,8 @@
             <value>50</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Placez une femme ligotée sur les voies et regardez-la se faire écraser par un train</description>
@@ -641,8 +641,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuez le dernier bison de Great Plains en mode Histoire</description>
@@ -655,8 +655,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Terminez 20 missions histoire sans changer de cheval à une barre d'attelage</description>
@@ -669,8 +669,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Echappez aux marshals sur le dos d'un Demi-sang hongrois en mode Histoire</description>
@@ -683,8 +683,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Le pack Missions en coop "Outlaws To the End" permet à 4 joueurs de s'unir pour conquérir l'Ouest Sauvage. Au programme dans ces 6 nouvelles missions en coop : prise de mines d'or, élimination des criminels de Tumbleweed au canon et à la Gatling, bataille contre les insurgés aux bords du fleuve et bien d'autres défis ! Avec ses nouveaux succès et défis, ce pack de jeu en coop prolonge votre expérience Red Dead Redemption de plusieurs heures. Pour jouer, vous devez posséder un abonnement Xbox LIVE Gold.</description>
@@ -698,8 +698,8 @@
             <value>0</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminez une mission en coopération</description>
@@ -712,8 +712,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminez toutes les missions en coopération</description>
@@ -726,8 +726,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminez une mission en coopération à deux joueurs</description>
@@ -740,8 +740,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Obtenez une médaille d'or dans une mission en coopération</description>
@@ -754,8 +754,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Obtenez toutes les médailles d'or des missions en coopération</description>
@@ -768,8 +768,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminez une mission en coopération sans que personne ne meure</description>
@@ -782,8 +782,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminez toutes les missions en coopération difficile</description>
@@ -796,8 +796,8 @@
             <value>15</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Obtenez une médaille d'or pour chaque mission en coopération difficile</description>
@@ -810,8 +810,8 @@
             <value>20</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Enchaînez 10 victimes ou plus dans une mission en coopération difficile</description>
@@ -824,8 +824,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminez une mission en coopération sans mourir</description>
@@ -838,8 +838,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Le monde de Red Dead Redemption va devenir plus impitoyable que jamais, grâce au nouveau contenu multijoueur du Pack "Légendes et tueurs". Battez-vous sur 9 nouvelles zones, débloquez de nouveaux défis, des succès et devenez encore plus redoutable grâce au Tomahawk. Incarnez des personnages classiques tirés du jeu Red Dead Revolver : retrouvez Red Harlow, Annie Stoakes, Jack Swift, Buffalo, Shadow Wolf, Pig Josh, Ugly Chris et M. Kelly. Cet article ne peut pas être remboursé. Pour plus d'informations, voir www.xbox.com/live/accounts.</description>
@@ -853,8 +853,8 @@
             <value>0</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Gagnez une partie de Mise à sac alors que votre équipe était menée 2-0</description>
@@ -867,8 +867,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Tuez 3 joueurs ou plus lors d'une confrontation ou d'un affrontement</description>
@@ -881,8 +881,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Faites 3 victimes au couteau ou aux couteaux de lancer au cours d'une partie en multijoueur</description>
@@ -895,8 +895,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Effectuez 3 double captures au cours d'une même partie de Ruée vers l'or</description>
@@ -909,8 +909,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Tuez 5 joueurs d'un tir à la tête au cours d'une même partie de Fusillade ou Fusillade en bande</description>
@@ -923,8 +923,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Atteignez le niveau 50 et entrez dans la légende</description>
@@ -937,8 +937,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Tuez un joueur de plus de 35 yards avec un Tomahawk</description>
@@ -951,8 +951,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminez tous les défis au Tomahawk en mode histoire</description>
@@ -965,8 +965,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Faites 25 victimes en utilisant le Sang Froid avec Red</description>
@@ -979,8 +979,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Faites 25 victimes à la dynamite avec Pig Josh</description>
@@ -993,8 +993,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Le monde multijoueur de Red Dead Redemption s'agrandit grâce au nouveau Pack menteurs et tricheurs. Participez à des courses de chevaux, jouez au poker et au poker menteur en multijoueur ou essayez-vous au nouveau mode compétitif Forteresse. Réduisez vos ennemis en poussière grâce au fusil explosif. Découvrez de nouveaux repaires de bande et réserves de chasse en mode Exploration !</description>
@@ -1008,8 +1008,8 @@
             <value>0</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminez le défi du fusil explosif en mode Histoire</description>
@@ -1022,8 +1022,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>En poker multijoueur, battez une table complète lorsque les blinds sont au maximum</description>
@@ -1036,8 +1036,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Remportez une main de poker multijoueur en forçant un adversaire ayant un meilleur jeu à se coucher</description>
@@ -1050,8 +1050,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Remportez une main de poker multijoueur sur la dernière carte alors que vous perdiez</description>
@@ -1064,8 +1064,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Remportez une partie multijoueur de poker menteur avec une table complète sans perdre un seul dé</description>
@@ -1078,8 +1078,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Faites une annonce exacte au cours d'une partie multijoueur de poker menteur</description>
@@ -1092,8 +1092,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Remportez une partie multijoueur de poker menteur avec seulement un dé</description>
@@ -1106,8 +1106,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminez premier de toutes les courses d'un grand prix</description>
@@ -1120,8 +1120,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminez une course sans être blessé ou tué, et sans tirer une seule balle</description>
@@ -1134,8 +1134,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminez dernier d'une course et premier de la suivante dans un grand prix</description>
@@ -1148,8 +1148,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Lorsque vous défendez, faites en sorte que les attaquants ne capturent aucun objectif</description>
@@ -1162,8 +1162,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Remportez une manche dans une carte du mode Forteresse sans mourir</description>
@@ -1176,8 +1176,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Faites trois victimes d'un coup en attaquant en mode Forteresse</description>
@@ -1190,8 +1190,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Marquez plus de 9001 points en une seule session d'Exploration</description>
@@ -1204,8 +1204,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Marquez plus de 50 000 points de groupe en une seule session d'Exploration</description>
@@ -1218,8 +1218,8 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Il se passe toujours quelque chose dans le monde de Red Dead Redemption. Dans le pack "Les cauchemars d'outre-tombe", découvrez une toute nouvelle campagne solo dans laquelle John Marston essaye de trouver un remède à une maladie terriblement contagieuse qui transforme en morts-vivants tous les habitants de la région ! En plus de cette aventure solo inédite, le pack "Les cauchemars d'outre-tombe"' propose un nouveau mode multijoueur, mais aussi des éléments de gameplay, des nouvelles armes, des animaux morts-vivants et des créatures mythiques.</description>
@@ -1233,8 +1233,8 @@
             <value>0</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Maintenez toutes les villes sauves en même temps dans "Les cauchemars d'outre-tombe"</description>
@@ -1247,8 +1247,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminez "Les cauchemars d'outre-tombe" à 100 %</description>
@@ -1261,8 +1261,8 @@
             <value>40</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Atteignez le niveau 5 dans tous les défis des "Cauchemars d'outre-tombe"</description>
@@ -1275,8 +1275,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Survivez jusqu'à la 15e vague d'ennemis dans le mode multijoueur Cimetières</description>
@@ -1289,8 +1289,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Repoussez 8 joueurs différents en étant en tête d'une partie de Territoires en mode Exploration</description>
@@ -1303,8 +1303,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Trouvez un sasquatch et tuez-le</description>
@@ -1317,8 +1317,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminez les services Un remède (presque) infaillible et Déterrement de vie de garçon</description>
@@ -1331,8 +1331,8 @@
             <value>30</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminez le service La croix et la bannière</description>
@@ -1345,8 +1345,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminez "Le cavalier blanc"</description>
@@ -1359,8 +1359,8 @@
             <value>25</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Terminez le service Histoires fantastiques de Blackwater</description>
@@ -1373,8 +1373,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Trouvez un chupacabra et tuez-le</description>
@@ -1387,8 +1387,8 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
+            <active>false</active>
+            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>true</added>
             <description>Trouvez une licorne et dressez-la</description>
