@@ -1,6 +1,8 @@
 package awardcenter.model;
 
 
+import java.beans.Transient;
+
 import util.swing.app.Bean;
 
 
@@ -19,6 +21,7 @@ public class Award extends Bean implements Comparable<Award> {
 
   private transient Object id;
 
+  @Transient
   public Object getId() {
     return id;
   }

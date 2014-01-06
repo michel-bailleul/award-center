@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <game>
-    <active>false</active>
-    <dirty>false</dirty>
     <developer>Playdead</developer>
     <image>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</image>
     <name>Limbo</name>
@@ -11,8 +9,6 @@
     <scoreMax>200</scoreMax>
     <award-list>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tout sauf adroit</description>
@@ -25,8 +21,6 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Explorez les hautes sphères</description>
@@ -39,8 +33,6 @@
             <value>5</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Préparez-vous à un atterrissage en catastrophe</description>
@@ -53,8 +45,6 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Travaux manuels à prévoir</description>
@@ -67,8 +57,6 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Sous l'arthropode</description>
@@ -81,8 +69,6 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tirer le levier, c'est pour les paresseux</description>
@@ -95,8 +81,6 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Domptez les caisses</description>
@@ -109,8 +93,6 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tout repose sur la caisse</description>
@@ -123,8 +105,6 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Passage vertical</description>
@@ -137,8 +117,6 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Ne laissez pas la gravité l'emporter</description>
@@ -151,8 +129,6 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Patience et longueur de temps font plus que force ni que rage</description>
@@ -165,8 +141,6 @@
             <value>10</value>
         </award>
         <award>
-            <active>true</active>
-            <dirty>true</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Terminez le jeu en une seule session, en mourant cinq fois au maximum</description>

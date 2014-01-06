@@ -57,6 +57,7 @@ public class TestCollectionUtil {
     list.add(new Product("House",      "white",  300000.00));
     list.add(new Product("Wasabi",     "green",       3.50));
     list.add(new Product("Star",       "red",   9999999.99));
+    list.add(null);
 
     listSize = list.size();
 
@@ -216,8 +217,9 @@ public class TestCollectionUtil {
 
     System.out.println("Test Group By List ----------");
 
-    List<Product> list = new LinkedList<Product>();
+    List<Product> list = new ArrayList<Product>();
     fill(list);
+    list.add(null);
     System.out.println(list);
 
     Map<Object, List<Product>> map = CollectionUtil.groupBy("color", list);
@@ -258,6 +260,7 @@ public class TestCollectionUtil {
 
     Queue<Product> queue = new LinkedList<Product>();
     fill(queue);
+    queue.add(null);
     System.out.println(queue);
 
     Map<Object, Queue<Product>> map = CollectionUtil.groupBy("color", queue);
@@ -277,6 +280,7 @@ public class TestCollectionUtil {
     List<Product> list = new ArrayList<Product>();
 
     fill(list);
+    list.add(null);
     System.out.println(list);
 
     List<Object> values = CollectionUtil.collect("color", list);

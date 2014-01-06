@@ -4,6 +4,7 @@ package util.swing.app;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.beans.Transient;
 
 
 /**
@@ -98,6 +99,7 @@ public abstract class Bean {
    * @return {@code true},  if the listeners are active<br/>
    *         {@code false}, if the listeners are inactive
    */
+  @Transient
   public boolean isActive() {
     return isActive;
   }
@@ -116,6 +118,7 @@ public abstract class Bean {
    * @return {@code true},  if the bean is dirty<br/>
    *         {@code false}, if the bean is not dirty
    */
+  @Transient
   public boolean isDirty() {
     return isDirty;
   }

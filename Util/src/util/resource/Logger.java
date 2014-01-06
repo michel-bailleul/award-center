@@ -1,13 +1,13 @@
 package util.resource;
 
 
-import static org.apache.commons.logging.LogFactory.getFactory;
-
+import static org.slf4j.MarkerFactory.getMarker;
 import static util.misc.StringUtil.formatMessage;
 import static util.resource.ResourceUtil.getMsg;
 
 
-import org.apache.commons.logging.Log;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Marker;
 
 
 public final class Logger {
@@ -17,6 +17,8 @@ public final class Logger {
 
 
   private static enum Level { TRACE, DEBUG, INFO, WARN, ERROR, FATAL }
+
+  private static Marker FATAL = getMarker("FATAL");
 
 
   // ———————————————————————————————————————————————————————————— Static Methods
@@ -31,25 +33,25 @@ public final class Logger {
 
 
   private Logger(Class<?> klass) {
-    logger = getFactory().getInstance(klass);
+    logger = LoggerFactory.getLogger(klass);
   }
 
 
   // ———————————————————————————————————————————————————————— Instance Variables
 
 
-  private Log logger;
+  private org.slf4j.Logger logger;
 
 
   // ——————————————————————————————————————————————————————————— Private Methods
 
 
-  private void _log(Level level, IKey key, Throwable t, Object... params) {
-    _log(level, getMsg(key), t, params);
+  private String _log(Level level, IKey key, Throwable t, Object... params) {
+    return _log(level, getMsg(key), t, params);
   }
 
 
-  private void _log(Level level, String msg, Throwable t, Object... params) {
+  private String _log(Level level, String msg, Throwable t, Object... params) {
 
     String s = formatMessage(msg, params);
 
@@ -106,17 +108,17 @@ public final class Logger {
           }
           break;
         case FATAL :
-          if (logger.isFatalEnabled()) {
-            if (t == null) {
-              logger.fatal(s);
-            }
-            else {
-              logger.fatal(s, t);
-            }
+          if (t == null) {
+            logger.error(FATAL, s);
+          }
+          else {
+            logger.error(FATAL, s, t);
           }
           break;
       }
     }
+
+    return s;
 
   }
 
@@ -126,115 +128,115 @@ public final class Logger {
 
   // Trace ---------------------------------------------------------------------
 
-  public void trace(String msg, Object... params) {
-    _log(Level.TRACE, msg, null, params);
+  public String trace(String msg, Object... params) {
+    return _log(Level.TRACE, msg, null, params);
   }
 
-  public void trace(String msg, Throwable t, Object... params) {
-    _log(Level.TRACE, msg, t, params);
+  public String trace(String msg, Throwable t, Object... params) {
+    return _log(Level.TRACE, msg, t, params);
   }
 
-  public void trace(IKey key, Object... params) {
-    _log(Level.TRACE, key, null, params);
+  public String trace(IKey key, Object... params) {
+    return _log(Level.TRACE, key, null, params);
   }
 
-  public void trace(IKey key, Throwable t, Object... params) {
-    _log(Level.TRACE, key, t, params);
+  public String trace(IKey key, Throwable t, Object... params) {
+    return _log(Level.TRACE, key, t, params);
   }
 
 
   // Debug ---------------------------------------------------------------------
 
-  public void debug(String msg, Object... params) {
-    _log(Level.DEBUG, msg, null, params);
+  public String debug(String msg, Object... params) {
+    return _log(Level.DEBUG, msg, null, params);
   }
 
-  public void debug(String msg, Throwable t, Object... params) {
-    _log(Level.DEBUG, msg, t, params);
+  public String debug(String msg, Throwable t, Object... params) {
+    return _log(Level.DEBUG, msg, t, params);
   }
 
-  public void debug(IKey key, Object... params) {
-    _log(Level.DEBUG, key, null, params);
+  public String debug(IKey key, Object... params) {
+    return _log(Level.DEBUG, key, null, params);
   }
 
-  public void debug(IKey key, Throwable t, Object... params) {
-    _log(Level.DEBUG, key, t, params);
+  public String debug(IKey key, Throwable t, Object... params) {
+    return _log(Level.DEBUG, key, t, params);
   }
 
 
   // Info ----------------------------------------------------------------------
 
-  public void info(String msg, Object... params) {
-    _log(Level.INFO, msg, null, params);
+  public String info(String msg, Object... params) {
+    return _log(Level.INFO, msg, null, params);
   }
 
-  public void info(String msg, Throwable t, Object... params) {
-    _log(Level.INFO, msg, t, params);
+  public String info(String msg, Throwable t, Object... params) {
+    return _log(Level.INFO, msg, t, params);
   }
 
-  public void info(IKey key, Object... params) {
-    _log(Level.INFO, key, null, params);
+  public String info(IKey key, Object... params) {
+    return _log(Level.INFO, key, null, params);
   }
 
-  public void info(IKey key, Throwable t, Object... params) {
-    _log(Level.INFO, key, t, params);
+  public String info(IKey key, Throwable t, Object... params) {
+    return _log(Level.INFO, key, t, params);
   }
 
 
   // Warn ----------------------------------------------------------------------
 
-  public void warn(String msg, Object... params) {
-    _log(Level.WARN, msg, null, params);
+  public String warn(String msg, Object... params) {
+    return _log(Level.WARN, msg, null, params);
   }
 
-  public void warn(String msg, Throwable t, Object... params) {
-    _log(Level.WARN, msg, t, params);
+  public String warn(String msg, Throwable t, Object... params) {
+    return _log(Level.WARN, msg, t, params);
   }
 
-  public void warn(IKey key, Object... params) {
-    _log(Level.WARN, key, null, params);
+  public String warn(IKey key, Object... params) {
+    return _log(Level.WARN, key, null, params);
   }
 
-  public void warn(IKey key, Throwable t, Object... params) {
-    _log(Level.WARN, key, t, params);
+  public String warn(IKey key, Throwable t, Object... params) {
+    return _log(Level.WARN, key, t, params);
   }
 
 
   // Error ---------------------------------------------------------------------
 
-  public void error(String msg, Object... params) {
-    _log(Level.ERROR, msg, null, params);
+  public String error(String msg, Object... params) {
+    return _log(Level.ERROR, msg, null, params);
   }
 
-  public void error(String msg, Throwable t, Object... params) {
-    _log(Level.ERROR, msg, t, params);
+  public String error(String msg, Throwable t, Object... params) {
+    return _log(Level.ERROR, msg, t, params);
   }
 
-  public void error(IKey key, Object... params) {
-    _log(Level.ERROR, key, null, params);
+  public String error(IKey key, Object... params) {
+    return _log(Level.ERROR, key, null, params);
   }
 
-  public void error(IKey key, Throwable t, Object... params) {
-    _log(Level.ERROR, key, t, params);
+  public String error(IKey key, Throwable t, Object... params) {
+    return _log(Level.ERROR, key, t, params);
   }
 
 
   // Fatal ---------------------------------------------------------------------
 
-  public void fatal(String msg, Object... params) {
-    _log(Level.FATAL, msg, null, params);
+  public String fatal(String msg, Object... params) {
+    return _log(Level.FATAL, msg, null, params);
   }
 
-  public void fatal(String msg, Throwable t, Object... params) {
-    _log(Level.FATAL, msg, t, params);
+  public String fatal(String msg, Throwable t, Object... params) {
+    return _log(Level.FATAL, msg, t, params);
   }
 
-  public void fatal(IKey key, Object... params) {
-    _log(Level.FATAL, key, null, params);
+  public String fatal(IKey key, Object... params) {
+    return _log(Level.FATAL, key, null, params);
   }
 
-  public void fatal(IKey key, Throwable t, Object... params) {
-    _log(Level.FATAL, key, t, params);
+  public String fatal(IKey key, Throwable t, Object... params) {
+    return _log(Level.FATAL, key, t, params);
   }
 
 

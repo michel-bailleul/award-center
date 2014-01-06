@@ -4,6 +4,8 @@ package util.collection;
 import static util.bean.BeanUtil.getGetter;
 import static util.bean.BeanUtil.instantiate;
 import static util.bean.BeanUtil.invokeMethod;
+import static util.resource.Logger.getLogger;
+import static util.resources.CollectionKey.COLLECTION_UTIL_PROPERTY_NOT_FOUND;
 
 
 import java.lang.reflect.Method;
@@ -12,7 +14,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import util.misc.StringUtil;
+import util.resource.Logger;
 
 
 public final class CollectionUtil {
@@ -21,10 +23,7 @@ public final class CollectionUtil {
   // —————————————————————————————————————————————————————————— Static Constants
 
 
-//  private static final Logger logger = Logger.getLogger(CollectionUtil.class);
-
-
-  // ——————————————————————————————————————————————————————————— Private Methods
+  private static final Logger logger = getLogger(CollectionUtil.class);
 
 
   // ———————————————————————————————————————————————————————————— Public Methods
@@ -40,10 +39,9 @@ public final class CollectionUtil {
    */
   public static boolean isEmpty(Collection<?> c) {
 
-    if (c != null && !c.isEmpty()) {
-      Iterator<?> it = c.iterator();
-      while (it.hasNext()) {
-        if (it.next() != null) {
+    if (c != null) {
+      for (Object o : c) {
+        if (o != null) {
           return false;
         }
       }
@@ -67,8 +65,8 @@ public final class CollectionUtil {
       Iterator<T> it = c.iterator();
       while (it.hasNext()) {
         T o = it.next();
-        if (!o.matches(o)) {
-          it.remove();
+        if (o == null || !o.matches(o)) {
+          it.remove(); // using Collection.remove() method throws a ConcurrentModificationException
         }
       }
     }
@@ -89,9 +87,9 @@ public final class CollectionUtil {
 
     if (src != null && trg != null) {
       trg.clear();
-      for (T obj : src) {
-        if (obj.matches(obj)) {
-          trg.add(obj);
+      for (T o : src) {
+        if (o != null && o.matches(o)) {
+          trg.add(o);
         }
       }
     }
@@ -148,18 +146,27 @@ public final class CollectionUtil {
 
 
   /**
-   * <p>Regroupement les elements d'une collection par une de leurs proprietes.<p>
+   * <p>
+   * Regroupe les elements d'une collection par une de leurs proprietes.
+   * A noter que les elements {@code null} sont exclus du traitement.
+   * En revanche, les proprietes {@code null} sont parfaitement valides et generent une cle {@code null} dans la Map.
+   * </p>
+   *
    * Exemple avec la liste suivante :<br/>
-   * <code>[{"Jean","DURAND"},{"Paul","DURAND"},{"Jean","DUPOND"},{"Paul","DUPOND"}]</code><br/><br/>
+   * <code>[{"Jean","DURAND"},{"Paul","DURAND"},{"Jean","DUPOND"},{"Paul","DUPOND"}, null]</code><br/><br/>
+   *
    * Un regroupement par la propriete "nom" donnera la Map :<br/>
-   * <code>["DURAND":[{"Jean","DURAND"},{"Paul","DURAND"}];"DUPOND":[{"Jean","DUPOND"},{"Paul","DUPOND"}]]</code><br/><br/>
+   * <code>["DURAND":[{"Jean","DURAND"},{"Paul","DURAND"}];<br/>
+   *        "DUPOND":[{"Jean","DUPOND"},{"Paul","DUPOND"}]]</code><br/><br/>
+   *
    * Un regroupement par la propriete "prenom" donnera la Map :<br/>
-   * <code>["Jean":[{"Jean","DURAND"},{"Jean","DUPOND"}];"Paul":[{"Paul","DURAND"},{"Paul","DUPOND"}]]</code><br/>
+   * <code>["Jean":[{"Jean","DURAND"},{"Jean","DUPOND"}];<br/>
+   *        "Paul":[{"Paul","DURAND"},{"Paul","DUPOND"}]]</code><br/><br/>
    *
    * @param property - Le nom de la propriete qui sert de critere de regroupement
    * @param c        - La collection source
    *
-   * @return Une map de la forme [key:property;value:List]
+   * @return Une Map de la forme [key:property;value:List]
    */
   public static <T, C extends Collection<T>> Map<Object,C> groupBy(String property, C c) {
 
@@ -167,22 +174,26 @@ public final class CollectionUtil {
       return null;
     }
 
-    Map<Object,C> map = new HashMap<Object,C>();
+    T x = null;
+    for (T o : c) {
+      if ((x = o) != null) break;
+    }
 
-    if (!StringUtil.isEmpty(property)) {
-      // TODO: [WARNING] if (1st element == null) => NullPointerException
-      Method method = getGetter(property, c.iterator().next().getClass());
-      if (method != null) {
-        for (T o : c) {
-          if (o != null) {
-            Object key = invokeMethod(o, method);
-            if (!map.containsKey(key)) {
-              C value = instantiate(c);
-              map.put(key, value);
-            }
-            map.get(key).add(o);
-          }
+    Method method = null;
+    if (x != null && (method = getGetter(property, x.getClass())) == null) {
+      throw new IllegalArgumentException(logger.error(COLLECTION_UTIL_PROPERTY_NOT_FOUND, property));
+    }
+
+    Map<Object,C> map = new HashMap<>();
+
+    for (T o : c) {
+      if (o != null) {
+        Object key = invokeMethod(o, method);
+        if (!map.containsKey(key)) {
+          C value = instantiate(c);
+          map.put(key, value);
         }
+        map.get(key).add(o);
       }
     }
 
@@ -205,18 +216,22 @@ public final class CollectionUtil {
       return null;
     }
 
+    Object x = null;
+    for (Object o : c) {
+      if ((x = o) != null) break;
+    }
+
+    Method method = null;
+    if (x != null && (method = getGetter(property, x.getClass())) == null) {
+      throw new IllegalArgumentException(logger.error(COLLECTION_UTIL_PROPERTY_NOT_FOUND, property));
+    }
+
     @SuppressWarnings("unchecked")
     C2 values = (C2) instantiate(c);
 
-    if (!StringUtil.isEmpty(property)) {
-      // TODO: [WARNING] if (1st element == null) => NullPointerException
-      Method method = getGetter(property, c.iterator().next().getClass());
-      if (method != null) {
-        for (Object o : c) {
-          Object value = (o != null) ? invokeMethod(o, method) : null;
-          values.add(value);
-        }
-      }
+    for (Object o : c) {
+      Object value = (o != null) ? invokeMethod(o, method) : null;
+      values.add(value);
     }
 
     return values;

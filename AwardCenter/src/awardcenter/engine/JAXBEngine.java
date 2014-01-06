@@ -24,6 +24,8 @@ import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.transform.stream.StreamSource;
 
 import awardcenter.model.Award;
@@ -59,6 +61,27 @@ public final class JAXBEngine extends FileEngine {
     @XmlElementWrapper(name="award-list")
     public List<Award> getAwards() {
       return super.getAwards();
+    }
+
+    @XmlJavaTypeAdapter(TransientAdapter.class)
+    private Object active;
+
+    @XmlJavaTypeAdapter(TransientAdapter.class)
+    private Object dirty;
+
+  }
+
+
+  private static class TransientAdapter extends XmlAdapter<Object, Object> {
+
+    @Override
+    public Object unmarshal(Object v) throws Exception {
+      return null;
+    }
+
+    @Override
+    public Object marshal(Object v) throws Exception {
+      return null;
     }
 
   }

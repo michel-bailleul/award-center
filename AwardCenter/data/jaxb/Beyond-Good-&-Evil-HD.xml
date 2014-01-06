@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <game>
-    <active>false</active>
-    <dirty>false</dirty>
     <developer>Ubisoft</developer>
     <image>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</image>
     <name>Beyond Good &amp; Evil HD</name>
@@ -11,8 +9,6 @@
     <scoreMax>200</scoreMax>
     <award-list>
         <award>
-            <active>false</active>
-            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Finissez premier dans les 4 courses d'hovercraft</description>
@@ -25,8 +21,6 @@
             <value>20</value>
         </award>
         <award>
-            <active>false</active>
-            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Poursuivez les 4 pillards</description>
@@ -39,8 +33,6 @@
             <value>20</value>
         </award>
         <award>
-            <active>false</active>
-            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Obtenez 10 cœurs pour la santé de Jade</description>
@@ -53,8 +45,6 @@
             <value>15</value>
         </award>
         <award>
-            <active>false</active>
-            <dirty>false</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Chargez l'hovercraft</description>
@@ -67,8 +57,6 @@
             <value>5</value>
         </award>
         <award>
-            <active>false</active>
-            <dirty>true</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Gagnez 3 fois contre Belles Mirettes dans le jeu des noix de coco</description>
@@ -81,8 +69,6 @@
             <value>5</value>
         </award>
         <award>
-            <active>false</active>
-            <dirty>true</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Gagnez 3 fois contre Francis dans le jeu des palets</description>
@@ -95,8 +81,6 @@
             <value>15</value>
         </award>
         <award>
-            <active>false</active>
-            <dirty>true</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Tuez 10 gardes des sections Alpha</description>
@@ -109,8 +93,6 @@
             <value>15</value>
         </award>
         <award>
-            <active>false</active>
-            <dirty>true</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Prenez le vaisseau et allez sur la Lune</description>
@@ -123,8 +105,6 @@
             <value>10</value>
         </award>
         <award>
-            <active>false</active>
-            <dirty>true</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Utilisez 6 pellicules de photos animalières</description>
@@ -137,8 +117,6 @@
             <value>20</value>
         </award>
         <award>
-            <active>false</active>
-            <dirty>true</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Récupérez 11 Mdisks</description>
@@ -151,8 +129,6 @@
             <value>15</value>
         </award>
         <award>
-            <active>false</active>
-            <dirty>true</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Découvrez 80 perles</description>
@@ -165,8 +141,6 @@
             <value>20</value>
         </award>
         <award>
-            <active>false</active>
-            <dirty>true</dirty>
             <achieved>false</achieved>
             <added>false</added>
             <description>Terminez le jeu</description>

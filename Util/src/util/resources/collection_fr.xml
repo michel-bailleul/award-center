@@ -3,5 +3,6 @@
 <properties>
 
   <entry key="sorter.check.ko">Tri inutile</entry>
+  <entry key="collection.util.property.not.found">Propriete introuvable [{0}]</entry>
 
 </properties>

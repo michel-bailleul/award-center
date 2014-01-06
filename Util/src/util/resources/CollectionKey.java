@@ -11,7 +11,8 @@ public enum CollectionKey implements IKey {
 
   // Sorter --------------------------------------------------------------------
 
-  SORTER_CHECK_KO("sorter.check.ko");
+  SORTER_CHECK_KO("sorter.check.ko"),
+  COLLECTION_UTIL_PROPERTY_NOT_FOUND("collection.util.property.not.found");
 
 
   // —————————————————————————————————————————————————————————————— Constructors

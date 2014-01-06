@@ -4,7 +4,6 @@ package util.bean;
 import static java.beans.Introspector.getBeanInfo;
 import static util.misc.StringUtil.isEmptyTrim;
 import static util.resource.Logger.getLogger;
-import static util.resource.ResourceUtil.getMsg;
 import static util.resources.BeanKey.BEAN_UTIL_ERR_BEAN_INFO;
 import static util.resources.BeanKey.BEAN_UTIL_ERR_BEAN_NULL;
 import static util.resources.BeanKey.BEAN_UTIL_ERR_CLASS_NULL;
@@ -35,9 +34,7 @@ public final class BeanUtil {
   private static Method _getGetterOrSetter(String name, Class<?> klass, boolean isGetter) {
 
     if (klass == null || isEmptyTrim(name)) {
-      String msg = getMsg(BEAN_UTIL_ERR_CLASS_NULL);
-      logger.error(msg);
-      throw new IllegalArgumentException(msg);
+      throw new IllegalArgumentException(logger.error(BEAN_UTIL_ERR_CLASS_NULL));
     }
 
     BeanInfo info = null;
@@ -105,9 +102,7 @@ public final class BeanUtil {
   public static Object invokeMethod(Object bean, Method method, Object... args) {
 
     if (bean == null || method == null) {
-      String msg = getMsg(BEAN_UTIL_ERR_BEAN_NULL);
-      logger.error(msg);
-      throw new IllegalArgumentException(msg);
+      throw new IllegalArgumentException(logger.error(BEAN_UTIL_ERR_BEAN_NULL));
     }
 
     try {

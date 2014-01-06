@@ -43,8 +43,7 @@ public final class ResourceUtil {
 
   private static final Logger logger = getLogger(ResourceUtil.class);
 
-  private static final Map<Class<? extends IKey>, ResourceBundle> BUNDLES =
-               new HashMap<Class<? extends IKey>, ResourceBundle>();
+  private static final Map<Class<? extends IKey>, ResourceBundle> BUNDLES = new HashMap<>();
 
   // logs
   static {

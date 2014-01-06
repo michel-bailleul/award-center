@@ -4,6 +4,8 @@ package awardcenter.model;
 import static util.misc.StringUtil.nbsp;
 
 
+
+import java.beans.Transient;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +30,7 @@ public class Game extends Bean implements Comparable<Game> {
 
   private transient Object id;
 
+  @Transient
   public Object getId() {
     return id;
   }
