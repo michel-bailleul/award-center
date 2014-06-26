@@ -136,17 +136,18 @@ public abstract class FileEngine implements IEngine {
   }
 
 
-  protected void setRoot(String root) {
-    this.root = new File(root);
-  }
-
-
   // ———————————————————————————————————————————————————————————— Public Methods
 
 
   @Override
   public File getRoot() {
     return root;
+  }
+
+
+  @Override
+  public void setRoot(Object root) {
+    this.root = new File((String)root);
   }
 
 

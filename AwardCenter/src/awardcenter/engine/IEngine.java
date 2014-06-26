@@ -15,7 +15,7 @@ import awardcenter.model.Game;
  *
  * @author Michel BAILLEUL
  *
- * @version 1.3 [2o13-o3-27]
+ * @version 1.4 [2o14-o6-26]
  * @since   1.0 [2o1o-o1-o1]
  */
 public interface IEngine extends Iterable<Game> {
@@ -33,10 +33,20 @@ public interface IEngine extends Iterable<Game> {
 
   /**
    * <p>
+   * Root of the data source
+   * </p>
+   *
+   * @param root - The root of the data source
+   */
+  void setRoot(Object root);
+
+  /**
+   * <p>
    * Save a game to the data source
    * </p>
    *
    * @param game - The game to save
+   *
    * @return {@code true} if and only if the game is successfully saved
    */
   boolean saveGame(Game game);
@@ -47,6 +57,7 @@ public interface IEngine extends Iterable<Game> {
    * </p>
    *
    * @param game - The game to remove
+   *
    * @return {@code true} if and only if the game is successfully removed
    */
   boolean removeGame(Game game);

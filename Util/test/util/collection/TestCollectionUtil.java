@@ -277,6 +277,8 @@ public class TestCollectionUtil {
   @Test
   public void testCollectList() {
 
+    System.out.println("Test Collect List ----------");
+
     List<Product> list = new ArrayList<Product>();
 
     fill(list);
@@ -290,17 +292,19 @@ public class TestCollectionUtil {
 
 
   /**
-   * Test de la methode {@link CollectionUtil#collect(Collection, String)}
+   * Test de la methode {@link CollectionUtil#collect(String, Class, Collection)}
    */
   @Test
   public void testCollectSet() {
+
+    System.out.println("Test Collect Set ----------");
 
     Set<Product> set = new HashSet<Product>();
 
     fill(set);
     System.out.println(set);
 
-    Set<Object> values = CollectionUtil.collect("color", set);
+    Set<String> values = CollectionUtil.collect("color", String.class, set);
     System.out.println(values);
 
   }

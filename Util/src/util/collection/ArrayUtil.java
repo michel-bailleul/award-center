@@ -225,10 +225,10 @@ public final class ArrayUtil {
   /**
    * Trie un tableau ou une liste de valeurs en fonction d'une propriete de ses elements
    *
-   * @param property    - Nom de la propriete cible du tri
-   * @param isAsc       - Tri ascendant / descendant
-   * @param isNullFisrt - Valeurs [{@code null}] au debut / a la fin
-   * @param array       - Tableau ou liste de valeurs a trier
+   * @param property    - Le nom de la propriete cible du tri
+   * @param isAsc       - Le type de tri ascendant / descendant
+   * @param isNullFisrt - Les valeurs [{@code null}] au debut / a la fin
+   * @param array       - Le tableau ou l'ensemble de valeurs a trier
    *
    * @return Le meme tableau, et non une copie
    */
@@ -256,11 +256,11 @@ public final class ArrayUtil {
   /**
    * Equivalent a {@code sort(array, property, true, true)}
    *
-   * @param property - Nom de la propriete cible du tri
-   * @param array    - Tableau ou liste de valeurs a trier
+   * @param property - Le nom de la propriete cible du tri
+   * @param array    - Le tableau ou l'ensemble de valeurs a trier
    *
    * @return Le meme tableau, et non une copie
-   * 
+   *
    * @see #sort(T[], String, boolean, boolean)
    */
   @SafeVarargs
@@ -316,9 +316,9 @@ public final class ArrayUtil {
   /**
    * Collecte la valeur d'une propriete de chaque element d'un tableau
    *
-   * @param property - Nom de la propriete a collecter
-   * @param klass    - Type de la propriete a collecter
-   * @param array    - Tableau d'elements
+   * @param property - Le nom de la propriete a collecter
+   * @param klass    - Le type de la propriete a collecter
+   * @param array    - Le tableau d'elements
    *
    * @return La valeur de la propriete de chaque element
    */
@@ -344,12 +344,14 @@ public final class ArrayUtil {
 
 
   /**
-   * Collecte la valeur d'une propriete de chaque element d'un tableau
+   * Equivalent a {@code collect(property, Object.class, array)}
    *
-   * @param property - Nom de la propriete a collecter
-   * @param array    - Tableau d'elements
+   * @param property - Le nom de la propriete a collecter
+   * @param array    - Le tableau d'elements
    *
    * @return La valeur de la propriete de chaque element
+   *
+   * @see #collect(String, Class, Object...)
    */
   @SafeVarargs
   public static <T> Object[] collect(String property, T... array) {

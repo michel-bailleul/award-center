@@ -96,11 +96,12 @@ public class AwardModel {
     List<Game> games = new ArrayList<Game>();
 
     if (model != null) {
+      model.setAutoSort(false);
       model.setList(games);
     }
 
     if (root != null) {
-//      engine.setRoot(root); //TODO
+      engine.setRoot(root);
     }
 
     for (Game game : engine) {
@@ -123,9 +124,8 @@ public class AwardModel {
       game.setImage(null);
       game.setDirty(false);
       game.setActive(true);
-      // update list & model
       games.add(game);
-      //TODO: BUG !
+      // update list & model
       if (model != null && (currentTimeMillis() - lastUpdate) > 500) {
         model.update();
         lastUpdate = currentTimeMillis();
@@ -133,6 +133,7 @@ public class AwardModel {
     }
 
     if (model != null) {
+      model.setAutoSort(true);
       model.update();
     }
 

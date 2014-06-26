@@ -226,7 +226,7 @@ public class SqlJetEngine implements IEngine {
 
 
   public SqlJetEngine() {
-    root = "data/sqljet/game.db";
+    setRoot("data/sqljet/game.db");
     _init();
   }
 
@@ -290,6 +290,12 @@ public class SqlJetEngine implements IEngine {
   @Override
   public Object getRoot() {
     return root;
+  }
+
+
+  @Override
+  public void setRoot(Object root) {
+    this.root = (String) root;
   }
 
 

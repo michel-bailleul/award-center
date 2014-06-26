@@ -47,6 +47,8 @@ public class ListModel<T extends Comparable<T>> extends AbstractListModel<T> imp
   // ———————————————————————————————————————————————————————— Instance Variables
 
 
+  private int oldSize;
+
   private boolean isActive;
 
   private boolean isAutoSort;
@@ -145,7 +147,7 @@ public class ListModel<T extends Comparable<T>> extends AbstractListModel<T> imp
   public void setList(List<T> list) {
     data = (list != null) ? list : new ArrayList<T>();
     filter(filter);
-    fireContentsChanged(this, 0, view.size());
+    fireContentsChanged(this, 0, view.size() - 1);
   }
 
 
@@ -213,7 +215,7 @@ public class ListModel<T extends Comparable<T>> extends AbstractListModel<T> imp
   public void sort() {
     if (view != null) {
       Collections.sort(view);
-      fireContentsChanged(this, 0, view.size());
+      fireContentsChanged(this, 0, view.size() - 1);
     }
   }
 
@@ -240,8 +242,12 @@ public class ListModel<T extends Comparable<T>> extends AbstractListModel<T> imp
       if (isAutoSort) {
         sort();
       }
+      else if (oldSize < view.size()) {
+        fireIntervalAdded(this, oldSize, view.size() - 1);
+        oldSize = view.size();
+      }
       else {
-        fireContentsChanged(this, 0, view.size());
+        fireContentsChanged(this, 0, view.size() - 1);
       }
 
       if (!view.contains(selection)) {

@@ -8,6 +8,7 @@ import static util.resource.Logger.getLogger;
 import static util.resources.CollectionKey.COLLECTION_UTIL_PROPERTY_NOT_FOUND;
 
 
+
 import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.HashMap;
@@ -206,11 +207,12 @@ public final class CollectionUtil {
    * Collecte la valeur d'une propriete de chaque element d'une collection
    *
    * @param property - Le nom de la propriete a collecter
+   * @param klass    - Le type de la propriete a collecter
    * @param c        - La collection source
    *
    * @return La valeur de la propriete de chaque element
    */
-  public static <C1 extends Collection<?>, C2 extends Collection<Object>> C2 collect(String property, C1 c) {
+  public static <C1 extends Collection<?>, C2 extends Collection<U>, U> C2 collect(String property, Class<U> klass, C1 c) {
 
     if (c == null) {
       return null;
@@ -230,12 +232,26 @@ public final class CollectionUtil {
     C2 values = (C2) instantiate(c);
 
     for (Object o : c) {
-      Object value = (o != null) ? invokeMethod(o, method) : null;
+      @SuppressWarnings("unchecked")
+      U value = (o != null) ? (U) invokeMethod(o, method) : null;
       values.add(value);
     }
 
     return values;
 
+  }
+
+
+  /**
+   * Collecte la valeur d'une propriete de chaque element d'une collection
+   *
+   * @param property - Le nom de la propriete a collecter
+   * @param c        - La collection source
+   *
+   * @return La valeur de la propriete de chaque element
+   */
+  public static <C1 extends Collection<?>, C2 extends Collection<Object>> C2 collect(String property, C1 c) {
+    return collect(property, Object.class, c);
   }
 
 
