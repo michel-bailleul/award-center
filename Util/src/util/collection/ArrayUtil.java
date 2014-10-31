@@ -9,8 +9,8 @@ import java.lang.reflect.Array;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -235,18 +235,11 @@ public final class ArrayUtil {
   @SafeVarargs
   public static <T> T[] sort(String property, boolean isAsc, boolean isNullFisrt, T... array) {
 
-    if (!isEmpty(array) && array.length > 1 && !StringUtil.isEmpty(property)) {
-      Comparator<T> c = null;
-      try {
-        c = new BeanComparator<T>(property, isAsc, isNullFisrt, array.getClass().getComponentType());
-      }
-      catch (IllegalStateException x) {
-        x.printStackTrace(); // TODO: log
-      }
-      if (c != null) {
-        Arrays.sort(array, c);
-      }
+    if (!isEmpty(array)) {
+      return array;
     }
+
+    Arrays.sort(array, new BeanComparator<T>(property, array.getClass().getComponentType(), isAsc, isNullFisrt));
 
     return array;
 

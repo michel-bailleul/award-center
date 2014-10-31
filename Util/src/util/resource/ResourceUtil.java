@@ -101,7 +101,7 @@ public final class ResourceUtil {
     try {
       ResourceBundle bundle = getBundle(baseName, (locale != null) ? locale : getDefault(), control);
       BUNDLES.put(klass, bundle);
-      logger.debug(RESOURCE_UTIL_ADD_BUNDLE, locale, baseName);
+      logger.info(RESOURCE_UTIL_ADD_BUNDLE, locale, baseName);
     }
     catch (MissingResourceException x) {
       logger.error(RESOURCE_UTIL_ERR_MISSING_BUNDLE, x, baseName);
@@ -116,11 +116,17 @@ public final class ResourceUtil {
     ResourceBundle bundle = BUNDLES.get(key.getClass());
 
     try {
+      if (bundle == null) {
+        throw new IllegalStateException();
+      }
       msg = bundle.getString(key.getKey());
       msg = formatMessage(msg, params);
     }
     catch (MissingResourceException x) {
       logger.error(RESOURCE_UTIL_ERR_MISSING_RESOURCE, x, key.getKey());
+    }
+    catch (Exception x) {
+      logger.error("ResourceBundle not found [{0}]", x, key.getClass().getName());
     }
 
     return msg;

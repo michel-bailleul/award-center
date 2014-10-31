@@ -8,8 +8,8 @@ import java.beans.Transient;
 
 
 /**
- * Root of beans requiring
- * {@link java.beans.PropertyChangeSupport PropertyChangeSupport} features
+ * Root of beans requiring properties management features from
+ * {@link java.beans.PropertyChangeSupport PropertyChangeSupport}
  */
 public abstract class Bean {
 

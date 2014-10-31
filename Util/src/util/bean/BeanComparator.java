@@ -26,32 +26,56 @@ public class BeanComparator<T> implements Comparator<T> {
   // —————————————————————————————————————————————————————————————— Constructors
 
 
+  /**
+   * {@code BeanComparator(name, klass, true)}
+   *
+   * @param name  - Property name
+   * @param klass - Component type
+   */
   public BeanComparator(String name, Class<?> klass) {
-    this(name, true, klass);
+    this(name, klass, true);
   }
 
 
-  public BeanComparator(String name, boolean isAsc, Class<?> klass) {
-    this(name, true, false, klass);
+  /**
+   * {@code BeanComparator(name, klass, isAsc, false)}
+   *
+   * @param name  - Property name
+   * @param klass - Component type
+   * @param isAsc - Specifies that the results should be returned in ascending / descending order.
+   */
+  public BeanComparator(String name, Class<?> klass, boolean isAsc) {
+    this(name, klass, isAsc, false);
   }
 
 
-  public BeanComparator(String name, boolean isAsc, boolean isNullFirst, Class<?> klass) {
-    this.isAsc = isAsc;
+  /**
+   * Initialize the bean comparator
+   *
+   * @param name        - Property name
+   * @param klass       - Component type
+   * @param isAsc       - Specifies that the results should be returned in ascending / descending order.
+   * @param isNullFirst - Specifies that NULL values should be returned before / after non-NULL values.
+   */
+  public BeanComparator(String name, Class<?> klass, boolean isAsc, boolean isNullFirst) {
+
+    asc = isAsc ? 1 : -1;
     this.isNullFirst = isNullFirst;
     method = getGetter(name, klass);
+
     if (method == null) {
       String msg = getMsg(BEAN_COMPARATOR_ERR_GETTER, name);
       logger.error(msg);
-      throw new IllegalStateException(msg);
+      throw new IllegalArgumentException(msg);
     }
+
   }
 
 
   // ———————————————————————————————————————————————————————— Instance Variables
 
 
-  private final boolean isAsc;
+  private final int asc;
 
   private final boolean isNullFirst;
 
@@ -65,21 +89,22 @@ public class BeanComparator<T> implements Comparator<T> {
   @SuppressWarnings({ "unchecked", "rawtypes" })
   public int compare(T o1, T o2) {
 
-    int i = 0;
-    Object v1 = invokeMethod(o1, method);
-    Object v2 = invokeMethod(o2, method);
+    Object v1 = (o1 != null) ? invokeMethod(o1, method) : null;
+    Object v2 = (o2 != null) ? invokeMethod(o2, method) : null;
 
-    if (v1 != null && v2 != null) {
-      i = isAsc ? ((Comparable)v1).compareTo(v2) : ((Comparable)v2).compareTo(v1);
-    }
-    else if (v1 != null) {
-      i = isNullFirst ? 1 : -1;
-    }
-    else if (v2 != null) {
-      i = isNullFirst ? -1 : 1;
+    if (v1 == null && v2 == null) {
+      return 0;
     }
 
-    return i;
+    if (v1 == null) {
+      return isNullFirst ? -1 : 1;
+    }
+
+    if (v2 == null) {
+      return isNullFirst ? 1 : -1;
+    }
+
+    return asc * ((Comparable) v1).compareTo(v2);
 
   }
 

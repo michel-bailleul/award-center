@@ -2,16 +2,16 @@ package awardcenter.model;
 
 
 import static java.lang.System.currentTimeMillis;
+import static javax.xml.bind.DatatypeConverter.parseBase64Binary;
+import static javax.xml.bind.DatatypeConverter.printBase64Binary;
+
+import static util.misc.StringUtil.isEmpty;
+import static util.resource.Logger.getLogger;
+import static util.resource.ResourceUtil.getMsg;
 
 import static awardcenter.resources.Key.AWARD_NEW;
 import static awardcenter.resources.Key.AWARD_NEW_SEPARATOR;
 import static awardcenter.resources.Key.GAME_NEW;
-
-import static util.codec.Base64.decodeBase64ToByte;
-import static util.codec.Base64.encodeBase64ToString;
-import static util.misc.StringUtil.isEmpty;
-import static util.resource.Logger.getLogger;
-import static util.resource.ResourceUtil.getMsg;
 
 
 import java.io.File;
@@ -235,12 +235,27 @@ public class AwardModel {
   private byte[] _getBytes(Object o) {
 
     try {
-      return decodeBase64ToByte((o instanceof Game) ? ((Game)o).getImage() : ((Award)o).getImage());
+//      return decodeBase64ToByte((o instanceof Game) ? ((Game)o).getImage() : ((Award)o).getImage());
+      return parseBase64Binary((o instanceof Game) ? ((Game)o).getImage() : ((Award)o).getImage());
     }
     catch (Exception x) {
       logger.error("Image corrompue", x); //TODO: terminer le message avec un 'choice', boolean ?
       return null;
     }
+
+  }
+
+
+  private String _getString(Object o) {
+
+    try {
+      return printBase64Binary((o instanceof Game) ? ((Game)o).getBytes() : ((Award)o).getBytes());
+    }
+    catch (Exception x) {
+      logger.error("Image corrompue", x); //TODO: terminer le message avec un 'choice', boolean ?
+      return null;
+    }
+
   }
 
 
@@ -282,7 +297,8 @@ public class AwardModel {
 
       // Game image
       byte[] bytes = game.getBytes();
-      game.setImage(encodeBase64ToString(bytes));
+//      game.setImage(encodeBase64ToString(bytes));
+      game.setImage(_getString(game));
       game.setBytes(null);
 
       // Award images
@@ -290,7 +306,8 @@ public class AwardModel {
       for (Award award : game.getAwards()) {
         award.setActive(false);
 //        award.setDirty(false);
-        award.setImage(encodeBase64ToString(award.getBytes()));
+//        award.setImage(encodeBase64ToString(award.getBytes()));
+        award.setImage(_getString(award));
         awardImages.put(award, award.getBytes());
         award.setBytes(null);
       }

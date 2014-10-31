@@ -24,6 +24,7 @@ import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.transform.stream.StreamSource;
@@ -62,6 +63,9 @@ public final class JAXBEngine extends FileEngine {
     public List<Award> getAwards() {
       return super.getAwards();
     }
+
+    @XmlTransient
+    public List<Award> awards;
 
     @XmlJavaTypeAdapter(TransientAdapter.class)
     private Object active;

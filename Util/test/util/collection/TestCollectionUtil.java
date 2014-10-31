@@ -310,4 +310,24 @@ public class TestCollectionUtil {
   }
 
 
+  /**
+   * Test de la methode {@link CollectionUtil#sort(String, boolean, boolean, List)}
+   */
+  @Test
+  public void testSortList() {
+
+    System.out.println("Test Sort List ----------");
+
+    List<Product> list = new ArrayList<Product>();
+
+    fill(list);
+    list.add(null);
+    System.out.println(list);
+
+    CollectionUtil.sort("color", list);
+    System.out.println(list);
+
+  }
+
+
 }

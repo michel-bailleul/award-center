@@ -1,17 +1,14 @@
 package util.swing.app;
 
 
-import static java.awt.EventQueue.isDispatchThread;
 import static java.awt.Toolkit.getDefaultToolkit;
 import static java.lang.Thread.setDefaultUncaughtExceptionHandler;
-
+import static java.util.prefs.Preferences.userNodeForPackage;
 import static javax.swing.SwingUtilities.invokeLater;
 
 import static util.swing.app.ActionType.RUN_POST_INIT_EVENT_QUEUE_EMPTY;
 import static util.swing.app.ActionType.RUN_START_ON_EDT;
 import static util.swing.app.ActionType.RUN_WAIT_EVENTS;
-
-import static util.resource.Logger.getLogger;
 import static util.resource.ResourceUtil.getMsg;
 import static util.resources.AppKey.APP_ALREADY_EXISTS;
 import static util.resources.AppKey.APP_ALREADY_RUNNING;
@@ -23,6 +20,7 @@ import java.awt.event.WindowListener;
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.prefs.Preferences;
 
 import util.resource.Logger;
 
@@ -32,8 +30,6 @@ public abstract class Application implements UncaughtExceptionHandler {
 
   // —————————————————————————————————————————————————————————— Static Constants
 
-
-  private static Logger logger = getLogger(Application.class);
 
   private static Application SINGLETON;
 
@@ -77,11 +73,13 @@ public abstract class Application implements UncaughtExceptionHandler {
 
   private Map<IActionType, ActionListener> actions;
 
+  private Preferences preferences;
+
 
   // ——————————————————————————————————————————————————————————— Private Methods
 
 
-  private void _start() {
+  private void _start() throws Exception {
     preInit();
     init();
     new Thread(new Runner(this, RUN_WAIT_EVENTS)).start();
@@ -111,88 +109,93 @@ public abstract class Application implements UncaughtExceptionHandler {
 
     boolean isAction = true;
 
-    if (type instanceof ActionType) {
-      // basic features
-      switch ((ActionType)type) {
-        case RUN_START_ON_EDT :
-          _start();
-          break;
-        case RUN_WAIT_EVENTS :
-          _waitForEmptyEventQueue();
-          break;
-        case RUN_POST_INIT_EVENT_QUEUE_EMPTY :
-          postInit();
-          break;
-        case NEW :
-          neo();
-          break;
-        case OPEN :
-          open();
-          break;
-        case CLOSE :
-          close();
-          break;
-        case CLOSE_ALL :
-          closeAll();
-          break;
-        case SAVE :
-          save();
-          break;
-        case SAVE_AS :
-          saveAs();
-          break;
-        case SAVE_ALL :
-          saveAll();
-          break;
-        case PRINT :
-          print();
-          break;
-        case UNDO :
-          undo();
-          break;
-        case REDO :
-          redo();
-          break;
-        case CUT :
-          cut();
-          break;
-        case COPY :
-          copy();
-          break;
-        case PASTE :
-          paste();
-          break;
-        case DELETE :
-          delete();
-          break;
-        case SELECT_ALL :
-          selectAll();
-          break;
-        case FIND :
-          find();
-          break;
-        case FIND_NEXT :
-          findNext();
-          break;
-        case FIND_PREVIOUS :
-          findPrevious();
-          break;
-        case REPLACE :
-          replace();
-          break;
-        case ABOUT :
-          about();
-          break;
-        case EXIT :
-          exit();
-          break;
-        default :
-          isAction = false;
+    try {
+      if (type instanceof ActionType) {
+        // basic features
+        switch ((ActionType) type) {
+          case RUN_START_ON_EDT :
+            _start();
+            break;
+          case RUN_WAIT_EVENTS :
+            _waitForEmptyEventQueue();
+            break;
+          case RUN_POST_INIT_EVENT_QUEUE_EMPTY :
+            postInit();
+            break;
+          case NEW :
+            neo();
+            break;
+          case OPEN :
+            open();
+            break;
+          case CLOSE :
+            close();
+            break;
+          case CLOSE_ALL :
+            closeAll();
+            break;
+          case SAVE :
+            save();
+            break;
+          case SAVE_AS :
+            saveAs();
+            break;
+          case SAVE_ALL :
+            saveAll();
+            break;
+          case PRINT :
+            print();
+            break;
+          case UNDO :
+            undo();
+            break;
+          case REDO :
+            redo();
+            break;
+          case CUT :
+            cut();
+            break;
+          case COPY :
+            copy();
+            break;
+          case PASTE :
+            paste();
+            break;
+          case DELETE :
+            delete();
+            break;
+          case SELECT_ALL :
+            selectAll();
+            break;
+          case FIND :
+            find();
+            break;
+          case FIND_NEXT :
+            findNext();
+            break;
+          case FIND_PREVIOUS :
+            findPrevious();
+            break;
+          case REPLACE :
+            replace();
+            break;
+          case ABOUT :
+            about();
+            break;
+          case EXIT :
+            exit();
+            break;
+          default :
+            isAction = false;
+        }
+      }
+      else {
+        // specific features
+        isAction = action(type, params);
       }
     }
-    else {
-      // specific features
-      isAction = action(type, params);
+    catch (Exception x) {
+      getLogger().error("Unexpected Exception [{0}]", x, type);
     }
 
     return isAction;
@@ -203,59 +206,78 @@ public abstract class Application implements UncaughtExceptionHandler {
   // ————————————————————————————————————————————————————————— Protected Methods
 
 
-  protected void preInit() { }
+  protected void preInit() throws Exception { }
 
-  protected void init() { }
+  protected void init() throws Exception { }
 
-  protected void postInit() { }
+  protected void postInit() throws Exception { }
 
-  protected void neo() { }
+  protected void neo() throws Exception { }
 
-  protected void open() { }
+  protected void open() throws Exception { }
 
-  protected void close() { }
+  protected void close() throws Exception { }
 
-  protected void closeAll() { }
+  protected void closeAll() throws Exception { }
 
-  protected void save() { }
+  protected void save() throws Exception { }
 
-  protected void saveAs() { }
+  protected void saveAs() throws Exception { }
 
-  protected void saveAll() { }
+  protected void saveAll() throws Exception { }
 
-  protected void print() { }
+  protected void print() throws Exception { }
 
-  protected void undo() { }
+  protected void undo() throws Exception { }
 
-  protected void redo() { }
+  protected void redo() throws Exception { }
 
-  protected void cut() { }
+  protected void cut() throws Exception { }
 
-  protected void copy() { }
+  protected void copy() throws Exception { }
 
-  protected void paste() { }
+  protected void paste() throws Exception { }
 
-  protected void delete() { }
+  protected void delete() throws Exception { }
 
-  protected void selectAll() { }
+  protected void selectAll() throws Exception { }
 
-  protected void find() { }
+  protected void find() throws Exception { }
 
-  protected void findNext() { }
+  protected void findNext() throws Exception { }
 
-  protected void findPrevious() { }
+  protected void findPrevious() throws Exception { }
 
-  protected void replace() { }
+  protected void replace() throws Exception { }
 
-  protected void about() { }
+  protected void about() throws Exception { }
 
-  protected void exit() {
+  protected void exit() throws Exception {
+    if (preferences != null) {
+      preferences.flush();
+    }
     System.exit(0);
   }
 
-  protected boolean action(IActionType type, Object... params) {
+
+  protected boolean action(IActionType type, Object... params) throws Exception {
     return false;
   };
+
+
+  protected Preferences loadPreferences(Class<?> klass) {
+    return preferences = userNodeForPackage(klass);
+  }
+
+
+  protected Preferences getPreferences() {
+    return preferences;
+  }
+
+
+  protected Logger getLogger() {
+    return Logger.getLogger(getClass());
+  }
 
 
   // ———————————————————————————————————————————————————————————— Public Methods
@@ -283,7 +305,7 @@ public abstract class Application implements UncaughtExceptionHandler {
 
   @Override
   public void uncaughtException(Thread t, Throwable x) {
-    logger.fatal("Uncaught Exception", x); //TODO: deplacer message en resource
+    getLogger().fatal("Uncaught Exception", x); //TODO: deplacer message en resource
   }
 
 
@@ -298,12 +320,7 @@ public abstract class Application implements UncaughtExceptionHandler {
 
     isRunning = true;
 
-    if (!isDispatchThread()) {
-      invokeLater(new Runner(this, RUN_START_ON_EDT));
-    }
-    else {
-      _start();
-    }
+    invokeLater(new Runner(this, RUN_START_ON_EDT));
 
   }
 

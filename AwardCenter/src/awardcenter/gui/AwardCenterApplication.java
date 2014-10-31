@@ -4,7 +4,6 @@ package awardcenter.gui;
 import static java.lang.System.getProperty;
 import static java.util.Locale.FRENCH;
 
-import static util.resource.Logger.getLogger;
 import static util.resource.ResourceUtil.*;
 import static util.swing.app.ActionType.EXIT;
 
@@ -16,7 +15,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.prefs.Preferences;
 
 import javax.swing.JFrame;
 import javax.swing.UIManager;
@@ -24,7 +22,6 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
 
 import util.misc.StringUtil;
-import util.resource.Logger;
 import util.swing.app.Application;
 import util.swing.app.IActionType;
 
@@ -37,9 +34,6 @@ public class AwardCenterApplication extends Application {
 
 
   // —————————————————————————————————————————————————————————— Static Constants
-
-
-  private static final Logger logger = getLogger(AwardCenterApplication.class);
 
 
   public static final int GAP = 10;
@@ -56,11 +50,8 @@ public class AwardCenterApplication extends Application {
   // —————————————————————————————————————————————————————————————— Constructors
 
 
-  public AwardCenterApplication() {
-    setEngine(getProperty(ENGINE));
-    Locale language = FRENCH; // TODO: get language from properties
-    setLanguageGui(language);
-    addBundle(Key.class, language);
+  public AwardCenterApplication(Class<?> klass) {
+    loadPreferences(klass);
   }
 
 
@@ -68,8 +59,6 @@ public class AwardCenterApplication extends Application {
 
 
   private Controller controller;
-
-  private Preferences preferences;
 
   private File dir = null;
 
@@ -93,6 +82,11 @@ public class AwardCenterApplication extends Application {
     }
     catch (UnsupportedLookAndFeelException x) {
     }
+
+    setEngine(getProperty(ENGINE));
+    Locale language = FRENCH; // TODO: get language from properties
+    setLanguageGui(language);
+    addBundle(Key.class, language);
 
   }
 
@@ -124,7 +118,7 @@ public class AwardCenterApplication extends Application {
     boolean hasAction = true;
 
     if (type instanceof AwardCenterActionType) {
-      switch ((AwardCenterActionType)type) {
+      switch ((AwardCenterActionType) type) {
         case IMPORT :
           controller.actionGameImport();
           break;
@@ -178,9 +172,9 @@ public class AwardCenterApplication extends Application {
 
 
   @Override
-  protected void exit() {
+  protected void exit() throws Exception {
     if (controller.actionClose()) {
-      logger.debug("Exit");
+      getLogger().debug("Exit");
       super.exit();
     }
   }
@@ -189,40 +183,10 @@ public class AwardCenterApplication extends Application {
   // ———————————————————————————————————————————————————————————— Public Methods
 
 
-  public Preferences getPreferences() {
-    return preferences;
-  }
-
-
-  public void setPreferences(Preferences preferences) {
-    this.preferences = preferences;
-  }
-
-
-  /** retourne une preference de l'application [version String] */
-  public String getPreference(String key, String def) {
-    return preferences.get(key, def);
-  }
-
-  public void setPreference(String key, String value) {
-    preferences.put(key, value);
-  }
-
-
-  /** retourne une preference de l'application [version int] */
-  public int getPreference(String key, int def) {
-    return preferences.getInt(key, def);
-  }
-
-  public void setPreference(String key, int value) {
-    preferences.putInt(key, value);
-  }
-
-
   public File getImageDir() {
 
     if (dir == null) {
-      String path = getPreference(IMAGE_DIR, null);
+      String path = getPreferences().get(IMAGE_DIR, null);
       if (!StringUtil.isEmpty(path)) {
         dir = new File(path);
       }
@@ -234,11 +198,9 @@ public class AwardCenterApplication extends Application {
 
 
   public void setImageDir(File dir) {
-
     if (dir != null) {
-      setPreference(IMAGE_DIR, dir.getAbsolutePath());
+      getPreferences().put(IMAGE_DIR, dir.getAbsolutePath());
     }
-
   }
 
 
@@ -258,12 +220,12 @@ public class AwardCenterApplication extends Application {
       }
       catch (Exception x) {
         RuntimeException ex = new IllegalArgumentException(className, x);
-        logger.fatal("Unexpected Exception", ex);
+        getLogger().fatal("Unexpected Exception", ex);
         throw ex;
       }
     }
 
-    logger.info("Engine : [{0}]", engine.getClass().getName());
+    getLogger().info("Engine : [{0}]", engine.getClass().getName());
 
   }
 

@@ -8,13 +8,17 @@ import static util.resource.Logger.getLogger;
 import static util.resources.CollectionKey.COLLECTION_UTIL_PROPERTY_NOT_FOUND;
 
 
-
 import java.lang.reflect.Method;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
+import util.bean.BeanComparator;
 import util.resource.Logger;
 
 
@@ -25,6 +29,36 @@ public final class CollectionUtil {
 
 
   private static final Logger logger = getLogger(CollectionUtil.class);
+
+
+  // ——————————————————————————————————————————————————————————— Private Methods
+
+
+  private static Set<Class<?>> _getSuperClasses(Class<?> klass) {
+
+    if (klass == null) {
+      return new HashSet<Class<?>>();
+    }
+
+    Set<Class<?>> s = _getSuperClasses(klass.getSuperclass());
+    s.add(klass);
+
+    return s;
+
+  }
+
+
+  private static Class<?> _getCommonAncestor(Class<?> klass1, Class<?> klass2) {
+
+    Set<Class<?>> s = _getSuperClasses(klass1);
+
+    while (!s.contains(klass2)) {
+      klass2 = klass2.getSuperclass();
+    }
+
+    return klass2;
+
+  }
 
 
   // ———————————————————————————————————————————————————————————— Public Methods
@@ -255,75 +289,60 @@ public final class CollectionUtil {
   }
 
 
-//  /**
-//   * Trie une liste en fonction d'une propriete de ses objets
-//   *
-//   * @param list     - Liste a trier
-//   * @param property - Propriete cible du tri
-//   * @param isAsc    - Tri ascendant / descendant
-//   */
-//  @SuppressWarnings("unchecked")
-//  public static <T> void sort(List<T> list, String property, boolean isAsc) {
-//
-//    if (!isEmpty(list) && list.size() > 1) {
-//      BeanComparator comp;
-//      if (isAsc) {
-//        comp = new BeanComparator(property);
-//      }
-//      else {
-//        comp = new BeanComparator(property, Collections.reverseOrder());
-//      }
-//      try {
-//        List<T> exclude = new ArrayList<T>();
-//        List<T> include = new ArrayList<T>();
-//        // exclure du tri les objets et les proprietes 'null'
-//        Iterator<T> it = list.iterator();
-//        while (it.hasNext()) {
-//          T o = it.next();
-//          Object value = (o != null) ? PropertyUtils.getProperty(o, property) : null;
-//          if (value != null) {
-//            include.add(o);
-//          }
-//          else {
-//            exclude.add(o);
-//          }
-//        }
-//        Collections.sort(include, comp);
-//        try {
-//          list.clear(); // WARN: risque d'exception UnsupportedOperationException
-//          list.addAll(include); // elements tries au debut de la liste
-//          list.addAll(exclude); // elements non tries a la fin de la liste
-//        }
-//        catch (UnsupportedOperationException x) {
-//          // s'il s'agit d'une liste de taille fixe, la methode clear() est inutilisable
-//          // il faut donc assigner les elements un a un
-//          int i = 0;
-//          for (T o : include) {
-//            list.set(i++, o);
-//          }
-//          for (T o : exclude) {
-//            list.set(i++, o);
-//          }
-//        }
-//      }
-//      catch (Exception x) {
-//        x.printStackTrace();
-//      }
-//    }
-//
-//  }
-//
-//
-//  /**
-//   * Equivalent a {@code sort(list, property, true)}
-//   *
-//   * @param list    - Liste a trier
-//   * @param property - Propriete cible du tri
-//   * @see #sort(List, String, boolean)
-//   */
-//  public static <T> void sort(List<T> list, String property) {
-//    sort(list, property, true);
-//  }
+  /**
+   * Trie une liste en fonction d'une propriete de ses objets
+   *
+   * @param list     - Liste a trier
+   * @param property - Propriete cible du tri
+   * @param isAsc    - Tri ascendant / descendant
+   */
+  public static <T> void sort(String property, boolean isAsc, boolean isNullFisrt, List<T> list) {
+
+    if (isEmpty(list)) {
+      return;
+    }
+
+    Collections.sort(list, new BeanComparator<T>(property, getComponentType(list), isAsc, isNullFisrt));
+
+  }
+
+
+  /**
+   * Equivalent a {@code sort(property, true, true, list)}
+   *
+   * @param property - Propriete cible du tri
+   * @param list     - Liste a trier
+   *
+   * @see #sort(String, boolean, boolean, List)
+   */
+  public static <T> void sort(String property, List<T> list) {
+    sort(property, true, true, list);
+  }
+
+
+  /**
+   *
+   * @param c - Collection
+   * @return
+   */
+  public static Class<?> getComponentType(Collection<?> c) {
+
+    Class<?> klass = null;
+
+    for (Object o : c) {
+      if (o != null) {
+        if (klass == null) {
+          klass = o.getClass();
+        }
+        else if (klass != o.getClass()) {
+          klass = _getCommonAncestor(klass, o.getClass());
+        }
+      }
+    }
+
+    return klass;
+
+  }
 
 
   // —————————————————————————————————————————————————————————————— Constructors

@@ -70,9 +70,9 @@
   <!-- Framework -->
 
   <logger name="util" additivity="false">
-    <level value="OFF"/>
-    <!--appender-ref ref="STDOUT"/-->
-    <!--appender-ref ref="STDERR"/-->
+    <level value="INFO"/>
+    <appender-ref ref="STDOUT"/>
+    <appender-ref ref="STDERR"/>
     <!--appender-ref ref="socket"/-->
   </logger>
 

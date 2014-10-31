@@ -60,19 +60,26 @@ public class TestArrayUtil {
   @Test
   public void sort() {
 
-    Product[] array = new Product[8];
+    Product[] array = new Product[12];
 
-    array[0] = new Product("g", "Red", 0);
-    array[1] = new Product("e", null, 0);
-    array[2] = new Product("c", "Orange", 0);
-    array[3] = new Product("a", "Blue", 0);
-    array[4] = new Product("h", "Yellow", 0);
-    array[5] = new Product("f", "Pink", 0);
-    array[6] = new Product("b", null, 0);
-    array[7] = new Product("d", "Green", 0);
+    int i = 0;
+    array[i++] = new Product("k", "Red", 0);
+    array[i++] = new Product("j", null, 0);
+    array[i++] = new Product("c", "Orange", 0);
+    array[i++] = new Product("a", "Blue", 0);
+    array[i++] = new Product("e", "Red", 0);
+    array[i++] = new Product("g", "Red", 0);
+    array[i++] = new Product("h", "Yellow", 0);
+    array[i++] = new Product("f", "Pink", 0);
+    array[i++] = new Product("b", null, 0);
+    array[i++] = new Product("d", "Green", 0);
+    array[i++] = new Product("i", "Red", 0);
 
+    ArrayUtil.sort("name", true, true, array);
     System.out.println(Arrays.toString(array));
     ArrayUtil.sort("color", true, true, array);
+    System.out.println(Arrays.toString(array));
+    ArrayUtil.sort("color", false, true, array);
     System.out.println(Arrays.toString(array));
 
   }
