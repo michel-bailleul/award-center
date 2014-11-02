@@ -7,13 +7,13 @@ import static java.awt.Transparency.TRANSLUCENT;
 import static java.awt.image.BufferedImage.TYPE_INT_ARGB;
 
 import static util.resource.Logger.getLogger;
-import static util.resources.SwingLogKey.IMAGE_UTIL_ADD;
-import static util.resources.SwingLogKey.IMAGE_UTIL_DEFAULT;
-import static util.resources.SwingLogKey.IMAGE_UTIL_ERR_CREATE;
-import static util.resources.SwingLogKey.IMAGE_UTIL_ERR_NOT_FOUND;
-import static util.resources.SwingLogKey.IMAGE_UTIL_ERR_URL;
-import static util.resources.SwingLogKey.IMAGE_UTIL_GET;
-import static util.resources.SwingGuiKey.ICON_SPACER;
+import static util.resources.LogKey.IMAGE_UTIL_ADD;
+import static util.resources.LogKey.IMAGE_UTIL_DEFAULT;
+import static util.resources.LogKey.IMAGE_UTIL_ERR_CREATE;
+import static util.resources.LogKey.IMAGE_UTIL_ERR_NOT_FOUND;
+import static util.resources.LogKey.IMAGE_UTIL_ERR_URL;
+import static util.resources.LogKey.IMAGE_UTIL_GET;
+import static util.resources.GuiKey.ICON_SPACER;
 
 
 import java.awt.Component;

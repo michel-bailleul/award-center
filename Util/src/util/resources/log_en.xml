@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+  <!-- Application -->
+
+  <entry key="app.already.exists">Application Already Exists</entry>
+  <entry key="app.already.running">Application Already Running !</entry>
+
+  <!-- Bean -->
+
+  <entry key="bean.util.err.class.null">class or property is null or empty</entry>
+  <entry key="bean.util.err.bean.info">unable to get bean info [{0}]</entry>
+  <entry key="bean.util.err.bean.null">bean or method is null</entry>
+  <entry key="bean.util.err.invoke.method">unable to invoke method [{0}]</entry>
+
+  <entry key="bean.comparator.err.getter">unable to find getter for property [{0}]</entry>
+
+  <!-- Base64 -->
+
+  <entry key="base64.err.length">Length of Base64 encoded input string is not a multiple of 4</entry>
+  <entry key="base64.err.character">Illegal character in Base64 encoded data</entry>
+
+  <!-- Collection -->
+
+  <entry key="sorter.check.ko">Sorting unnecessary</entry>
+  <entry key="collection.util.property.not.found">Property not found [{0}]</entry>
+
+  <!-- I/O -->
+
+  <entry key="file.util.copy">Copy From [{0}] To [{1}]</entry>
+  <entry key="file.util.read">Reading File [{0}]</entry>
+  <entry key="file.util.iox">I/O Error</entry>
+  <entry key="file.util.not.found">File Not Found [{0}]</entry>
+
+  <!-- ImageUtil -->
+
+  <entry key="image.util.add">Add Image Into Cache [{0}x{1}]</entry>
+  <entry key="image.util.get">Get Image From Cache [{0}x{1}]</entry>
+  <entry key="image.util.default">Get Default Image</entry>
+  <entry key="image.util.err.create">Create Image Failed [{0}x{1}]</entry>
+  <entry key="image.util.err.url">Get Image Failed [{0}]</entry>
+  <entry key="image.util.err.not.found">Image Not Found [{0}]</entry>
+
+  <!-- ImageViewer -->
+
+  <entry key="imageviewer.read.file">Reading File [{0}]</entry>
+
+  <!-- GradientPanel -->
+
+  <entry key="gradientpanel.illegalargument">'x' must be greater than or equal to 2</entry>
+
+  <!-- Resource -->
+
+  <entry key="resource.util.add.bundle">Loading ResourceBundle [{0}] [{1}]</entry>
+  <entry key="resource.util.err.missing.resource">Missing Resource [{0}]</entry>
+  <entry key="resource.util.err.missing.bundle">Missing ResourceBundle [{0}]</entry>
+
+</properties>

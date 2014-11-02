@@ -22,10 +22,10 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
 
-import util.resources.SwingGuiKey;
+import util.resources.GuiKey;
 
 import util.resource.ResourceUtil;
-import util.resources.SwingLogKey;
+import util.resources.LogKey;
 
 /**
  * http://cyberpython.wordpress.com/2010/03/30/java-a-custom-jtextfield-for-searching/
@@ -38,12 +38,12 @@ public class JIconTextField extends JTextField {
 
 
     public JIconTextField() {
-      this(0, ResourceUtil.getIcon(SwingGuiKey.ICON_MAGNIFIER));
+      this(0, ResourceUtil.getIcon(GuiKey.ICON_MAGNIFIER));
     }
 
 
     public JIconTextField(int col) {
-      this(col, ResourceUtil.getIcon(SwingGuiKey.ICON_MAGNIFIER));
+      this(col, ResourceUtil.getIcon(GuiKey.ICON_MAGNIFIER));
     }
 
 

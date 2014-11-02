@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+  <!-- Application -->
+
+  <entry key="app.already.exists">L'application existe deja</entry>
+  <entry key="app.already.running">L'application est deja lancee</entry>
+
+  <!-- Bean -->
+
+  <entry key="bean.util.err.class.null">classe ou propriete 'null' ou vide</entry>
+  <entry key="bean.util.err.bean.info">impossible d'obtenir le bean-info [{0}]</entry>
+  <entry key="bean.util.err.bean.null">bean ou methode 'null'</entry>
+  <entry key="bean.util.err.invoke.method">impossible d'invoquer la methode [{0}]</entry>
+
+  <entry key="bean.comparator.err.getter">impossible de trouver le 'getter' pour la propriete [{0}]</entry>
+
+  <!-- Base64 -->
+
+  <entry key="base64.err.length">Longueur de donnees Base64 non multiple de 4</entry>
+  <entry key="base64.err.character">Caractere Base64 illegal</entry>
+
+  <!-- Collection -->
+
+  <entry key="sorter.check.ko">Tri inutile</entry>
+  <entry key="collection.util.property.not.found">Propriete introuvable [{0}]</entry>
+
+  <!-- I/O -->
+
+  <entry key="file.util.copy">Copie De [{0}] Vers [{1}]</entry>
+  <entry key="file.util.read">Lecture Du Fichier [{0}]</entry>
+  <entry key="file.util.iox">Erreur I/O</entry>
+  <entry key="file.util.not.found">Fichier Introuvable [{0}]</entry>
+
+  <!-- ImageUtil -->
+
+  <entry key="image.util.add">Cache Image : Ecriture [{0}x{1}]</entry>
+  <entry key="image.util.get">Cache Image : Lecture [{0}x{1}]</entry>
+  <entry key="image.util.default">Cache Image : Lecture [Image Par Defaut]</entry>
+  <entry key="image.util.err.create">Cache Image : Echec Ecriture [{0}x{1}]</entry>
+  <entry key="image.util.err.url">Cache Image : Echec Lecture [{0}]</entry>
+  <entry key="image.util.err.not.found">Cache Image : Image Introuvable [{0}]</entry>
+
+  <!-- ImageViewer -->
+
+  <entry key="imageviewer.read.file">Lecture Fichier [{0}]</entry>
+
+  <!-- GradientPanel -->
+
+  <entry key="gradientpanel.illegalargument">'x' doit etre plus grand ou egal a 2</entry>
+
+  <!-- Resource -->
+
+  <entry key="resource.util.add.bundle">Chargement de la Ressource [{0}] [{1}]</entry>
+  <entry key="resource.util.err.missing.resource">Ressource Introuvable [{0}]</entry>
+  <entry key="resource.util.err.missing.bundle">ResourceBundle Introuvable [{0}]</entry>
+
+</properties>

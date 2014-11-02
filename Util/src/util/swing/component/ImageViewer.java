@@ -13,9 +13,9 @@ import static javax.swing.SwingConstants.CENTER;
 
 import static util.resource.Logger.getLogger;
 import static util.resource.ResourceUtil.getMsg;
-import static util.resources.SwingGuiKey.IMAGEVIEWER_FILE_TYPE;
-import static util.resources.SwingGuiKey.IMAGEVIEWER_SELECT_IMAGE;
-import static util.resources.SwingLogKey.IMAGEVIEWER_READ_FILE;
+import static util.resources.GuiKey.IMAGEVIEWER_FILE_TYPE;
+import static util.resources.GuiKey.IMAGEVIEWER_SELECT_IMAGE;
+import static util.resources.LogKey.IMAGEVIEWER_READ_FILE;
 
 
 import java.awt.BorderLayout;

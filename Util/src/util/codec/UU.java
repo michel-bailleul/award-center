@@ -2,8 +2,8 @@ package util.codec;
 
 
 import static util.resource.ResourceUtil.getMsg;
-import static util.resources.CodecKey.BASE64_ERR_CHARACTER;
-import static util.resources.CodecKey.BASE64_ERR_LENGTH;
+import static util.resources.LogKey.BASE64_ERR_CHARACTER;
+import static util.resources.LogKey.BASE64_ERR_LENGTH;
 
 
 public final class UU {

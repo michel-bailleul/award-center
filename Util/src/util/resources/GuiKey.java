@@ -5,20 +5,32 @@ import util.resource.FileName;
 import util.resource.IKey;
 
 
-@FileName("codec")
-public enum CodecKey implements IKey {
+@FileName("gui")
+public enum GuiKey implements IKey {
 
 
-  // Base64 --------------------------------------------------------------------
+  // ImageViewer ---------------------------------------------------------------
 
-  BASE64_ERR_LENGTH    ("base64.err.length"),
-  BASE64_ERR_CHARACTER ("base64.err.character");
+  IMAGEVIEWER_SELECT_IMAGE ("imageviewer.select.image"),
+  IMAGEVIEWER_FILE_TYPE    ("imageviewer.file.type"),
+
+
+  // GradientPanel -------------------------------------------------------------
+
+  JTEXTFIELDSEARCH_WATERMARK ("jtextfieldsearch.watermark"),
+  JTEXTFIELDSEARCH_CLEAR     ("jtextfieldsearch.clear"),
+
+  // Icons ---------------------------------------------------------------------
+
+  ICON_SPACER        ("icon/spacer.png"),
+  ICON_MAGNIFIER     ("icon/magnifier.png"),
+  ICON_CANCEL_BUTTON ("icon/cross-button.png");
 
 
   // —————————————————————————————————————————————————————————————— Constructors
 
 
-  private CodecKey(String key) {
+  private GuiKey(String key) {
     this.key = key;
   }
 

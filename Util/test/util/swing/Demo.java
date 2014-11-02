@@ -1,7 +1,7 @@
 package util.swing;
 import javax.swing.*;
 
-import util.resources.SwingLogKey;
+import util.resources.LogKey;
 
 import util.resource.ResourceUtil;
 

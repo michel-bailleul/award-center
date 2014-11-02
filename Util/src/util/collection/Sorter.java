@@ -2,7 +2,7 @@ package util.collection;
 
 
 import static util.resource.Logger.getLogger;
-import static util.resources.CollectionKey.SORTER_CHECK_KO;
+import static util.resources.LogKey.SORTER_CHECK_KO;
 
 
 import util.resource.Logger;

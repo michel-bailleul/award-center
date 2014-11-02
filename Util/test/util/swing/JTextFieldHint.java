@@ -17,10 +17,10 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
 
-import util.resources.SwingGuiKey;
+import util.resources.GuiKey;
 
 import util.resource.ResourceUtil;
-import util.resources.SwingLogKey;
+import util.resources.LogKey;
 
 
 public class JTextFieldHint extends JTextField implements FocusListener {
@@ -33,7 +33,7 @@ public class JTextFieldHint extends JTextField implements FocusListener {
   public JTextFieldHint(JTextField jtf, String icon, String hint){
     this.jtf = jtf;
 //    setIcon(createImageIcon("icons/"+icon+".png",icon));
-    setIcon(ResourceUtil.getIcon(SwingGuiKey.ICON_MAGNIFIER));
+    setIcon(ResourceUtil.getIcon(GuiKey.ICON_MAGNIFIER));
     this.hint = hint;
 
     Border border = UIManager.getBorder("TextField.border");

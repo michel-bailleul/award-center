@@ -1,8 +1,8 @@
 package util.codec;
 
 
-import static util.resources.CodecKey.BASE64_ERR_CHARACTER;
-import static util.resources.CodecKey.BASE64_ERR_LENGTH;
+import static util.resources.LogKey.BASE64_ERR_CHARACTER;
+import static util.resources.LogKey.BASE64_ERR_LENGTH;
 
 
 import util.resource.Logger;

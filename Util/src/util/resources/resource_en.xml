@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
-<properties>
-
-  <entry key="resource.util.add.bundle">Loading ResourceBundle [{0}] [{1}]</entry>
-  <entry key="resource.util.err.missing.resource">Missing Resource [{0}]</entry>
-  <entry key="resource.util.err.missing.bundle">Missing ResourceBundle [{0}]</entry>
-
-</properties>

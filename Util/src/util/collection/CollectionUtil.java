@@ -5,7 +5,7 @@ import static util.bean.BeanUtil.getGetter;
 import static util.bean.BeanUtil.instantiate;
 import static util.bean.BeanUtil.invokeMethod;
 import static util.resource.Logger.getLogger;
-import static util.resources.CollectionKey.COLLECTION_UTIL_PROPERTY_NOT_FOUND;
+import static util.resources.LogKey.COLLECTION_UTIL_PROPERTY_NOT_FOUND;
 
 
 import java.lang.reflect.Method;

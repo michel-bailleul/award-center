@@ -15,10 +15,10 @@ import static util.misc.StringUtil.isEmpty;
 import static util.misc.StringUtil.normalizeASCII;
 import static util.resource.ResourceUtil.getIcon;
 import static util.resource.ResourceUtil.getMsg;
-import static util.resources.SwingGuiKey.ICON_CANCEL_BUTTON;
-import static util.resources.SwingGuiKey.ICON_MAGNIFIER;
-import static util.resources.SwingGuiKey.JTEXTFIELDSEARCH_CLEAR;
-import static util.resources.SwingGuiKey.JTEXTFIELDSEARCH_WATERMARK;
+import static util.resources.GuiKey.ICON_CANCEL_BUTTON;
+import static util.resources.GuiKey.ICON_MAGNIFIER;
+import static util.resources.GuiKey.JTEXTFIELDSEARCH_CLEAR;
+import static util.resources.GuiKey.JTEXTFIELDSEARCH_WATERMARK;
 
 
 import java.awt.Color;

@@ -10,8 +10,8 @@ import static util.swing.app.ActionType.RUN_POST_INIT_EVENT_QUEUE_EMPTY;
 import static util.swing.app.ActionType.RUN_START_ON_EDT;
 import static util.swing.app.ActionType.RUN_WAIT_EVENTS;
 import static util.resource.ResourceUtil.getMsg;
-import static util.resources.AppKey.APP_ALREADY_EXISTS;
-import static util.resources.AppKey.APP_ALREADY_RUNNING;
+import static util.resources.LogKey.APP_ALREADY_EXISTS;
+import static util.resources.LogKey.APP_ALREADY_RUNNING;
 
 
 import java.awt.EventQueue;

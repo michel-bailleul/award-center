@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
-<properties>
-
-  <entry key="base64.err.length">Longueur de donnees Base64 non multiple de 4</entry>
-  <entry key="base64.err.character">Caractere Base64 illegal</entry>
-
-</properties>

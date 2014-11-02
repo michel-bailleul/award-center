@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
-<properties>
-
-  <entry key="resource.util.add.bundle">Chargement de la Ressource [{0}] [{1}]</entry>
-  <entry key="resource.util.err.missing.resource">Ressource Introuvable [{0}]</entry>
-  <entry key="resource.util.err.missing.bundle">ResourceBundle Introuvable [{0}]</entry>
-
-</properties>

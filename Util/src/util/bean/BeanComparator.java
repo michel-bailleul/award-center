@@ -5,7 +5,7 @@ import static util.bean.BeanUtil.getGetter;
 import static util.bean.BeanUtil.invokeMethod;
 import static util.resource.Logger.getLogger;
 import static util.resource.ResourceUtil.getMsg;
-import static util.resources.BeanKey.BEAN_COMPARATOR_ERR_GETTER;
+import static util.resources.LogKey.BEAN_COMPARATOR_ERR_GETTER;
 
 
 import java.lang.reflect.Method;

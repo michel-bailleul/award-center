@@ -10,9 +10,9 @@ import static util.swing.ImageUtil.getImageIcon;
 
 import static util.misc.StringUtil.formatMessage;
 import static util.resource.Logger.getLogger;
-import static util.resources.ResourceKey.RESOURCE_UTIL_ADD_BUNDLE;
-import static util.resources.ResourceKey.RESOURCE_UTIL_ERR_MISSING_BUNDLE;
-import static util.resources.ResourceKey.RESOURCE_UTIL_ERR_MISSING_RESOURCE;
+import static util.resources.LogKey.RESOURCE_UTIL_ADD_BUNDLE;
+import static util.resources.LogKey.RESOURCE_UTIL_ERR_MISSING_BUNDLE;
+import static util.resources.LogKey.RESOURCE_UTIL_ERR_MISSING_RESOURCE;
 
 
 import java.awt.Image;
@@ -25,14 +25,8 @@ import java.util.ResourceBundle.Control;
 
 import javax.swing.Icon;
 
-import util.resources.BeanKey;
-import util.resources.SwingGuiKey;
-import util.resources.AppKey;
-import util.resources.CodecKey;
-import util.resources.CollectionKey;
-import util.resources.IOKey;
-import util.resources.ResourceKey;
-import util.resources.SwingLogKey;
+import util.resources.GuiKey;
+import util.resources.LogKey;
 
 
 public final class ResourceUtil {
@@ -56,18 +50,11 @@ public final class ResourceUtil {
 
   private static void _loadBundles(Locale language, boolean isLog) {
     if (isLog) {
-      // Logs
-      addBundle(ResourceKey.class,   language); // util.resource : 1st !!!
-      addBundle(BeanKey.class,       language); // util.bean
-      addBundle(CodecKey.class,      language); // util.codec
-      addBundle(CollectionKey.class, language); // util.collection
-      addBundle(IOKey.class,         language); // util.io
-      addBundle(AppKey.class,        language); // util.app
-      addBundle(SwingLogKey.class,   language); // util.swing
+      addBundle(LogKey.class, language);
     }
     else {
       // GUI
-      addBundle(SwingGuiKey.class,   language); // util.swing
+      addBundle(GuiKey.class, language);
     }
   }
 

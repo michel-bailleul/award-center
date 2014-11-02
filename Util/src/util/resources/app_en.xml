@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
-<properties>
-
-  <entry key="app.already.exists">Application Already Exists</entry>
-  <entry key="app.already.running">Application Already Running !</entry>
-
-</properties>

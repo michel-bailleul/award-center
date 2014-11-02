@@ -5,7 +5,7 @@ import static java.awt.RenderingHints.KEY_ANTIALIASING;
 import static java.awt.RenderingHints.VALUE_ANTIALIAS_ON;
 
 import static util.resource.ResourceUtil.getMsg;
-import static util.resources.SwingLogKey.GRADIENTPANEL_ILLEGALARGUMENT;
+import static util.resources.LogKey.GRADIENTPANEL_ILLEGALARGUMENT;
 
 
 import java.awt.Color;

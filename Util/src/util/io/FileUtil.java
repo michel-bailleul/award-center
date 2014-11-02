@@ -2,10 +2,10 @@ package util.io;
 
 
 import static util.resource.Logger.getLogger;
-import static util.resources.IOKey.FILE_UTIL_COPY;
-import static util.resources.IOKey.FILE_UTIL_IOX;
-import static util.resources.IOKey.FILE_UTIL_NOT_FOUND;
-import static util.resources.IOKey.FILE_UTIL_READ;
+import static util.resources.LogKey.FILE_UTIL_COPY;
+import static util.resources.LogKey.FILE_UTIL_IOX;
+import static util.resources.LogKey.FILE_UTIL_NOT_FOUND;
+import static util.resources.LogKey.FILE_UTIL_READ;
 
 
 import java.io.BufferedInputStream;

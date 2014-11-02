@@ -4,10 +4,10 @@ package util.bean;
 import static java.beans.Introspector.getBeanInfo;
 import static util.misc.StringUtil.isEmptyTrim;
 import static util.resource.Logger.getLogger;
-import static util.resources.BeanKey.BEAN_UTIL_ERR_BEAN_INFO;
-import static util.resources.BeanKey.BEAN_UTIL_ERR_BEAN_NULL;
-import static util.resources.BeanKey.BEAN_UTIL_ERR_CLASS_NULL;
-import static util.resources.BeanKey.BEAN_UTIL_ERR_INVOKE_METHOD;
+import static util.resources.LogKey.BEAN_UTIL_ERR_BEAN_INFO;
+import static util.resources.LogKey.BEAN_UTIL_ERR_BEAN_NULL;
+import static util.resources.LogKey.BEAN_UTIL_ERR_CLASS_NULL;
+import static util.resources.LogKey.BEAN_UTIL_ERR_INVOKE_METHOD;
 
 
 import java.beans.BeanInfo;
