@@ -86,7 +86,7 @@ public class AwardCenterApplication extends Application {
     setEngine(getProperty(ENGINE));
     Locale language = FRENCH; // TODO: get language from properties
     setLanguageGui(language);
-    addBundle(Key.class, language);
+    addBundleGui(Key.class);
 
   }
 

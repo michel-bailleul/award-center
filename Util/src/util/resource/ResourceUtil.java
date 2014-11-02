@@ -39,23 +39,18 @@ public final class ResourceUtil {
 
   private static final Map<Class<? extends IKey>, ResourceBundle> BUNDLES = new HashMap<>();
 
-  // logs
+
+  // —————————————————————————————————————————————————————————— Static Variables
+
+
+  private static Locale languageLog;
+
+  private static Locale languageGui;
+
+  // init resource bundles
   static {
-    setLanguageLog(ENGLISH); // default language
-  }
-
-
-  // ——————————————————————————————————————————————————————————— Private Methods
-
-
-  private static void _loadBundles(Locale language, boolean isLog) {
-    if (isLog) {
-      addBundle(LogKey.class, language);
-    }
-    else {
-      // GUI
-      addBundle(GuiKey.class, language);
-    }
+    setLanguageLog(ENGLISH);      // default language for logs
+    setLanguageGui(getDefault()); // default language for GUI
   }
 
 
@@ -63,12 +58,24 @@ public final class ResourceUtil {
 
 
   public static void setLanguageLog(Locale language) {
-    _loadBundles(language, true);
+    languageLog = language;
+    addBundleLog(LogKey.class);
   }
 
 
   public static void setLanguageGui(Locale language) {
-    _loadBundles(language, false);
+    languageGui = language;
+    addBundleGui(GuiKey.class);
+  }
+
+
+  public static void addBundleLog(Class<? extends IKey> klass) {
+    addBundle(klass, languageLog);
+  }
+
+
+  public static void addBundleGui(Class<? extends IKey> klass) {
+    addBundle(klass, languageGui);
   }
 
 
