@@ -1,6 +1,7 @@
 package util.collection;
 
 
+import static util.bean.BeanUtil.getCommonAncestor;
 import static util.bean.BeanUtil.getGetter;
 import static util.bean.BeanUtil.instantiate;
 import static util.bean.BeanUtil.invokeMethod;
@@ -12,11 +13,9 @@ import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import util.bean.BeanComparator;
 import util.resource.Logger;
@@ -29,36 +28,6 @@ public final class CollectionUtil {
 
 
   private static final Logger logger = getLogger(CollectionUtil.class);
-
-
-  // ——————————————————————————————————————————————————————————— Private Methods
-
-
-  private static Set<Class<?>> _getSuperClasses(Class<?> klass) {
-
-    if (klass == null) {
-      return new HashSet<Class<?>>();
-    }
-
-    Set<Class<?>> s = _getSuperClasses(klass.getSuperclass());
-    s.add(klass);
-
-    return s;
-
-  }
-
-
-  private static Class<?> _getCommonAncestor(Class<?> klass1, Class<?> klass2) {
-
-    Set<Class<?>> s = _getSuperClasses(klass1);
-
-    while (!s.contains(klass2)) {
-      klass2 = klass2.getSuperclass();
-    }
-
-    return klass2;
-
-  }
 
 
   // ———————————————————————————————————————————————————————————— Public Methods
@@ -335,7 +304,7 @@ public final class CollectionUtil {
           klass = o.getClass();
         }
         else if (klass != o.getClass()) {
-          klass = _getCommonAncestor(klass, o.getClass());
+          klass = getCommonAncestor(klass, o.getClass());
         }
       }
     }

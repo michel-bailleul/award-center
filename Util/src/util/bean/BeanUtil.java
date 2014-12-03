@@ -10,11 +10,14 @@ import static util.resources.LogKey.BEAN_UTIL_ERR_CLASS_NULL;
 import static util.resources.LogKey.BEAN_UTIL_ERR_INVOKE_METHOD;
 
 
+
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.HashSet;
+import java.util.Set;
 
 import util.resource.Logger;
 
@@ -113,6 +116,43 @@ public final class BeanUtil {
     }
 
     return null;
+
+  }
+
+
+  public static <T> Set<Class<?>> getSuperClasses(T bean) {
+    return (bean != null) ? getSuperClasses(bean.getClass()) : null;
+  }
+
+
+  public static Set<Class<?>> getSuperClasses(Class<?> klass) {
+
+    if (klass == null) {
+      return new HashSet<Class<?>>();
+    }
+
+    Set<Class<?>> s = getSuperClasses(klass.getSuperclass());
+    s.add(klass);
+
+    return s;
+
+  }
+
+
+  public static <U, V> Class<?> getCommonAncestor(U bean1, V bean2) {
+    return (bean1 != null && bean2 != null) ? getCommonAncestor(bean1.getClass(), bean2.getClass()) : null;
+  }
+
+
+  public static Class<?> getCommonAncestor(Class<?> klass1, Class<?> klass2) {
+
+    Set<Class<?>> s = getSuperClasses(klass1);
+
+    while (!s.contains(klass2)) {
+      klass2 = klass2.getSuperclass();
+    }
+
+    return klass2;
 
   }
 
