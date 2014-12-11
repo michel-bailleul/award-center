@@ -120,40 +120,70 @@ public final class BeanUtil {
   }
 
 
-  public static <T> Set<Class<?>> getSuperClasses(T bean) {
-    return (bean != null) ? getSuperClasses(bean.getClass()) : null;
-  }
+  /**
+   * Looking for all ancestors of a class
+   *
+   * @param k - Any class
+   *
+   * @return All ancestors of the class
+   */
+  public static Set<Class<?>> getAncestors(Class<?> k) {
 
-
-  public static Set<Class<?>> getSuperClasses(Class<?> klass) {
-
-    if (klass == null) {
+    if (k == null) {
       return new HashSet<Class<?>>();
     }
 
-    Set<Class<?>> s = getSuperClasses(klass.getSuperclass());
-    s.add(klass);
+    Set<Class<?>> s = getAncestors(k.getSuperclass());
+    s.add(k);
 
     return s;
 
   }
 
 
-  public static <U, V> Class<?> getCommonAncestor(U bean1, V bean2) {
-    return (bean1 != null && bean2 != null) ? getCommonAncestor(bean1.getClass(), bean2.getClass()) : null;
+  /**
+   * Looking for all ancestors of an object
+   *
+   * @param o - Any object
+   *
+   * @return All ancestors of the object
+   */
+  public static <T> Set<Class<?>> getAncestors(T o) {
+    return getAncestors((o != null) ? o.getClass() : null);
   }
 
 
-  public static Class<?> getCommonAncestor(Class<?> klass1, Class<?> klass2) {
+  /**
+   * Looking for the common ancestor of 2 classes
+   *
+   * @param c1 - First class
+   * @param c2 - Second class
+   *
+   * @return The common ancestor of the classes
+   */
+  public static Class<?> getCommonAncestor(Class<?> c1, Class<?> c2) {
 
-    Set<Class<?>> s = getSuperClasses(klass1);
+    Set<Class<?>> s = getAncestors(c1);
 
-    while (!s.contains(klass2)) {
-      klass2 = klass2.getSuperclass();
+    while (!s.contains(c2)) {
+      c2 = c2.getSuperclass();
     }
 
-    return klass2;
+    return c2;
 
+  }
+
+
+  /**
+   * Looking for the common ancestor of 2 objects
+   *
+   * @param o1 - First object
+   * @param o2 - Second object
+   *
+   * @return The common ancestor of the objects
+   */
+  public static <U, V> Class<?> getCommonAncestor(U o1, V o2) {
+    return getCommonAncestor((o1 != null) ? o1.getClass() : null, (o2 != null) ? o2.getClass() : null);
   }
 
 
