@@ -123,18 +123,18 @@ public final class BeanUtil {
   /**
    * Looking for all ancestors of a class
    *
-   * @param k - Any class
+   * @param c - Any class
    *
    * @return All ancestors of the class
    */
-  public static Set<Class<?>> getAncestors(Class<?> k) {
+  public static Set<Class<?>> getAncestors(Class<?> c) {
 
-    if (k == null) {
+    if (c == null) {
       return new HashSet<Class<?>>();
     }
 
-    Set<Class<?>> s = getAncestors(k.getSuperclass());
-    s.add(k);
+    Set<Class<?>> s = getAncestors(c.getSuperclass());
+    s.add(c);
 
     return s;
 
