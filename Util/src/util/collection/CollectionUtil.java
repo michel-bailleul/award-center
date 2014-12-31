@@ -221,13 +221,10 @@ public final class CollectionUtil {
       return null;
     }
 
-    Object x = null;
-    for (Object o : c) {
-      if ((x = o) != null) break;
-    }
+    Class<?> type = getComponentType(c);
 
     Method method = null;
-    if (x != null && (method = getGetter(property, x.getClass())) == null) {
+    if (type != null && (method = getGetter(property, type)) == null) {
       throw new IllegalArgumentException(logger.error(COLLECTION_UTIL_PROPERTY_NOT_FOUND, property));
     }
 

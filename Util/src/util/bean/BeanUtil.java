@@ -156,8 +156,8 @@ public final class BeanUtil {
   /**
    * Looking for the common ancestor of 2 classes
    *
-   * @param c1 - First class
-   * @param c2 - Second class
+   * @param c1 - 1st class
+   * @param c2 - 2nd class
    *
    * @return The common ancestor of the classes
    */
@@ -177,8 +177,8 @@ public final class BeanUtil {
   /**
    * Looking for the common ancestor of 2 objects
    *
-   * @param o1 - First object
-   * @param o2 - Second object
+   * @param o1 - 1st object
+   * @param o2 - 2nd object
    *
    * @return The common ancestor of the objects
    */
