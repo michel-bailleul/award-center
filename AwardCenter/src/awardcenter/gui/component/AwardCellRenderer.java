@@ -9,23 +9,20 @@ import static java.awt.BorderLayout.WEST;
 import static javax.swing.BorderFactory.createEmptyBorder;
 import static javax.swing.SwingConstants.HORIZONTAL;
 
-import static awardcenter.resources.Key.ICON_ADDED;
-import static awardcenter.resources.Key.ICON_LOCK;
-import static awardcenter.resources.Key.ICON_MULTI;
-import static awardcenter.resources.Key.ICON_SECRET;
-import static awardcenter.resources.Key.ICON_TICK;
-
-import static util.swing.ImageUtil.getImageIcon;
-
-
 import static util.misc.StringUtil.rPad;
 import static util.resource.ResourceUtil.getIcon;
+import static util.swing.ImageUtil.getImageIcon;
 import static util.swing.SwingUtil.STYLE_B;
 import static util.swing.SwingUtil.createPanel;
 import static util.swing.SwingUtil.createSeparator;
 import static util.swing.SwingUtil.formatHTML;
 
 import static awardcenter.gui.AwardCenterApplication.IMG_SIZE_SMALL;
+import static awardcenter.resources.Key.ICON_ADDED;
+import static awardcenter.resources.Key.ICON_LOCK;
+import static awardcenter.resources.Key.ICON_MULTI;
+import static awardcenter.resources.Key.ICON_SECRET;
+import static awardcenter.resources.Key.ICON_TICK;
 
 
 import java.awt.BorderLayout;

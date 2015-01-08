@@ -13,6 +13,10 @@ import static javax.swing.JFileChooser.APPROVE_OPTION;
 import static javax.swing.JFileChooser.DIRECTORIES_ONLY;
 import static javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION;
 
+import static util.resource.ResourceUtil.getImg;
+import static util.resource.ResourceUtil.getMsg;
+import static util.swing.SwingUtil.createPanel;
+
 import static awardcenter.resources.Key.AWARD_TIPSNTRICKS;
 import static awardcenter.resources.Key.DIALOG_IMPEXP_BUTTON_BROWSE;
 import static awardcenter.resources.Key.DIALOG_IMPEXP_BUTTON_CLOSE;
@@ -30,11 +34,6 @@ import static awardcenter.resources.Key.GAME_RATING;
 import static awardcenter.resources.Key.GAME_SCORE;
 import static awardcenter.resources.Key.ICON_EXPORT;
 import static awardcenter.resources.Key.ICON_IMPORT;
-
-import static util.resource.ResourceUtil.getImg;
-import static util.resource.ResourceUtil.getMsg;
-import static util.swing.SwingUtil.createPanel;
-
 import static awardcenter.gui.AwardCenterApplication.GAP;
 
 

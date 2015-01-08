@@ -2,6 +2,7 @@ package util.bean;
 
 
 import static java.beans.Introspector.getBeanInfo;
+
 import static util.misc.StringUtil.isEmptyTrim;
 import static util.resource.Logger.getLogger;
 import static util.resources.LogKey.BEAN_UTIL_ERR_BEAN_INFO;
@@ -10,14 +11,13 @@ import static util.resources.LogKey.BEAN_UTIL_ERR_CLASS_NULL;
 import static util.resources.LogKey.BEAN_UTIL_ERR_INVOKE_METHOD;
 
 
-
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import util.resource.Logger;
 
@@ -125,15 +125,15 @@ public final class BeanUtil {
    *
    * @param c - Any class
    *
-   * @return All ancestors of the class
+   * @return All ancestors of the class in descending order
    */
-  public static Set<Class<?>> getAncestors(Class<?> c) {
+  public static List<Class<?>> getAncestors(Class<?> c) {
 
     if (c == null) {
-      return new HashSet<Class<?>>();
+      return new ArrayList<Class<?>>();
     }
 
-    Set<Class<?>> s = getAncestors(c.getSuperclass());
+    List<Class<?>> s = getAncestors(c.getSuperclass());
     s.add(c);
 
     return s;
@@ -146,9 +146,9 @@ public final class BeanUtil {
    *
    * @param o - Any object
    *
-   * @return All ancestors of the object
+   * @return All ancestors of the object in descending order
    */
-  public static <T> Set<Class<?>> getAncestors(T o) {
+  public static <T> List<Class<?>> getAncestors(T o) {
     return getAncestors((o != null) ? o.getClass() : null);
   }
 
@@ -163,7 +163,7 @@ public final class BeanUtil {
    */
   public static Class<?> getCommonAncestor(Class<?> c1, Class<?> c2) {
 
-    Set<Class<?>> s = getAncestors(c1);
+    List<Class<?>> s = getAncestors(c1);
 
     while (!s.contains(c2)) {
       c2 = c2.getSuperclass();

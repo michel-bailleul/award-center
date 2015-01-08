@@ -7,7 +7,6 @@ import static java.util.ResourceBundle.getBundle;
 
 import static util.swing.ImageUtil.getImage;
 import static util.swing.ImageUtil.getImageIcon;
-
 import static util.misc.StringUtil.formatMessage;
 import static util.resource.Logger.getLogger;
 import static util.resources.LogKey.RESOURCE_UTIL_ADD_BUNDLE;

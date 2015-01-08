@@ -4,8 +4,6 @@ package awardcenter.gui.component;
 import static java.awt.FlowLayout.LEADING;
 
 import static util.swing.ImageUtil.getImageIcon;
-
-
 import static util.swing.SwingUtil.STYLE_B;
 import static util.swing.SwingUtil.createPanel;
 import static util.swing.SwingUtil.formatHTML;

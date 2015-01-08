@@ -4,7 +4,6 @@ package awardcenter.model;
 import static util.misc.StringUtil.nbsp;
 
 
-
 import java.beans.Transient;
 import java.util.ArrayList;
 import java.util.List;
