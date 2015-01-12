@@ -147,7 +147,14 @@ public abstract class FileEngine implements IEngine {
 
   @Override
   public void setRoot(Object root) {
-    this.root = new File((String)root);
+
+    if (root instanceof File) {
+      this.root = (File) root;
+    }
+    else if (root instanceof String) {
+      this.root = new File((String) root);
+    }
+
   }
 
 
@@ -159,7 +166,10 @@ public abstract class FileEngine implements IEngine {
     String fileName = clean(game.getName().replace(NBSP, '-')) + getExt();
 
     if (file == null || !file.getName().equals(fileName) || !file.getParentFile().equals(getRoot())) {
-      trash = file;
+      // si meme repertoire, supprimer ancien fichier
+      if (file != null && file.getParentFile().equals(getRoot())) {
+        trash = file;
+      }
       file = new File(getRoot(), fileName);
       game.setId(file);
     }

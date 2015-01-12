@@ -14,7 +14,6 @@ import static awardcenter.resources.Key.AWARD_NEW_SEPARATOR;
 import static awardcenter.resources.Key.GAME_NEW;
 
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -259,13 +258,13 @@ public class AwardModel {
   }
 
 
-  private void _saveGames(List<Game> games, File dir, Mode mode) {
+  private void _saveGames(List<Game> games, Object root, Mode mode) {
 
     long time = currentTimeMillis();
     int saved = 0;
 
     for (Game game : games) {
-      if (_saveGame(game, dir, mode)) {
+      if (_saveGame(game, root, mode)) {
         saved++;
       }
     }
@@ -277,7 +276,7 @@ public class AwardModel {
   }
 
 
-  private boolean _saveGame(Game game, File dir, Mode mode) {
+  private boolean _saveGame(Game game, Object root, Mode mode) {
 
     boolean isDirty = false;
     boolean isSaved = false;
@@ -312,13 +311,21 @@ public class AwardModel {
         award.setBytes(null);
       }
 
+      Object rt = engine.getRoot();
       Object id = game.getId();
+      if (root != null) {
+        engine.setRoot(root);
+      }
 
       if (isSaved = engine.saveGame(game)) {
         logger.info("{0} [{1}]", mode, game.getName());
       }
 
-      if (mode != Mode.EXPORT) {
+      if (mode == Mode.EXPORT) { // en cas d'export...
+        engine.setRoot(rt);      // ...on revient dans le repertoire racine...
+        game.setId(id);          // ...et au fichier source
+      }
+      else {
         // Game image
         game.setImage(null);
         game.setBytes(bytes);
@@ -332,14 +339,10 @@ public class AwardModel {
           award.setDirty(!isSaved && award.isDirty());
           award.setActive(true);
         }
-
 //        if (mode == Mode.SAVE && trash != null) {
 //          trash.delete();
 //          logger.info("Deleting [{0}]", trash.getAbsolutePath());
 //        }
-      }
-      else {
-        game.setId(id);
       }
     }
 
@@ -446,8 +449,8 @@ public class AwardModel {
   }
 
 
-  public void exportGames(List<Game> games, File dir) {
-    _saveGames(games, dir, Mode.EXPORT);
+  public void exportGames(List<Game> games, Object root) {
+    _saveGames(games, root, Mode.EXPORT);
   }
 
 

@@ -1362,6 +1362,7 @@ public class Controller {
         public void run() {
           model.loadGames(gameListModel);
           refreshGameFilterTitle();
+//          gameList.repaint(); // does not work
         }
       }, 0);
 
