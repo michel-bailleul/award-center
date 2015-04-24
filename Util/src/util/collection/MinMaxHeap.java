@@ -13,7 +13,7 @@ package util.collection;
  *
  * @author Todd Wease (C++ version)
  * @author Genc Doko (Java version)
- * @author Michel BAILLEUL (Generic version)
+ * @author Michel BAILLEUL (Generics version)
  */
 public class MinMaxHeap<T extends Comparable<T>> {
 

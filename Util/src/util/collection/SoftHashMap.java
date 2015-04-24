@@ -47,7 +47,7 @@ public class SoftHashMap<K,V> extends AbstractMap<K,V> {
   @SuppressWarnings("unchecked")
   private void _refresh() {
     Value<V> o;
-    while ((o = (Value<V>)queue.poll()) != null) {
+    while ((o = (Value<V>) queue.poll()) != null) {
       map.remove(o.key);
     }
   }
