@@ -73,7 +73,7 @@ public class TestSorter {
 
   private String sortType;
   private long before, after;
-  private int length = 8*1024*1024; // large array
+  private int length = 8*1024*1024; // large array 32 Mo
   private int start = 0;
   private int end = length - 1;
   private int[] a;
@@ -92,9 +92,10 @@ public class TestSorter {
     start = 0;
     end = SMALL.length - 1;
 
-    EXPECTED = new int[] { 21, 13, 16, 19, 19, 31, 32, 65, 68, 26 };
-    start = 1;
-    end = SMALL.length - 2;
+    // range [1, 7]
+//    EXPECTED = new int[] { 21, 13, 16, 19, 19, 31, 32, 65, 68, 26 };
+//    start = 1;
+//    end = SMALL.length - 2;
 /*
     List<Integer> list = new ArrayList<Integer>(EXPECTED.length);
     for (int i=0; i < EXPECTED.length; i++) {
@@ -178,7 +179,7 @@ public class TestSorter {
 
       System.out.format("%1$-38s : %2$5d ms\n", sortType, after - before);
 
-      if (length < 1024*1024) {
+      if (isSmall) {
         assertArrayEquals(EXPECTED, a);
         System.out.println("Sorted");
       }
