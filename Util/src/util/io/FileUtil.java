@@ -48,31 +48,16 @@ public final class FileUtil {
       return;
     }
 
-    FileChannel inChannel = null;
-    FileChannel outChannel = null;
-
-    try {
-      inChannel  = new FileInputStream(in).getChannel();
-      outChannel = new FileOutputStream(out).getChannel();
+    try (FileChannel inChannel = new FileInputStream(in).getChannel();
+         FileChannel outChannel = new FileOutputStream(out).getChannel())
+    {
       inChannel.transferTo(0, inChannel.size(), outChannel);
       logger.info(FILE_UTIL_COPY, in.getAbsolutePath(), out.getAbsolutePath());
     }
     catch (IOException x) {
       logger.error(FILE_UTIL_IOX, x);
     }
-    finally {
-      try {
-        if (inChannel != null) {
-          inChannel.close();
-        }
-        if (outChannel != null) {
-          outChannel.close();
-        }
-      }
-      catch (IOException x) {
-        logger.error(FILE_UTIL_IOX, x);
-      }
-    }
+
 
   }
 
@@ -91,18 +76,13 @@ public final class FileUtil {
 
     byte[] bytes = null;
 
-    FileInputStream fis = null;
-    BufferedInputStream bis = null;
-    BufferedOutputStream bos = null;
-    ByteArrayOutputStream baos = null;
-
-    try {
+    try (FileInputStream fis = new FileInputStream(file);
+         BufferedInputStream bis = new BufferedInputStream(fis, BUFFER_SIZE);
+         ByteArrayOutputStream baos = new ByteArrayOutputStream(BUFFER_SIZE);
+         BufferedOutputStream bos = new BufferedOutputStream(baos, BUFFER_SIZE))
+    {
       logger.debug(FILE_UTIL_READ, file.getPath());
-      fis = new FileInputStream(file);
-      bis = new BufferedInputStream(fis, BUFFER_SIZE);
-      baos = new ByteArrayOutputStream(BUFFER_SIZE);
-      bos = new BufferedOutputStream(baos);
-      final byte[] buffer = new byte[1024];
+      final byte[] buffer = new byte[BUFFER_SIZE];
       while (bis.read(buffer) != -1) {
         bos.write(buffer);
       };
@@ -114,16 +94,6 @@ public final class FileUtil {
     }
     catch (IOException x) {
       logger.error(FILE_UTIL_IOX, x);
-    }
-    finally {
-      try {
-        if (bis != null) {
-          bis.close(); // release system resource
-        }
-      }
-      catch (IOException x) {
-        logger.error(FILE_UTIL_IOX, x);
-      }
     }
 
     return bytes;

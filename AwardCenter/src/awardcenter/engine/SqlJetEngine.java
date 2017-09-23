@@ -12,7 +12,6 @@ import org.tmatesoft.sqljet.core.SqlJetTransactionMode;
 import org.tmatesoft.sqljet.core.schema.ISqlJetSchema;
 import org.tmatesoft.sqljet.core.table.ISqlJetCursor;
 import org.tmatesoft.sqljet.core.table.ISqlJetTable;
-import org.tmatesoft.sqljet.core.table.ISqlJetTransaction;
 import org.tmatesoft.sqljet.core.table.SqlJetDb;
 
 import awardcenter.model.Award;
@@ -262,11 +261,9 @@ public class SqlJetEngine implements IEngine {
         db.getOptions().setAutovacuum(true);
         // set DB option that have to be set in a transaction:
         db.runTransaction(
-          new ISqlJetTransaction() {
-            public Object run(SqlJetDb db) throws SqlJetException {
-              db.getOptions().setUserVersion(1);
-              return true;
-            }
+          db -> {
+            db.getOptions().setUserVersion(1);
+            return null;
           },
           SqlJetTransactionMode.WRITE
         );
