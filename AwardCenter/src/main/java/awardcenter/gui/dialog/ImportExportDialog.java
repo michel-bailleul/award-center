@@ -13,7 +13,7 @@ import static javax.swing.JFileChooser.APPROVE_OPTION;
 import static javax.swing.JFileChooser.DIRECTORIES_ONLY;
 import static javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION;
 
-import static util.resource.ResourceUtil.getImg;
+import static util.swing.ImageUtil.getImg;
 import static util.resource.ResourceUtil.getMsg;
 import static util.swing.SwingUtil.createPanel;
 

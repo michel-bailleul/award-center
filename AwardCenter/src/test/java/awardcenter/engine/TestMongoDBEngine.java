@@ -89,7 +89,7 @@ public class TestMongoDBEngine {
     game.addAward(award);
     */
 
-    try (MongoClient mongoClient = new MongoClient("192.168.1.30", 27017)) {
+    try (MongoClient mongoClient = new MongoClient("localhost", 27017)) {
       CodecRegistry cr = fromRegistries(getDefaultCodecRegistry(), fromProviders(builder().automatic(true).build()));
       MongoDatabase database = mongoClient.getDatabase("test");
       MongoCollection<ゲーム> collection = database.getCollection("game", ゲーム.class).withCodecRegistry(cr);

@@ -43,7 +43,7 @@ import static util.misc.StringUtil.count;
 import static util.misc.StringUtil.isEmpty;
 import static util.misc.StringUtil.rPad;
 import static util.resource.Logger.getLogger;
-import static util.resource.ResourceUtil.getIcon;
+import static util.swing.ImageUtil.getIcon;
 import static util.resource.ResourceUtil.getMsg;
 import static util.swing.SwingUtil.*;
 import static util.swing.ImageUtil.getImage;

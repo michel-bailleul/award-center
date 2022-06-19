@@ -10,7 +10,7 @@ import static javax.swing.BorderFactory.createEmptyBorder;
 import static javax.swing.SwingConstants.HORIZONTAL;
 
 import static util.misc.StringUtil.rPad;
-import static util.resource.ResourceUtil.getIcon;
+import static util.swing.ImageUtil.getIcon;
 import static util.swing.ImageUtil.getImageIcon;
 import static util.swing.SwingUtil.STYLE_B;
 import static util.swing.SwingUtil.createPanel;

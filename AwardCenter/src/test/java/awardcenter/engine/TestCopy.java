@@ -23,6 +23,11 @@ public class TestCopy {
 //    IEngine targetEngine = new XMLCodecEngine();
     IEngine<?> targetEngine = new MongoDBEngine();
 
+    targetEngine.forEach(targetEngine::removeGame);
+//    for (Game game : targetEngine) {
+//      targetEngine.
+//    }
+
     for (Game game : sourceEngine) {
       System.out.printf("Copy [%s]%n", game.getName());
 //      File targetFile = new File((File)targetEngine.getRoot(), sourceFile.getName());

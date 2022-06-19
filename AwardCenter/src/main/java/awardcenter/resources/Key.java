@@ -1,11 +1,12 @@
 package awardcenter.resources;
 
 
-import util.resource.FileName;
+import javax.annotation.Resource;
+
 import util.resource.IKey;
 
 
-@FileName("messages")
+@Resource(name="messages", lookup="icon")
 public enum Key implements IKey {
 
 
@@ -85,40 +86,40 @@ public enum Key implements IKey {
 
   // Fugue Icons ---------------------------------------------------------------
 
-  ICON_APP16     ("icon/trophy.png"),
-  ICON_IMPORT    ("icon/inbox-download.png"),
-  ICON_EXPORT    ("icon/inbox-upload.png"),
-  ICON_SAVE      ("icon/disk-black.png"),
-  ICON_EXIT      ("icon/door-open.png"),
-  ICON_ABOUT     ("icon/information-frame.png"),
+  ICON_APP16     ("trophy.png"),
+  ICON_IMPORT    ("inbox-download.png"),
+  ICON_EXPORT    ("inbox-upload.png"),
+  ICON_SAVE      ("disk-black.png"),
+  ICON_EXIT      ("door-open.png"),
+  ICON_ABOUT     ("information-frame.png"),
 
-  ICON_ADD       ("icon/plus-circle-frame.png"),
-  ICON_EDIT      ("icon/sticky-note-pencil.png"),
-  ICON_DELETE    ("icon/minus-circle-frame.png"),
-  ICON_SPLIT     ("icon/ui-splitter-horizontal.png"),
+  ICON_ADD       ("plus-circle-frame.png"),
+  ICON_EDIT      ("sticky-note-pencil.png"),
+  ICON_DELETE    ("minus-circle-frame.png"),
+  ICON_SPLIT     ("ui-splitter-horizontal.png"),
 
-  ICON_FIRST     ("icon/control-double-180.png"),
-  ICON_PREVIOUS  ("icon/control-180.png"),
-  ICON_NEXT      ("icon/control.png"),
-  ICON_LAST      ("icon/control-double.png"),
+  ICON_FIRST     ("control-double-180.png"),
+  ICON_PREVIOUS  ("control-180.png"),
+  ICON_NEXT      ("control.png"),
+  ICON_LAST      ("control-double.png"),
 
-  ICON_PLUS      ("icon/toggle-small-expand.png"),
-  ICON_MINUS     ("icon/toggle-small.png"),
+  ICON_PLUS      ("toggle-small-expand.png"),
+  ICON_MINUS     ("toggle-small.png"),
 
-  ICON_TICK      ("icon/tick.png"),
-  ICON_LOCK      ("icon/lock.png"),
+  ICON_TICK      ("tick.png"),
+  ICON_LOCK      ("lock.png"),
 
-  ICON_SECRET    ("icon/question-frame.png"),
-  ICON_MULTI     ("icon/users.png"),
-  ICON_ADDED     ("icon/puzzle.png"),
-  ICON_UNCHECK   ("icon/layer-small.png"),
+  ICON_SECRET    ("question-frame.png"),
+  ICON_MULTI     ("users.png"),
+  ICON_ADDED     ("puzzle.png"),
+  ICON_UNCHECK   ("layer-small.png"),
 
-  ICON_STAR             ("icon/star.png"),
-  ICON_STAR_HALF        ("icon/star-half.png"),
-  ICON_STAR_EMPTY       ("icon/star-empty.png"),
-  ICON_STAR_SMALL       ("icon/star-small.png"),
-  ICON_STAR_SMALL_HALF  ("icon/star-small-half.png"),
-  ICON_STAR_SMALL_EMPTY ("icon/star-small-empty.png");
+  ICON_STAR             ("star.png"),
+  ICON_STAR_HALF        ("star-half.png"),
+  ICON_STAR_EMPTY       ("star-empty.png"),
+  ICON_STAR_SMALL       ("star-small.png"),
+  ICON_STAR_SMALL_HALF  ("star-small-half.png"),
+  ICON_STAR_SMALL_EMPTY ("star-small-empty.png");
 
 
   // —————————————————————————————————————————————————————————————— Constructors

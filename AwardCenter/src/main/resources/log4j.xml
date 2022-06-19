@@ -76,6 +76,12 @@
     <!--appender-ref ref="socket"/-->
   </logger>
 
+  <logger name="org.mongodb" additivity="false">
+    <level value="INFO"/>
+    <appender-ref ref="STDOUT"/>
+    <appender-ref ref="STDERR"/>
+  </logger>
+
   <!--                           -->
   <!-- setup log4j's root logger -->
   <!--                           -->

@@ -22,6 +22,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
 
 import util.misc.StringUtil;
+import util.swing.ImageUtil;
 import util.swing.app.Application;
 import util.swing.app.IActionType;
 
@@ -96,7 +97,7 @@ public class AwardCenterApplication extends Application {
 
     JFrame frame = new JFrame(getMsg(APP_NAME));
     List<Image> icons = new ArrayList<Image>();
-    icons.add(getImg(ICON_APP16));
+    icons.add(ImageUtil.getImg(ICON_APP16));
 //    icons.add(getImg(ICON_APP32));
 //    icons.add(getImg(ICON_APP64));
     frame.setIconImages(icons);
