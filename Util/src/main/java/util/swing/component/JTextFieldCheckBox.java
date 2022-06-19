@@ -20,6 +20,12 @@ import javax.swing.JTextField;
 public class JTextFieldCheckBox extends JTextField {
 
 
+  // —————————————————————————————————————————————————————————— Static Constants
+
+
+  private static final long serialVersionUID = 1L;
+
+
   // ————————————————————————————————————————————————————————————————————— Enums
 
 

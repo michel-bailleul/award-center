@@ -1,11 +1,12 @@
 package util.resources;
 
 
-import util.resource.FileName;
+import javax.annotation.Resource;
+
 import util.resource.IKey;
 
 
-@FileName("log")
+@Resource(name="log")
 public enum LogKey implements IKey {
 
 

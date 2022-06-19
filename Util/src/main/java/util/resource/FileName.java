@@ -13,4 +13,5 @@ import java.lang.annotation.Target;
 @Target(TYPE)
 public @interface FileName {
   String value();
+  String imageDir() default "icon";
 }

@@ -13,7 +13,7 @@ import static javax.swing.UIManager.getColor;
 
 import static util.misc.StringUtil.isEmpty;
 import static util.misc.StringUtil.normalizeASCII;
-import static util.resource.ResourceUtil.getIcon;
+import static util.swing.ImageUtil.getIcon;
 import static util.resource.ResourceUtil.getMsg;
 import static util.resources.GuiKey.ICON_CANCEL_BUTTON;
 import static util.resources.GuiKey.ICON_MAGNIFIER;
@@ -42,6 +42,8 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
 
   // —————————————————————————————————————————————————————————— Static Constants
 
+
+  private static final long serialVersionUID = 1L;
 
   private static final int DEFAULT_LATENCY = 500; // in ms
 
@@ -142,7 +144,7 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
       new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-          System.out.printf("Time: %d %n", System.currentTimeMillis() - time);
+//          System.out.printf("Time: %d %n", System.currentTimeMillis() - time);
           if (preFilteringActionListener != null) {
             preFilteringActionListener.actionPerformed(e);
           }
@@ -161,12 +163,12 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
       new DocumentListener() {
         @Override
         public void insertUpdate(DocumentEvent e) {
-          time = System.currentTimeMillis();
+//          time = System.currentTimeMillis();
           timer.restart();
         }
         @Override
         public void removeUpdate(DocumentEvent e) {
-          time = System.currentTimeMillis();
+//          time = System.currentTimeMillis();
           timer.restart();
         }
         @Override
@@ -200,7 +202,7 @@ public class JTextFieldSearch<T> extends JTextFieldCheckBox implements FocusList
 
   private int latency;
 
-  private long time;
+//  private long time;
 
   private boolean isCaseSensitive;
 

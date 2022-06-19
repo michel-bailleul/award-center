@@ -72,7 +72,7 @@ public class TestHexa {
 
 //  @Test
   public void testDecodeHexaToByteFile() {
-    byte[] b = decodeHexaToByte(hexaFile);
+    dataFile = decodeHexaToByte(hexaFile);
   }
 
 

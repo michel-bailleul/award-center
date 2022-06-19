@@ -18,9 +18,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import util.collection.CollectionUtil;
-import util.collection.IFilter;
-
 
 public class TestCollectionUtil {
 
@@ -103,7 +100,7 @@ public class TestCollectionUtil {
   // —————————————————————————————————————————————————————————————— Test Methods
 
 
-  private void fill(Collection c) {
+  private void fill(Collection<Product> c) {
 
     c.add(new Product("Car", "RED", 20000));
     c.add(new Product("Boat", null, 500000));

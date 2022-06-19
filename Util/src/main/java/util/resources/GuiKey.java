@@ -1,11 +1,12 @@
 package util.resources;
 
 
-import util.resource.FileName;
+import javax.annotation.Resource;
+
 import util.resource.IKey;
 
 
-@FileName("gui")
+@Resource(name="gui")
 public enum GuiKey implements IKey {
 
 
@@ -22,9 +23,9 @@ public enum GuiKey implements IKey {
 
   // Icons ---------------------------------------------------------------------
 
-  ICON_SPACER        ("icon/spacer.png"),
-  ICON_MAGNIFIER     ("icon/magnifier.png"),
-  ICON_CANCEL_BUTTON ("icon/cross-button.png");
+  ICON_SPACER        ("spacer.png"),
+  ICON_MAGNIFIER     ("magnifier.png"),
+  ICON_CANCEL_BUTTON ("cross-button.png");
 
 
   // —————————————————————————————————————————————————————————————— Constructors

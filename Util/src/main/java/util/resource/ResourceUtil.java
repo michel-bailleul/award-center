@@ -5,8 +5,6 @@ import static java.util.Locale.ENGLISH;
 import static java.util.Locale.getDefault;
 import static java.util.ResourceBundle.getBundle;
 
-import static util.swing.ImageUtil.getImage;
-import static util.swing.ImageUtil.getImageIcon;
 import static util.misc.StringUtil.formatMessage;
 import static util.resource.Logger.getLogger;
 import static util.resources.LogKey.RESOURCE_UTIL_ADD_BUNDLE;
@@ -14,7 +12,6 @@ import static util.resources.LogKey.RESOURCE_UTIL_ERR_MISSING_BUNDLE;
 import static util.resources.LogKey.RESOURCE_UTIL_ERR_MISSING_RESOURCE;
 
 
-import java.awt.Image;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -22,7 +19,7 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import java.util.ResourceBundle.Control;
 
-import javax.swing.Icon;
+import javax.annotation.Resource;
 
 import util.resources.GuiKey;
 import util.resources.LogKey;
@@ -85,9 +82,11 @@ public final class ResourceUtil {
 
   public static void addBundle(Class<? extends IKey> klass, Locale locale) {
 
-    String pkgName  = klass.getPackage().getName();
-    String fileName = klass.getAnnotation(FileName.class).value();
-    String baseName = pkgName + "." + fileName;
+//    final String baseName = klass.getAnnotation(FileName.class).value();
+    final String baseName = klass.getAnnotation(Resource.class).name();
+//    String fileName = klass.getAnnotation(FileName.class).value();
+//    String pkgName  = klass.getPackage().getName();
+//    String baseName = pkgName + "." + fileName;
 
     Control control = new XMLResourceBundleControl();
 
@@ -124,16 +123,6 @@ public final class ResourceUtil {
 
     return msg;
 
-  }
-
-
-  public static Icon getIcon(IKey key) {
-    return getImageIcon(null, key, 0, 0);
-  }
-
-
-  public static Image getImg(IKey key) {
-    return getImage(null, key, 0, 0);
   }
 
 

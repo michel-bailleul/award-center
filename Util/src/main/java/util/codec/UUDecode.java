@@ -114,14 +114,14 @@ public class UUDecode extends Thread
   {
     String str;
     boolean more=true;
-    int n=0;
+//    int n=0;
 
     try
     {
       while(more)
       {
         // read in a line
-        str = in.readLine();
+        str = in.readUTF();
         if (str == null) {more=false;break;}
 
         if ( str.startsWith("begin ") )
@@ -135,7 +135,7 @@ public class UUDecode extends Thread
 
           for(;;)
           {
-            str = in.readLine();
+            str = in.readUTF();
             if (str == null) {more=false;break;}
             if (str.equals("end")) break;
 
@@ -171,7 +171,7 @@ public class UUDecode extends Thread
 
           out.close();
 
-          n++;
+//          n++;
         }
       }
     }

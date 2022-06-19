@@ -38,12 +38,12 @@ public class JIconTextField extends JTextField {
 
 
     public JIconTextField() {
-      this(0, ResourceUtil.getIcon(GuiKey.ICON_MAGNIFIER));
+      this(0, ImageUtil.getIcon(GuiKey.ICON_MAGNIFIER));
     }
 
 
     public JIconTextField(int col) {
-      this(col, ResourceUtil.getIcon(GuiKey.ICON_MAGNIFIER));
+      this(col, ImageUtil.getIcon(GuiKey.ICON_MAGNIFIER));
     }
 
 

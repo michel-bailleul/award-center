@@ -33,7 +33,7 @@ public class JTextFieldHint extends JTextField implements FocusListener {
   public JTextFieldHint(JTextField jtf, String icon, String hint){
     this.jtf = jtf;
 //    setIcon(createImageIcon("icons/"+icon+".png",icon));
-    setIcon(ResourceUtil.getIcon(GuiKey.ICON_MAGNIFIER));
+    setIcon(ImageUtil.getIcon(GuiKey.ICON_MAGNIFIER));
     this.hint = hint;
 
     Border border = UIManager.getBorder("TextField.border");

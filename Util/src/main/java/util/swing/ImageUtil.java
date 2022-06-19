@@ -26,14 +26,18 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Map;
 
+import javax.annotation.Resource;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import util.collection.SoftHashMap;
+import util.misc.StringUtil;
 import util.resource.IKey;
 import util.resource.Logger;
-
 
 
 public final class ImageUtil {
@@ -251,7 +255,7 @@ public final class ImageUtil {
 
     ImageIcon img = _getImageIconFromCache(c, bytes, h, w);
 
-    if (img == null) {
+    if (img == null && bytes != null) {
       ImageIcon icon = new ImageIcon(bytes);
       if (h == 0 || w == 0) {
         img = icon;
@@ -303,7 +307,21 @@ public final class ImageUtil {
 
   public static ImageIcon getImageIcon(Component c, IKey key, int h, int w) {
 
-    URL url = key.getClass().getResource(key.getKey());
+    URL url = null;
+    final String dir = key.getClass().getAnnotation(Resource.class).lookup();
+
+    if (StringUtil.isEmpty(dir)) {
+      url = key.getClass().getResource(key.getKey());
+    }
+    else {
+      Path path = Paths.get(dir, key.getKey());
+      try {
+        url = path.toUri().toURL();
+      }
+      catch (MalformedURLException x) {
+        x.printStackTrace();
+      }
+    }
 
     if (url == null) {
       logger.error(IMAGE_UTIL_ERR_NOT_FOUND, key.getKey());
@@ -311,6 +329,16 @@ public final class ImageUtil {
 
     return getImageIcon(c, url, h, w);
 
+  }
+
+
+  public static Icon getIcon(IKey key) {
+    return getImageIcon(null, key, 0, 0);
+  }
+
+
+  public static Image getImg(IKey key) {
+    return getImage(null, key, 0, 0);
   }
 
 

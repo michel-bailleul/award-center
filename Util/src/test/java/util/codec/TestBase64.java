@@ -82,7 +82,7 @@ public class TestBase64 {
 
 //  @Test
   public void testDecode64ToByteFile() {
-    byte[] b = decodeBase64ToByte(base64File);
+    dataFile = decodeBase64ToByte(base64File);
   }
 
 
