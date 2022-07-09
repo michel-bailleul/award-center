@@ -1,0 +1,121 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "Launch Starter",
+      "request": "launch",
+      "mainClass": "awardcenter.Starter",
+      "projectName": "AwardCenter",
+      "vmArgs": "-Dengine=awardcenter.engine.JAXBEngine",
+      "cwd": "${workspaceFolder}\\AwardCenter\\target\\classes"
+    },
+    {
+      "type": "java",
+      "name": "Launch ColorTableModel",
+      "request": "launch",
+      "mainClass": "misc.ColorTableModel",
+      "projectName": "AwardCenter"
+    },
+    {
+      "type": "java",
+      "name": "Launch DiagonalGradientPanel",
+      "request": "launch",
+      "mainClass": "misc.DiagonalGradientPanel",
+      "projectName": "AwardCenter"
+    },
+    {
+      "type": "java",
+      "name": "Launch FileCache",
+      "request": "launch",
+      "mainClass": "misc.FileCache",
+      "projectName": "AwardCenter"
+    },
+    {
+      "type": "java",
+      "name": "Launch GradPaintAnimation",
+      "request": "launch",
+      "mainClass": "misc.GradPaintAnimation",
+      "projectName": "AwardCenter"
+    },
+    {
+      "type": "java",
+      "name": "Launch MakeBig",
+      "request": "launch",
+      "mainClass": "misc.MakeBig",
+      "projectName": "AwardCenter"
+    },
+    {
+      "type": "java",
+      "name": "Launch SwingWorkerDemo",
+      "request": "launch",
+      "mainClass": "misc.SwingWorkerDemo",
+      "projectName": "AwardCenter"
+    },
+    {
+      "type": "java",
+      "name": "Launch UUDecode",
+      "request": "launch",
+      "mainClass": "util.codec.UUDecode",
+      "projectName": "Util"
+    },
+    {
+      "type": "java",
+      "name": "Launch CheckBoxJList",
+      "request": "launch",
+      "mainClass": "util.swing.CheckBoxJList",
+      "projectName": "Util"
+    },
+    {
+      "type": "java",
+      "name": "Launch CheckList",
+      "request": "launch",
+      "mainClass": "util.swing.CheckList",
+      "projectName": "Util"
+    },
+    {
+      "type": "java",
+      "name": "Launch Demo",
+      "request": "launch",
+      "mainClass": "util.swing.Demo",
+      "projectName": "Util"
+    },
+    {
+      "type": "java",
+      "name": "Launch FileChooserDemo",
+      "request": "launch",
+      "mainClass": "util.swing.FileChooserDemo",
+      "projectName": "Util"
+    },
+    {
+      "type": "java",
+      "name": "Launch JTextFieldHint",
+      "request": "launch",
+      "mainClass": "util.swing.JTextFieldHint",
+      "projectName": "Util"
+    },
+    {
+      "type": "java",
+      "name": "Launch TestGradientPanel",
+      "request": "launch",
+      "mainClass": "util.swing.TestGradientPanel",
+      "projectName": "Util"
+    },
+    {
+      "type": "java",
+      "name": "Launch GradientPanel",
+      "request": "launch",
+      "mainClass": "util.swing.component.GradientPanel",
+      "projectName": "Util"
+    }
+  ]
+}
