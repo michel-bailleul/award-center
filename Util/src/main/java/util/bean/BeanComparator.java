@@ -27,44 +27,44 @@ public class BeanComparator<T> implements Comparator<T> {
 
 
   /**
-   * {@code BeanComparator(name, klass, true)}
+   * {@code BeanComparator(klass, property, true)}
    *
-   * @param name  - Property name
-   * @param klass - Component type
+   * @param klass    - Component type
+   * @param property - Property name
    */
-  public BeanComparator(String name, Class<?> klass) {
-    this(name, klass, true);
+  public BeanComparator(Class<?> klass, String property) {
+    this(klass, property, true);
   }
 
 
   /**
-   * {@code BeanComparator(name, klass, isAsc, false)}
+   * {@code BeanComparator(klass, property, isAsc, false)}
    *
-   * @param name  - Property name
-   * @param klass - Component type
-   * @param isAsc - Specifies that the results should be returned in ascending / descending order.
+   * @param klass    - Component type
+   * @param property - Property name
+   * @param isAsc    - Specifies that the results should be returned in ascending / descending order.
    */
-  public BeanComparator(String name, Class<?> klass, boolean isAsc) {
-    this(name, klass, isAsc, false);
+  public BeanComparator(Class<?> klass, String property, boolean isAsc) {
+    this(klass, property, isAsc, false);
   }
 
 
   /**
    * Initialize the bean comparator
    *
-   * @param name        - Property name
    * @param klass       - Component type
+   * @param property    - Property name
    * @param isAsc       - Specifies that the results should be returned in ascending / descending order.
    * @param isNullFirst - Specifies that NULL values should be returned before / after non-NULL values.
    */
-  public BeanComparator(String name, Class<?> klass, boolean isAsc, boolean isNullFirst) {
+  public BeanComparator(Class<?> klass, String property, boolean isAsc, boolean isNullFirst) {
 
     asc = isAsc ? 1 : -1;
     this.isNullFirst = isNullFirst;
-    method = getGetter(name, klass);
+    method = getGetter(property, klass);
 
     if (method == null) {
-      String msg = getMsg(BEAN_COMPARATOR_ERR_GETTER, name);
+      String msg = getMsg(BEAN_COMPARATOR_ERR_GETTER, property);
       logger.error(msg);
       throw new IllegalArgumentException(msg);
     }

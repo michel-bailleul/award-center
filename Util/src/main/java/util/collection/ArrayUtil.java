@@ -239,7 +239,7 @@ public final class ArrayUtil {
       return array;
     }
 
-    Arrays.sort(array, new BeanComparator<T>(property, array.getClass().getComponentType(), isAsc, isNullFisrt));
+    Arrays.sort(array, new BeanComparator<T>(array.getClass().getComponentType(), property, isAsc, isNullFisrt));
 
     return array;
 

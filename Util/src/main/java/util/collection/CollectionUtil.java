@@ -268,7 +268,7 @@ public final class CollectionUtil {
       return;
     }
 
-    Collections.sort(list, new BeanComparator<T>(property, getComponentType(list), isAsc, isNullFisrt));
+    Collections.sort(list, new BeanComparator<T>(getComponentType(list), property, isAsc, isNullFisrt));
 
   }
 
