@@ -1,9 +1,6 @@
 package util.collection;
 
 
-import util.collection.IFilter;
-
-
 public class Product implements IFilter<Product>, Comparable<Product> {
 
 
