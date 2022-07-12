@@ -18,6 +18,10 @@
 			}
 		],
 		"github.gitProtocol": "ssh",
-		"git.verboseCommit": true
+		"git.verboseCommit": true,
+		"vsintellicode.sql.completionsEnabled": false,
+		"vsintellicode.python.completionsEnabled": false,
+		"vsintellicode.features.python.deepLearning": "disabled",
+		"vsintellicode.features.apiExamples": "disabled"
 	}
 }
